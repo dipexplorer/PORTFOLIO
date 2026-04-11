@@ -12,7 +12,7 @@ export default function NavLinks() {
         },
         {
             name: "Contact",
-            href: "/contact",
+            href: "#contact",
         },
     ];
 
