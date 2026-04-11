@@ -14,7 +14,7 @@ export default function Navbar() {
                     {/* Logo */}
                     <Link
                         href="/"
-                        className="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-zinc-900 via-zinc-700 to-zinc-500 bg-clip-text text-transparent dark:from-white dark:via-zinc-300 dark:to-zinc-500"
+                        className="text-2xl font-extrabold tracking-tight bg-linear-to-r from-zinc-900 via-zinc-700 to-zinc-500 bg-clip-text text-transparent dark:from-white dark:via-zinc-300 dark:to-zinc-500"
                     >
                         DIPJYOTI
                     </Link>
