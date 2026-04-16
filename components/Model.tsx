@@ -81,7 +81,9 @@ const Model = (props: React.ComponentProps<"group">) => {
                                             skinnedMeshNode("Object_12")
                                                 .geometry
                                         }
-                                        material={materials.terrarium1ameoutline}
+                                        material={
+                                            materials.terrarium1ameoutline
+                                        }
                                         skeleton={
                                             skinnedMeshNode("Object_12")
                                                 .skeleton
@@ -105,7 +107,9 @@ const Model = (props: React.ComponentProps<"group">) => {
                                             skinnedMeshNode("Object_16")
                                                 .geometry
                                         }
-                                        material={materials.terrarium1ameoutline}
+                                        material={
+                                            materials.terrarium1ameoutline
+                                        }
                                         skeleton={
                                             skinnedMeshNode("Object_16")
                                                 .skeleton
@@ -129,7 +133,9 @@ const Model = (props: React.ComponentProps<"group">) => {
                                             skinnedMeshNode("Object_19")
                                                 .geometry
                                         }
-                                        material={materials.terrarium1ameoutline}
+                                        material={
+                                            materials.terrarium1ameoutline
+                                        }
                                         skeleton={
                                             skinnedMeshNode("Object_19")
                                                 .skeleton
@@ -141,7 +147,9 @@ const Model = (props: React.ComponentProps<"group">) => {
                                             skinnedMeshNode("Object_21")
                                                 .geometry
                                         }
-                                        material={materials.terrarium1ameoutline}
+                                        material={
+                                            materials.terrarium1ameoutline
+                                        }
                                         skeleton={
                                             skinnedMeshNode("Object_21")
                                                 .skeleton
@@ -177,7 +185,9 @@ const Model = (props: React.ComponentProps<"group">) => {
                                             skinnedMeshNode("Object_27")
                                                 .geometry
                                         }
-                                        material={materials.terrarium1ameoutline}
+                                        material={
+                                            materials.terrarium1ameoutline
+                                        }
                                         skeleton={
                                             skinnedMeshNode("Object_27")
                                                 .skeleton
@@ -201,7 +211,9 @@ const Model = (props: React.ComponentProps<"group">) => {
                                             skinnedMeshNode("Object_31")
                                                 .geometry
                                         }
-                                        material={materials.terrarium1ameoutline}
+                                        material={
+                                            materials.terrarium1ameoutline
+                                        }
                                         skeleton={
                                             skinnedMeshNode("Object_31")
                                                 .skeleton
@@ -225,7 +237,9 @@ const Model = (props: React.ComponentProps<"group">) => {
                                             skinnedMeshNode("Object_35")
                                                 .geometry
                                         }
-                                        material={materials.terrarium1ameoutline}
+                                        material={
+                                            materials.terrarium1ameoutline
+                                        }
                                         skeleton={
                                             skinnedMeshNode("Object_35")
                                                 .skeleton
@@ -269,7 +283,9 @@ const Model = (props: React.ComponentProps<"group">) => {
                                             skinnedMeshNode("Object_41")
                                                 .geometry
                                         }
-                                        material={materials.terrarium1ameoutline}
+                                        material={
+                                            materials.terrarium1ameoutline
+                                        }
                                         skeleton={
                                             skinnedMeshNode("Object_41")
                                                 .skeleton
@@ -321,7 +337,9 @@ const Model = (props: React.ComponentProps<"group">) => {
                                             skinnedMeshNode("Object_67")
                                                 .geometry
                                         }
-                                        material={materials.terrarium1ameoutline}
+                                        material={
+                                            materials.terrarium1ameoutline
+                                        }
                                         skeleton={
                                             skinnedMeshNode("Object_67")
                                                 .skeleton
