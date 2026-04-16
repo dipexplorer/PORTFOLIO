@@ -1,12 +1,20 @@
 import * as THREE from "three";
+
 import React, { useEffect, useRef } from "react";
+// useRef model group ko reference karne ke liye, useEffect animation start karne ke liye.
+
 import { useGLTF, useAnimations } from "@react-three/drei";
+// useGLTF model file load karta hai.
+// useAnimations model ke andar jo animation clips hain unko access karta hai.
+
 import type { GLTF } from "three-stdlib";
+// GLTF ka type import kiya gaya hai, TypeScript help ke liye.
 
 type GLTFResult = GLTF & {
     nodes: Record<string, THREE.Object3D>;
     materials: Record<string, THREE.Material>;
 };
+// Ye custom type hai. Isse TypeScript ko samajh aata hai ki loaded object me nodes aur materials honge.
 
 type SkinnedMeshNode = THREE.SkinnedMesh & {
     morphTargetDictionary?: Record<string, number>;
