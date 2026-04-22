@@ -10,7 +10,7 @@ export default function Home() {
             <main className="w-full flex-1 bg-white dark:bg-black">
                 <Hero />
                 <About />
-                {/* <Projects /> */}
+                <Projects />
             </main>
         </div>
     );
