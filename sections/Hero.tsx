@@ -7,6 +7,7 @@ import Model from "@/components/Model";
 import CanvasLoader from "@/components/CanvasLoader";
 import { GitBranch, Mail, Download } from "lucide-react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 // Custom LinkedIn icon component
 function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
@@ -30,44 +31,63 @@ function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
     );
 }
 
+// Framer Motion variants for staggered animation
+const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.2,
+            delayChildren: 0.3,
+        },
+    },
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 50 } },
+};
+
 export default function Hero() {
     return (
         <section className="w-full px-4 pb-8 pt-24 md:px-6">
-            <div className="mx-auto flex max-w-7xl justify-between">
-                {/* Left Side - Content */}
-                <div className="flex flex-col justify-center h-[70vh] min-h-130 w-full px-8 py-8 md:w-[44%] md:px-16 md:py-10">
+            <div className="mx-auto flex max-w-7xl justify-between flex-col md:flex-row">
+                {/* Left Side - Content with Framer Motion */}
+                <motion.div 
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="show"
+                    className="flex flex-col justify-center min-h-[50vh] md:h-[70vh] md:min-h-130 w-full px-8 py-8 md:w-[48%] md:px-12 md:py-10 z-10"
+                >
                     <div className="space-y-6">
                         {/* Greeting */}
-                        <div className="inline-block">
+                        <motion.div variants={itemVariants} className="inline-block">
                             <p className="text-sm font-semibold text-zinc-600 dark:text-zinc-400">
                                 Hello, I'm
                             </p>
-                        </div>
+                        </motion.div>
 
                         {/* Name */}
-                        <h1 className="text-5xl md:text-6xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
+                        <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-black text-zinc-900 dark:text-white tracking-tighter leading-tight drop-shadow-sm">
                             Dipjyoti Das
-                        </h1>
+                        </motion.h1>
 
-                        {/* Title */}
-                        <h2 className="text-2xl md:text-3xl font-bold text-zinc-700 dark:text-zinc-300">
-                            Full Stack Developer
-                        </h2>
+
 
                         {/* Description */}
-                        <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-lg">
+                        <motion.p variants={itemVariants} className="text-base md:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-lg font-medium">
                             Passionate about building exceptional digital experiences. 
                             I specialize in creating modern web applications with 
                             cutting-edge technologies.
-                        </p>
+                        </motion.p>
 
                         {/* Social Links */}
-                        <div className="flex gap-4 pt-2">
+                        <motion.div variants={itemVariants} className="flex gap-4 pt-2">
                             <Link
                                 href="https://github.com/dipexplorer"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="p-2.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-300"
+                                className="p-3 rounded-xl bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-700 transition-all duration-300 shadow-sm border border-zinc-200 dark:border-zinc-700 hover:-translate-y-1 hover:shadow-md"
                             >
                                 <GitBranch className="w-5 h-5" />
                             </Link>
@@ -75,43 +95,46 @@ export default function Hero() {
                                 href="https://linkedin.com/in/dipjyoti-das"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="p-2.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-300"
+                                className="p-3 rounded-xl bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-700 transition-all duration-300 shadow-sm border border-zinc-200 dark:border-zinc-700 hover:-translate-y-1 hover:shadow-md hover:text-blue-600 dark:hover:text-blue-400"
                             >
                                 <LinkedinIcon className="w-5 h-5" />
                             </Link>
                             <Link
                                 href="mailto:contact@dipjyoti.dev"
-                                className="p-2.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-300"
+                                className="p-3 rounded-xl bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-700 transition-all duration-300 shadow-sm border border-zinc-200 dark:border-zinc-700 hover:-translate-y-1 hover:shadow-md hover:text-purple-600 dark:hover:text-purple-400"
                             >
                                 <Mail className="w-5 h-5" />
                             </Link>
-                        </div>
+                        </motion.div>
 
                         {/* CTA Buttons */}
-                        <div className="flex gap-4 pt-4">
+                        <motion.div variants={itemVariants} className="flex flex-wrap gap-4 pt-6">
                             <Link
                                 href="#projects"
-                                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-semibold hover:bg-zinc-800 dark:hover:bg-zinc-100 transition-colors duration-300"
+                                className="group relative inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold overflow-hidden transition-transform active:scale-95 shadow-lg"
                             >
-                                View Projects
+                                <div className="absolute inset-0 w-full h-full bg-linear-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                <span className="relative z-10 group-hover:text-white transition-colors duration-300">View Projects</span>
                             </Link>
                             <Link
                                 href="/DIPJYOTI_DAS_resume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-zinc-900 dark:border-white text-zinc-900 dark:text-white font-semibold hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors duration-300"
+                                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl border-2 border-zinc-200 dark:border-zinc-800 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-sm text-zinc-900 dark:text-white font-bold hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-300 hover:border-zinc-300 dark:hover:border-zinc-700 active:scale-95"
                             >
-                                <Download className="w-4 h-4" />
+                                <Download className="w-5 h-5" />
                                 Resume
                             </Link>
-                        </div>
+                        </motion.div>
                     </div>
-                </div>
+                </motion.div>
 
                 {/* Right Side - 3D Model */}
-                <div className="relative h-[70vh] min-h-130 w-full overflow-hidden px-8 py-8 md:w-[56%] md:px-16 md:py-10">
+                <div 
+                    className="relative h-[60vh] md:h-[70vh] min-h-130 w-full overflow-hidden px-4 md:px-8 py-8 md:w-[50%] md:py-10 flex items-center justify-center"
+                >
                     <Canvas
-                        className="w-full h-full"
+                        className="w-full h-full cursor-grab active:cursor-grabbing"
                         dpr={[1, 1.25]}
                         frameloop="always"
                         gl={{
@@ -137,9 +160,9 @@ export default function Hero() {
                             />
                         </Suspense>
                         <OrbitControls
-                            enablePan
-                            enableZoom
-                            enableRotate
+                            enablePan={true}
+                            enableZoom={true}
+                            enableRotate={true}
                             minDistance={3.2}
                             maxDistance={22}
                             minPolarAngle={0}

@@ -1,14 +1,7 @@
 import { Project } from "@/types/project";
 
 export const projects: Project[] = [
-    {
-        title: "Portfolio",
-        description:
-            "A portfolio website built using Next.js and Tailwind CSS.",
-        tech: ["Next.js", "Tailwind CSS"],
-        highlight: "A portfolio website built using Next.js and Tailwind CSS.",
-        github: "https://github.com/dipexplorer/portfolio",
-    },
+
     {
         title: "LegalHub – AI-Powered Legal Platform",
         description:

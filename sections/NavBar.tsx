@@ -59,7 +59,7 @@ export default function Navbar() {
                 }`}
             >
                 <nav className="flex flex-col items-center gap-6 py-8 text-lg font-medium">
-                    <NavLinks />
+                    <NavLinks isMobile={true} />
                 </nav>
             </div>
         </header>
