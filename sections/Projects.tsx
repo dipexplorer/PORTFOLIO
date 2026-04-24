@@ -8,7 +8,13 @@ import { MouseEvent } from "react";
 import { Project } from "@/types/project";
 
 // Unique Spotlight Card Component
-const SpotlightCard = ({ project, index }: { project: Project; index: number }) => {
+const SpotlightCard = ({
+    project,
+    index,
+}: {
+    project: Project;
+    index: number;
+}) => {
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
@@ -43,7 +49,7 @@ const SpotlightCard = ({ project, index }: { project: Project; index: number }) 
             }}
             onMouseMove={handleMouseMove}
             className={`group relative flex flex-col justify-between h-full rounded-3xl bg-white/50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 p-8 md:p-10 overflow-hidden backdrop-blur-xl transition-shadow duration-500 hover:shadow-2xl hover:shadow-blue-500/10 ${getGridClass(
-                index
+                index,
             )}`}
         >
             {/* Animated Inner Shine Effect */}
@@ -95,9 +101,7 @@ const SpotlightCard = ({ project, index }: { project: Project; index: number }) 
                 </div>
 
                 {/* Content */}
-                <motion.h3 
-                    className="text-2xl md:text-3xl font-extrabold text-zinc-900 dark:text-white mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 tracking-tight"
-                >
+                <motion.h3 className="text-2xl md:text-3xl font-extrabold text-zinc-900 dark:text-white mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 tracking-tight">
                     {project.title}
                 </motion.h3>
 
@@ -131,37 +135,49 @@ const SpotlightCard = ({ project, index }: { project: Project; index: number }) 
 
 export default function Projects() {
     return (
-        <section id="projects" className="w-full px-4 py-20 md:px-6 relative overflow-hidden">
+        <section
+            id="projects"
+            className="w-full px-4 py-20 md:px-6 relative overflow-hidden"
+        >
             {/* Dynamic Background Effects matching About module */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <motion.div 
-                    animate={{ 
+                <motion.div
+                    animate={{
                         scale: [1, 1.2, 1],
-                        opacity: [0.1, 0.15, 0.1] 
+                        opacity: [0.1, 0.15, 0.1],
                     }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-20 right-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px]" 
+                    transition={{
+                        duration: 8,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                    }}
+                    className="absolute top-20 right-0 w-150 h-150 bg-blue-500/10 rounded-full blur-[120px]"
                 />
-                <motion.div 
-                    animate={{ 
+                <motion.div
+                    animate={{
                         scale: [1, 1.3, 1],
-                        opacity: [0.1, 0.2, 0.1] 
+                        opacity: [0.1, 0.2, 0.1],
                     }}
-                    transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                    className="absolute bottom-20 left-0 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[120px]" 
+                    transition={{
+                        duration: 10,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 1,
+                    }}
+                    className="absolute bottom-20 left-0 w-125 h-125 bg-purple-500/10 rounded-full blur-[120px]"
                 />
             </div>
 
             <div className="mx-auto max-w-7xl relative z-10">
                 {/* Header Animating In */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.7 }}
                     className="flex flex-col items-center mb-20 text-center"
                 >
-                    <motion.div 
+                    <motion.div
                         whileHover={{ scale: 1.05 }}
                         className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700/50 text-sm font-semibold text-zinc-900 dark:text-zinc-200 mb-8 shadow-sm backdrop-blur-sm"
                     >
@@ -169,17 +185,26 @@ export default function Projects() {
                         <span>Featured Masterpieces</span>
                     </motion.div>
                     <h2 className="text-5xl md:text-7xl font-extrabold text-zinc-900 dark:text-white mb-6 tracking-tighter">
-                        My <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-500 via-indigo-500 to-purple-600">Projects</span>
+                        My{" "}
+                        <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-500 via-indigo-500 to-purple-600">
+                            Projects
+                        </span>
                     </h2>
                     <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
-                        A curation of my recent engineering work focusing on scalable architecture, artificial intelligence, and beautiful user experiences.
+                        A curation of my recent engineering work focusing on
+                        scalable architecture, artificial intelligence, and
+                        beautiful user experiences.
                     </p>
                 </motion.div>
 
                 {/* Projects Bento Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                     {projects.map((project, index) => (
-                        <SpotlightCard key={project.title} project={project} index={index} />
+                        <SpotlightCard
+                            key={project.title}
+                            project={project}
+                            index={index}
+                        />
                     ))}
                 </div>
             </div>

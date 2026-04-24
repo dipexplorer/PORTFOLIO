@@ -4,8 +4,13 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-export default function NavLinks({ isMobile = false }) {
-    const [activeSection, setActiveSection] = useState("");
+const links = [
+    { name: "Projects", href: "#projects" },
+    { name: "Contact", href: "#contact" },
+];
+
+export default function NavLinks({ isMobile = false }: { isMobile?: boolean }) {
+    const [activeSection, setActiveSection] = useState(links[0]?.href ?? "");
 
     useEffect(() => {
         const handleScroll = () => {
@@ -18,23 +23,17 @@ export default function NavLinks({ isMobile = false }) {
                     currentPath = "#" + section.getAttribute("id");
                 }
             });
-            setActiveSection(currentPath);
+            setActiveSection(currentPath || (links[0]?.href ?? ""));
         };
         window.addEventListener("scroll", handleScroll);
         setTimeout(handleScroll, 100); // Initial check after paint
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const links = [
-        { name: "Projects", href: "#projects" },
-        { name: "Contact", href: "#contact" },
-    ];
-
     return (
         <ul className={`flex ${isMobile ? "flex-col items-center gap-6" : "items-center gap-1"}`}>
             {links.map((link) => {
-                const isClient = typeof window !== "undefined";
-                const isActive = activeSection === link.href || (activeSection === "" && link.href === "#projects" && isClient && window.scrollY < 400); // Fallback logic
+                const isActive = activeSection === link.href;
                 
                 return (
                     <li key={link.name} className="relative z-10">
