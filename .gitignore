@@ -44,3 +44,8 @@ next-env.d.ts
 
 .agent/
 .agents/
+
+# project specific untracked files
+*.pdf
+DESIGN.md
+SKILL.md
