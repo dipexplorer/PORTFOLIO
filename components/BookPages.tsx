@@ -1,49 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
-import { Mail, ExternalLink, Terminal, GraduationCap, Send, CheckCircle2 } from "lucide-react";
+import React from "react";
+import { Terminal, GraduationCap } from "lucide-react";
 import MiniTerminal from "./MiniTerminal";
-
-function GithubIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-      <path d="M9 18c-4.51 2-5-2-7-2" />
-    </svg>
-  );
-}
-
-function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-      <rect width="4" height="12" x="2" y="9" />
-      <circle cx="4" cy="4" r="2" />
-    </svg>
-  );
-}
 
 interface BookPagesProps {
   currentPage: number;
@@ -51,26 +10,10 @@ interface BookPagesProps {
 }
 
 export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
-  const [formState, setFormState] = useState({ name: "", email: "", message: "" });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitted(true);
-      setFormState({ name: "", email: "", message: "" });
-    }, 1200);
-  };
-
   // Rendering individual pages based on currentPage spread
-  // Spread 1 (Pages 1 & 2): Intro, TOC, Education
-  // Spread 2 (Pages 3 & 4): Experience (Open Source, Internships)
-  // Spread 3 (Pages 5 & 6): Projects (AI/Fullstack)
-  // Spread 4 (Pages 7 & 8): Terminal, Contact
+  // Spread 1 (Pages 1 & 2): Intro, TOC & Education
+  // Spread 2 (Pages 3 & 4): Open Source & Internships/SME
+  // Spread 3 (Pages 5 & 6): CLI Terminal & Skills Matrix
 
   const renderLeftPage = () => {
     switch (currentPage) {
@@ -79,32 +22,38 @@ export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
           <div className="flex flex-col justify-between h-full p-6 md:p-8 paper-grid relative">
             {/* Technical top border and numbers */}
             <div className="flex justify-between items-center text-[10px] text-cyan-700/60 font-mono border-b border-cyan-800/10 pb-2 mb-4">
-              <span>SECTION_01_INTRO</span>
+              <span>{"SYSTEMS_MANIFEST // LOGBOOK_v2.0"}</span>
               <span>P. 01</span>
             </div>
 
             {/* Content */}
             <div className="flex-1 flex flex-col justify-center my-auto">
               <span className="text-[10px] font-mono text-cyan-600/80 tracking-widest uppercase">
-                THIS LOGBOOK BELONGS TO:
+                SYSTEM OPERATOR:
               </span>
               <h2 className="text-3xl font-black text-slate-800 font-serif tracking-tight mt-1 mb-4">
                 Dipjyoti Das
               </h2>
               
-              <p className="text-sm text-slate-700 leading-relaxed mb-4 drop-cap">
-                Full Stack & Backend Developer pursuing a B.Tech in Computer Science at Gauhati University. Specialized in high-performance REST APIs, real-time WebSocket communication, and robust database design using MongoDB, PostgreSQL, and Redis.
+              <div className="space-y-2 font-mono text-[10px] text-slate-700 bg-cyan-900/5 p-3 rounded-lg border border-cyan-800/10 mb-4">
+                <div>SESSION_ID: <span className="text-cyan-700 font-bold">GU-CS-2024-2027</span></div>
+                <div>CLASS_ROLE: <span className="text-cyan-700 font-bold">SYSTEMS_DEVELOPER</span></div>
+                <div>LOCAL_NODE: <span className="text-cyan-700 font-bold">GUWAHATI_IND</span></div>
+              </div>
+
+              <p className="text-sm text-slate-700 leading-relaxed drop-cap">
+                This logbook serves as an engineering record of architectural patterns, system optimizations, and open-source contribution activities. All logged events are verified via terminal telemetry.
               </p>
               
-              <p className="text-xs text-slate-600/90 leading-relaxed font-mono border-l-2 border-cyan-600/50 pl-3 italic my-4">
-                &quot;Driven by a love for engineering complex logic, optimizing systems for 60% database load reductions, and architecting scalable digital blueprints.&quot;
+              <p className="text-[10px] text-slate-500/90 leading-relaxed font-mono border-l-2 border-cyan-600/50 pl-3 italic my-3">
+                {"NOTICE: Sandboxed session log file. Authorized credentials and key actions are recorded in the hypervisor."}
               </p>
             </div>
 
             {/* Left Page Footer */}
             <div className="border-t border-cyan-800/10 pt-4 flex justify-between items-center text-[9px] text-cyan-700/50 font-mono">
-              <span>SYSTEMS INIT: 2021</span>
-              <span>GUWAHATI, ASSAM</span>
+              <span>SYS_INIT: 2021</span>
+              <span>FIRMWARE: NEXTJS_15</span>
             </div>
           </div>
         );
@@ -112,56 +61,55 @@ export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
         return (
           <div className="flex flex-col justify-between h-full p-6 md:p-8 paper-grid relative">
             <div className="flex justify-between items-center text-[10px] text-cyan-700/60 font-mono border-b border-cyan-800/10 pb-2 mb-4">
-              <span>SECTION_02_EXPERIENCE</span>
+              <span>{"LOG_101 // BACKEND_OPTIMIZATION"}</span>
               <span>P. 03</span>
             </div>
 
-            <div className="flex-1 flex flex-col justify-center space-y-6">
+            <div className="flex-1 flex flex-col justify-center space-y-5">
               <div>
                 <span className="text-[10px] font-mono bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded border border-cyan-200/50 tracking-wider font-bold">
-                  OPEN SOURCE
+                  EXPRESS_MVC_TUNING
                 </span>
-                <h3 className="text-lg font-black text-slate-800 font-serif mt-2 leading-snug">
-                  GirlScript Summer of Code (GSSoC) 2025
+                <h3 className="text-base font-black text-slate-800 font-serif mt-2 leading-snug">
+                  E-Commerce Caching & Load Optimization
                 </h3>
                 <p className="text-[10px] text-slate-500 font-mono mt-0.5">
-                  Project Admin - LegalHub • Mar 2025 – Jun 2025
+                  Action Log: Jan 2024 • Module: InnoByte
                 </p>
-                <ul className="mt-2.5 text-xs text-slate-700 space-y-1.5 list-none pl-0">
+                <ul className="mt-2 text-xs text-slate-700 space-y-1.5 list-none pl-0">
                   <li className="flex items-start gap-1.5">
                     <span className="text-cyan-600 select-none">▸</span>
-                    <span>Led reviews for 33+ contributors across 80+ PRs, ranking #53 on GSSoC leaderboard.</span>
+                    <span>Designed modular Express.js MVC routing structure with clean controller schemas.</span>
                   </li>
                   <li className="flex items-start gap-1.5">
                     <span className="text-cyan-600 select-none">▸</span>
-                    <span>Designed modular MVC architecture in Express.js/MongoDB for real-time WebSocket messaging and AI semantic search.</span>
+                    <span>Integrated a Redis caching layer for heavy catalog requests, resulting in a ~60% reduction in MongoDB load.</span>
                   </li>
                 </ul>
               </div>
 
               <div className="border-t border-dashed border-cyan-900/10 pt-4">
-                <h3 className="text-sm font-black text-slate-800 font-serif leading-snug">
-                  GSSoC Extended & Hacktoberfest 2024
+                <span className="text-[10px] font-mono bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded border border-cyan-200/50 tracking-wider font-bold">
+                  CS_PROBLEM_SOLVING
+                </span>
+                <h3 className="text-base font-black text-slate-800 font-serif mt-2 leading-snug">
+                  Chegg Technical Support Logs
                 </h3>
                 <p className="text-[10px] text-slate-500 font-mono mt-0.5">
-                  Open Source Contributor • Oct 2024 – Nov 2024
+                  Action Log: Apr 2023 – Oct 2024 • Rating: 4.8/5.0
                 </p>
-                <ul className="mt-2 text-xs text-slate-700 space-y-1 pl-0">
+                <ul className="mt-2 text-xs text-slate-700 space-y-1.5 list-none pl-0">
                   <li className="flex items-start gap-1.5">
                     <span className="text-cyan-600 select-none">▸</span>
-                    <span>Merged 83+ PRs across multiple repositories globally, ranking 27th globally.</span>
-                  </li>
-                  <li className="flex items-start gap-1.5">
-                    <span className="text-cyan-600 select-none">▸</span>
-                    <span>Earned Hacktoberfest SuperContributor 2025 with 6/6 fast-approved core PRs.</span>
+                    <span>Analyzed and solved 500+ complex technical problems in data structures, SQL databases, and computer networks.</span>
                   </li>
                 </ul>
               </div>
             </div>
 
             <div className="border-t border-cyan-800/10 pt-4 flex justify-between items-center text-[9px] text-cyan-700/50 font-mono">
-              <span>ROLE: CONTRIBS / LEADS</span>
-              <span>VERIFIED: 160+ PRs</span>
+              <span>DB_LOAD: -60%</span>
+              <span>RATING: 4.8/5.0</span>
             </div>
           </div>
         );
@@ -169,72 +117,8 @@ export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
         return (
           <div className="flex flex-col justify-between h-full p-6 md:p-8 paper-grid relative">
             <div className="flex justify-between items-center text-[10px] text-cyan-700/60 font-mono border-b border-cyan-800/10 pb-2 mb-4">
-              <span>SECTION_03_PROJECTS_A</span>
+              <span>SECTION_03_TERMINAL</span>
               <span>P. 05</span>
-            </div>
-
-            <div className="flex-1 flex flex-col justify-center space-y-6">
-              <div className="group relative">
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono text-cyan-600/80 tracking-widest uppercase">
-                    AI RESOLUTION PLATFORM
-                  </span>
-                  <a href="https://github.com/dipexplorer/LegalHub" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-cyan-600 transition-colors">
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                </div>
-                <h3 className="text-lg font-black text-slate-800 font-serif mt-1">
-                  LegalHub – AI Legal Assistant
-                </h3>
-                <p className="text-[11px] text-slate-600 mt-1.5 leading-relaxed">
-                  Architected platform combining Mistral AI with vector-based semantic search. Managed real-time query communication via WebSockets, OAuth logins, and production deployment pipeline.
-                </p>
-                <div className="flex flex-wrap gap-1.5 mt-2.5">
-                  {["Node.js", "Express", "MongoDB", "Mistral AI", "Socket.io"].map((t) => (
-                    <span key={t} className="text-[9px] font-mono border border-cyan-800/15 text-cyan-800/80 px-2 py-0.5 rounded-sm">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="border-t border-dashed border-cyan-900/10 pt-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono text-cyan-600/80 tracking-widest uppercase">
-                    ADAPTIVE SCORING ENGINE
-                  </span>
-                  <a href="https://github.com/dipexplorer/LearnSight" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-cyan-600 transition-colors">
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                </div>
-                <h3 className="text-lg font-black text-slate-800 font-serif mt-1">
-                  LearnSight – Cognitive Engine
-                </h3>
-                <p className="text-[11px] text-slate-600 mt-1.5 leading-relaxed">
-                  Developed adaptive learning engine mapping cognitive paths. Utilized dynamic scoring algorithms that adjust difficulty levels dynamically based on user dimension performance.
-                </p>
-                <div className="flex flex-wrap gap-1.5 mt-2.5">
-                  {["Next.js", "TypeScript", "Firebase", "Firestore", "Tailwind"].map((t) => (
-                    <span key={t} className="text-[9px] font-mono border border-cyan-800/15 text-cyan-800/80 px-2 py-0.5 rounded-sm">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="border-t border-cyan-800/10 pt-4 flex justify-between items-center text-[9px] text-cyan-700/50 font-mono">
-              <span>PROJECTS INDEX: 01-02</span>
-              <span>GITHUB CHECKED</span>
-            </div>
-          </div>
-        );
-      case 4:
-        return (
-          <div className="flex flex-col justify-between h-full p-6 md:p-8 paper-grid relative">
-            <div className="flex justify-between items-center text-[10px] text-cyan-700/60 font-mono border-b border-cyan-800/10 pb-2 mb-4">
-              <span>SECTION_04_TERMINAL</span>
-              <span>P. 07</span>
             </div>
 
             <div className="flex-1 flex flex-col justify-center space-y-3">
@@ -267,7 +151,7 @@ export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
         return (
           <div className="flex flex-col justify-between h-full p-6 md:p-8 paper-grid relative">
             <div className="flex justify-between items-center text-[10px] text-cyan-700/60 font-mono border-b border-cyan-800/10 pb-2 mb-4">
-              <span>INDEX_PAGE</span>
+              <span>{"INDEX_PAGE // DIRECTORY"}</span>
               <span>P. 02</span>
             </div>
 
@@ -279,13 +163,13 @@ export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
                 </span>
                 <nav className="mt-2 space-y-2">
                   {[
-                    { title: "01. Introduction / Identity", page: 1 },
-                    { title: "02. Professional Experience", page: 2 },
-                    { title: "03. Selected Code Projects", page: 3 },
-                    { title: "04. System Terminal & Inquiry", page: 4 },
+                    { title: "LOG #101: Backend & DB Optimization", page: 2 },
+                    { title: "LOG #102: Open Source & AI Projects", page: 2 },
+                    { title: "LOG #201: Terminal CLI & Operations", page: 3 },
+                    { title: "LOG #202: System Diagnostics & Matrix", page: 3 },
                   ].map((item) => (
                     <button
-                      key={item.page}
+                      key={item.title}
                       onClick={() => goToPage(item.page)}
                       className="w-full text-left font-serif text-slate-800 font-bold hover:text-cyan-600 transition-colors text-xs flex justify-between items-center group cursor-pointer"
                     >
@@ -301,7 +185,7 @@ export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
               <div className="border-t border-cyan-800/10 pt-4">
                 <span className="text-[9px] font-mono text-cyan-600/70 tracking-widest uppercase flex items-center gap-1.5 mb-2">
                   <GraduationCap className="w-3.5 h-3.5 text-cyan-600" />
-                  EDUCATION NODES
+                  ACADEMIC FOUNDATION
                 </span>
                 <div className="space-y-2.5">
                   <div>
@@ -334,59 +218,59 @@ export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
         return (
           <div className="flex flex-col justify-between h-full p-6 md:p-8 paper-grid relative">
             <div className="flex justify-between items-center text-[10px] text-cyan-700/60 font-mono border-b border-cyan-800/10 pb-2 mb-4">
-              <span>SECTION_02_EXPERIENCE</span>
+              <span>{"LOG_102 // OPEN_SOURCE_LEADS"}</span>
               <span>P. 04</span>
             </div>
 
-            <div className="flex-1 flex flex-col justify-center space-y-6">
+            <div className="flex-1 flex flex-col justify-center space-y-5">
               <div>
                 <span className="text-[10px] font-mono bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded border border-cyan-200/50 tracking-wider font-bold">
-                  INTERNSHIP
+                  GSSOC_25_LEGALHUB
                 </span>
-                <h3 className="text-lg font-black text-slate-800 font-serif mt-2 leading-snug">
-                  InnoByte Services
+                <h3 className="text-base font-black text-slate-800 font-serif mt-2 leading-snug">
+                  AI Integration & WebSocket Stream
                 </h3>
                 <p className="text-[10px] text-slate-500 font-mono mt-0.5">
-                  Full Stack Developer Intern • Jan 2024
+                  Action Log: Mar 2025 – Jun 2025 • Project Admin
                 </p>
-                <ul className="mt-2.5 text-xs text-slate-700 space-y-1.5 list-none pl-0">
+                <ul className="mt-2 text-xs text-slate-700 space-y-1.5 list-none pl-0">
                   <li className="flex items-start gap-1.5">
                     <span className="text-cyan-600 select-none">▸</span>
-                    <span>Developed RESTful e-commerce backend in Express, incorporating modular cart, product catalog, and order schemas.</span>
+                    <span>Directed a team of 33+ contributors, merging 80+ PRs (ranked #53 on leaderboard).</span>
                   </li>
                   <li className="flex items-start gap-1.5">
                     <span className="text-cyan-600 select-none">▸</span>
-                    <span>Implemented JWT authentication and simulated transaction endpoints.</span>
+                    <span>Integrated Socket.io for real-time channels and Mistral AI API for semantic query matching.</span>
                   </li>
                 </ul>
               </div>
 
               <div className="border-t border-dashed border-cyan-900/10 pt-4">
                 <span className="text-[10px] font-mono bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded border border-cyan-200/50 tracking-wider font-bold">
-                  TECHNICAL EXPERT
+                  HACKTOBERFEST_24
                 </span>
-                <h3 className="text-lg font-black text-slate-800 font-serif mt-2 leading-snug">
-                  Chegg India
+                <h3 className="text-base font-black text-slate-800 font-serif mt-2 leading-snug">
+                  Global Distributed Contributions
                 </h3>
                 <p className="text-[10px] text-slate-500 font-mono mt-0.5">
-                  CS Subject Matter Expert • Apr 2023 – Oct 2024
+                  Action Log: Oct 2024 – Nov 2024 • Rank #27
                 </p>
-                <ul className="mt-2.5 text-xs text-slate-700 space-y-1.5 list-none pl-0">
+                <ul className="mt-2 text-xs text-slate-700 space-y-1.5 list-none pl-0">
                   <li className="flex items-start gap-1.5">
                     <span className="text-cyan-600 select-none">▸</span>
-                    <span>Solved 500+ complex technical problems in data structures, algorithms, databases, and network architectures.</span>
+                    <span>Successfully merged 83+ PRs across multiple international repositories.</span>
                   </li>
                   <li className="flex items-start gap-1.5">
                     <span className="text-cyan-600 select-none">▸</span>
-                    <span>Maintained 4.8/5 student rating for clear technical solutions.</span>
+                    <span>Earned SuperContributor badge with 6/6 fast-approved core pipeline optimizations.</span>
                   </li>
                 </ul>
               </div>
             </div>
 
             <div className="border-t border-cyan-800/10 pt-4 flex justify-between items-center text-[9px] text-cyan-700/50 font-mono">
-              <span>STATUS: COMPLETED</span>
-              <span>RATING: 4.8/5.0</span>
+              <span>RANK: #27_GLOBAL</span>
+              <span>VERIFIED: 160+ PRs</span>
             </div>
           </div>
         );
@@ -394,167 +278,89 @@ export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
         return (
           <div className="flex flex-col justify-between h-full p-6 md:p-8 paper-grid relative">
             <div className="flex justify-between items-center text-[10px] text-cyan-700/60 font-mono border-b border-cyan-800/10 pb-2 mb-4">
-              <span>SECTION_03_PROJECTS_B</span>
+              <span>SECTION_03_SKILLS</span>
               <span>P. 06</span>
             </div>
 
-            <div className="flex-1 flex flex-col justify-center space-y-6">
+            <div className="flex-1 flex flex-col justify-center space-y-4">
               <div>
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono text-cyan-600/80 tracking-widest uppercase">
-                    SCENARIO ANALYTICS
-                  </span>
-                  <a href="https://github.com/dipexplorer/Acadence" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-cyan-600 transition-colors">
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                </div>
-                <h3 className="text-lg font-black text-slate-800 font-serif mt-1">
-                  Acadence – Attendance Simulator
-                </h3>
-                <p className="text-[11px] text-slate-600 mt-1.5 leading-relaxed">
-                  Developed attendance manager with Supabase logic, JWT access controls, and predictive simulations modeling attendance ratios.
-                </p>
-                <div className="flex flex-wrap gap-1.5 mt-2.5">
-                  {["Next.js", "Supabase", "PostgreSQL", "Tailwind CSS"].map((t) => (
-                    <span key={t} className="text-[9px] font-mono border border-cyan-800/15 text-cyan-800/80 px-2 py-0.5 rounded-sm">
-                      {t}
-                    </span>
-                  ))}
+                <span className="text-[9px] font-mono text-cyan-600/70 tracking-widest uppercase flex items-center gap-1.5 mb-2">
+                  SKILLS_MATRIX // DIRECTORY
+                </span>
+                <div className="space-y-3 font-mono text-[10px] text-slate-700">
+                  {/* Languages */}
+                  <div className="space-y-1">
+                    <div className="flex justify-between text-[9px] text-slate-500">
+                      <span>[LANGUAGES]</span>
+                      <span>TS / JS / Python / SQL / C++</span>
+                    </div>
+                    <div className="w-full h-1 bg-cyan-900/10 rounded-full overflow-hidden">
+                      <div className="w-[90%] h-full bg-cyan-600" />
+                    </div>
+                  </div>
+
+                  {/* Frameworks */}
+                  <div className="space-y-1">
+                    <div className="flex justify-between text-[9px] text-slate-500">
+                      <span>[FRAMEWORKS]</span>
+                      <span>Next.js / React / Express / Node.js</span>
+                    </div>
+                    <div className="w-full h-1 bg-cyan-900/10 rounded-full overflow-hidden">
+                      <div className="w-[85%] h-full bg-cyan-600" />
+                    </div>
+                  </div>
+
+                  {/* Databases */}
+                  <div className="space-y-1">
+                    <div className="flex justify-between text-[9px] text-slate-500">
+                      <span>[DATABASES]</span>
+                      <span>PostgreSQL / MongoDB / Redis / Firestore</span>
+                    </div>
+                    <div className="w-full h-1 bg-cyan-900/10 rounded-full overflow-hidden">
+                      <div className="w-[80%] h-full bg-cyan-600" />
+                    </div>
+                  </div>
+
+                  {/* Devops / Tools */}
+                  <div className="space-y-1">
+                    <div className="flex justify-between text-[9px] text-slate-500">
+                      <span>[OPERATIONS]</span>
+                      <span>Git / GitHub / Docker / CI/CD / Linux</span>
+                    </div>
+                    <div className="w-full h-1 bg-cyan-900/10 rounded-full overflow-hidden">
+                      <div className="w-[75%] h-full bg-cyan-600" />
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="border-t border-dashed border-cyan-900/10 pt-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono text-cyan-600/80 tracking-widest uppercase">
-                    HIGH PERFORMANCE BACKEND
-                  </span>
-                  <a href="https://github.com/dipexplorer/VideTube" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-cyan-600 transition-colors">
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                </div>
-                <h3 className="text-lg font-black text-slate-800 font-serif mt-1">
-                  VideTube – Scalable Streaming Core
-                </h3>
-                <p className="text-[11px] text-slate-600 mt-1.5 leading-relaxed">
-                  Designed video streaming backend utilizing JWT tokens, Redis caching, and MongoDB aggregation, yielding a 60% database load reduction.
-                </p>
-                <div className="flex flex-wrap gap-1.5 mt-2.5">
-                  {["Node.js", "Express", "MongoDB", "Redis", "Cloudinary", "JWT"].map((t) => (
-                    <span key={t} className="text-[9px] font-mono border border-cyan-800/15 text-cyan-800/80 px-2 py-0.5 rounded-sm">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="border-t border-cyan-800/10 pt-4 flex justify-between items-center text-[9px] text-cyan-700/50 font-mono">
-              <span>PROJECTS INDEX: 03-04</span>
-              <span>DB LOAD SAVING: -60%</span>
-            </div>
-          </div>
-        );
-      case 4:
-        return (
-          <div className="flex flex-col justify-between h-full p-6 md:p-8 paper-grid relative">
-            <div className="flex justify-between items-center text-[10px] text-cyan-700/60 font-mono border-b border-cyan-800/10 pb-2 mb-4">
-              <span>SECTION_05_CONTACT</span>
-              <span>P. 08</span>
-            </div>
-
-            <div className="flex-1 flex flex-col justify-center">
-              <span className="text-[10px] font-mono text-cyan-600/85 tracking-widest uppercase mb-1">
-                DISPATCH TRANSMISSION SHEET
-              </span>
-              <h3 className="text-xl font-black text-slate-800 font-serif mb-4">
-                Inquire & Connect
-              </h3>
-
-              {submitted ? (
-                <div className="flex flex-col items-center justify-center p-6 text-center space-y-2.5 bg-emerald-50 rounded border border-emerald-100/50 my-auto text-emerald-800 font-mono text-xs">
-                  <CheckCircle2 className="w-8 h-8 text-emerald-600" />
-                  <p className="font-bold">Transmission Dispatch Succeeded.</p>
-                  <p className="text-[10px] text-emerald-700/85">Response socket connected, will resolve shortly.</p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-3 font-mono text-[11px] text-slate-700">
-                  <div className="space-y-1">
-                    <label className="text-[9px] text-cyan-700/70">[DISPATCHER_NAME]</label>
-                    <input
-                      type="text"
-                      required
-                      value={formState.name}
-                      onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                      placeholder="e.g. John Doe"
-                      className="w-full px-2.5 py-1.5 bg-white border border-cyan-800/15 rounded outline-none focus:border-cyan-600 transition-colors"
-                    />
+              {/* Core Competencies block */}
+              <div className="border-t border-dashed border-cyan-900/10 pt-3 text-[10px] text-slate-600 space-y-1 font-mono">
+                <span className="text-[9px] text-cyan-600/70 uppercase font-bold tracking-wider">SYSTEM DIAGNOSTICS:</span>
+                <div className="grid grid-cols-2 gap-1.5 mt-1 text-[9px]">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    <span>REST_API: OK</span>
                   </div>
-                  <div className="space-y-1">
-                    <label className="text-[9px] text-cyan-700/70">[RETURN_EMAIL_ADDR]</label>
-                    <input
-                      type="email"
-                      required
-                      value={formState.email}
-                      onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                      placeholder="e.g. john@company.com"
-                      className="w-full px-2.5 py-1.5 bg-white border border-cyan-800/15 rounded outline-none focus:border-cyan-600 transition-colors"
-                    />
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    <span>WS_SOCKETS: OK</span>
                   </div>
-                  <div className="space-y-1">
-                    <label className="text-[9px] text-cyan-700/70">[MESSAGE_PAYLOAD]</label>
-                    <textarea
-                      required
-                      rows={3}
-                      value={formState.message}
-                      onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                      placeholder="Enter details..."
-                      className="w-full px-2.5 py-1.5 bg-white border border-cyan-800/15 rounded outline-none focus:border-cyan-600 transition-colors resize-none custom-scrollbar"
-                    />
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    <span>DB_OPTIM: -60% LOAD</span>
                   </div>
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full flex items-center justify-center gap-1.5 py-2 px-4 bg-cyan-900 text-white tracking-widest font-bold uppercase rounded border border-cyan-800 shadow-sm hover:bg-cyan-950 transition-colors active:scale-[0.98] disabled:bg-slate-400 disabled:border-slate-300 disabled:cursor-not-allowed cursor-pointer text-[10px]"
-                  >
-                    <span>Send Message</span>
-                    <Send className="w-3 h-3" />
-                  </button>
-                </form>
-              )}
-
-              {/* Social Channels Log */}
-              <div className="mt-4 border-t border-cyan-900/15 pt-3.5 flex justify-around text-slate-700">
-                <a
-                  href="mailto:contact@dipjyoti.dev"
-                  className="flex items-center gap-1.5 hover:text-cyan-600 transition-colors font-mono text-[10px]"
-                >
-                  <Mail className="w-3.5 h-3.5" />
-                  <span>Email</span>
-                </a>
-                <a
-                  href="https://github.com/dipexplorer"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 hover:text-cyan-600 transition-colors font-mono text-[10px]"
-                >
-                  <GithubIcon className="w-3.5 h-3.5" />
-                  <span>GitHub</span>
-                </a>
-                <a
-                  href="https://linkedin.com/in/dipjyoti-das"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 hover:text-cyan-600 transition-colors font-mono text-[10px]"
-                >
-                  <LinkedinIcon className="w-3.5 h-3.5" />
-                  <span>LinkedIn</span>
-                </a>
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    <span>MVC_ARCH: VERIFIED</span>
+                  </div>
+                </div>
               </div>
             </div>
 
             <div className="border-t border-cyan-800/10 pt-4 flex justify-between items-center text-[9px] text-cyan-700/50 font-mono">
-              <span>SOCKET: ACTIVE</span>
-              <span>SSL_ENCRYPTED</span>
+              <span>SKILLS_REF: STACK_v2.0</span>
+              <span>INDEX: ALL_OK</span>
             </div>
           </div>
         );

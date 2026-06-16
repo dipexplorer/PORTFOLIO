@@ -1,10 +1,6 @@
 "use client";
 
-import { Suspense, useState, useEffect } from "react";
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
-import Model from "@/components/Model";
-import CanvasLoader from "@/components/CanvasLoader";
+import NodeConnectorFallback from "@/components/NodeConnectorFallback";
 import { GitBranch, Mail, Download } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -31,47 +27,6 @@ function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
     );
 }
 
-// 2D SVG Technical Blueprint Fallback for systems without WebGL support
-const WebGLFallback = () => (
-    <div className="w-full h-full flex flex-col items-center justify-center relative p-6 select-none font-mono">
-        <div className="absolute inset-0 opacity-10 border border-dashed border-cyan-500/30 rounded-xl m-4 pointer-events-none" />
-        
-        {/* Animated concentric tech circles */}
-        <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="relative w-48 h-48 border border-dashed border-cyan-500/30 rounded-full flex items-center justify-center mb-6"
-        >
-            <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                className="w-40 h-40 border border-cyan-500/20 rounded-full border-t-cyan-500/50 flex items-center justify-center"
-            >
-                <div className="w-28 h-28 border border-dashed border-cyan-500/10 rounded-full flex items-center justify-center">
-                    <div className="w-16 h-16 border border-cyan-500/40 rounded-full flex items-center justify-center bg-cyan-950/20">
-                        <span className="text-[10px] text-cyan-400 font-bold">2D_GRID</span>
-                    </div>
-                </div>
-            </motion.div>
-            
-            {/* Compass ticks */}
-            <div className="absolute top-0 w-0.5 h-2 bg-cyan-500/60" />
-            <div className="absolute bottom-0 w-0.5 h-2 bg-cyan-500/60" />
-            <div className="absolute left-0 h-0.5 w-2 bg-cyan-500/60" />
-            <div className="absolute right-0 h-0.5 w-2 bg-cyan-500/60" />
-        </motion.div>
-        
-        {/* Technical specs readout */}
-        <div className="text-center space-y-1.5 text-xs text-slate-400 max-w-xs">
-            <p className="text-cyan-400 font-bold text-sm tracking-widest">[SYS_SCHEMATIC_NODE]</p>
-            <p className="text-[10px] text-cyan-500/60">// hardware accelerated canvas disabled</p>
-            <div className="h-[1px] w-12 bg-cyan-500/30 mx-auto my-2" />
-            <p className="text-[10px]">TARGET_REF: DIP_CORE_v2.0</p>
-            <p className="text-[9px] text-slate-500">STATUS: RENDER_FALLBACK_ACTIVE</p>
-        </div>
-    </div>
-);
-
 // Framer Motion variants for staggered animation
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -90,21 +45,6 @@ const itemVariants = {
 };
 
 export default function Hero() {
-    const [webglAvailable, setWebglAvailable] = useState<boolean | null>(null);
-
-    useEffect(() => {
-        try {
-            const canvas = document.createElement("canvas");
-            const available = !!(
-                window.WebGLRenderingContext &&
-                (canvas.getContext("webgl") || canvas.getContext("experimental-webgl"))
-            );
-            setWebglAvailable(available);
-        } catch (e) {
-            setWebglAvailable(false);
-        }
-    }, []);
-
     return (
         <section className="w-full px-4 pb-8 pt-24 md:px-6 relative">
             <div className="mx-auto flex max-w-7xl justify-between flex-col md:flex-row items-center gap-8 md:gap-4">
@@ -116,7 +56,7 @@ export default function Hero() {
                     className="flex flex-col justify-center min-h-[50vh] md:h-[70vh] md:min-h-130 w-full px-4 py-8 md:w-[48%] md:px-12 md:py-10 z-10 border border-cyan-800/10 bg-slate-950/30 rounded-2xl relative overflow-hidden"
                 >
                     {/* Technical framing lines */}
-                    <div className="absolute top-3 left-3 text-[8px] text-cyan-500/35 font-mono">NODE // HERO_INIT</div>
+                    <div className="absolute top-3 left-3 text-[8px] text-cyan-500/35 font-mono">{"NODE // HERO_INIT"}</div>
                     <div className="absolute bottom-3 right-3 text-[8px] text-cyan-500/35 font-mono">LOC: 26°11&apos;N 91°44&apos;E</div>
                     
                     <div className="space-y-6">
@@ -128,15 +68,25 @@ export default function Hero() {
                         </motion.div>
 
                         {/* Name */}
-                        <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-tight drop-shadow-[0_0_15px_rgba(6,182,212,0.15)]">
+                        <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-black tracking-tighter leading-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-100 to-cyan-400 drop-shadow-[0_0_15px_rgba(6,182,212,0.15)] select-none">
                             Dipjyoti Das
                         </motion.h1>
 
                         {/* Description */}
                         <motion.p variants={itemVariants} className="text-xs md:text-sm text-slate-400 leading-relaxed max-w-lg font-mono">
-                            {"// Building robust backend systems, distributed architectures, and AI-powered platforms."}
+                            <span className="text-slate-500">{"// Building "}</span>
+                            <span className="text-slate-200">robust backend systems</span>
+                            <span className="text-slate-500">{", "}</span>
+                            <span className="text-slate-200">distributed architectures</span>
+                            <span className="text-slate-500">{" and "}</span>
+                            <span className="text-cyan-400">AI-powered platforms</span>
+                            <span className="text-slate-500">.</span>
                             <br />
-                            {"// Specializing in real-time Socket communication and high-load database optimization."}
+                            <span className="text-slate-500">{"// Specializing in "}</span>
+                            <span className="text-slate-200">real-time Socket communication</span>
+                            <span className="text-slate-500">{" and "}</span>
+                            <span className="text-cyan-400">database optimization</span>
+                            <span className="text-slate-500">.</span>
                         </motion.p>
 
                         {/* Social Links */}
@@ -186,55 +136,15 @@ export default function Hero() {
                     </div>
                 </motion.div>
 
-                {/* Right Side - 3D Model / Fallback */}
+                {/* Right Side - Interactive Node Connector Visualizer */}
                 <div 
                     className="relative h-[60vh] md:h-[70vh] min-h-130 w-full overflow-hidden px-4 md:px-8 py-8 md:w-[50%] md:py-10 flex items-center justify-center border border-cyan-800/10 bg-slate-950/20 rounded-2xl backdrop-blur-xs"
                 >
                     {/* Technical framing lines */}
-                    <div className="absolute top-3 left-3 text-[8px] text-cyan-500/35 font-mono">SYS_3D_MODEL</div>
-                    <div className="absolute bottom-3 right-3 text-[8px] text-cyan-500/35 font-mono">COORD: [2.55, 0.25, 0]</div>
+                    <div className="absolute top-3 left-3 text-[8px] text-cyan-500/35 font-mono">SYS_TENSOR_GRID</div>
+                    <div className="absolute bottom-3 right-3 text-[8px] text-cyan-500/35 font-mono">STATUS: OPERATIONAL</div>
                     
-                    {webglAvailable === false ? (
-                        <WebGLFallback />
-                    ) : (
-                        <Canvas
-                            className="w-full h-full cursor-grab active:cursor-grabbing"
-                            dpr={[1, 1.25]}
-                            frameloop="always"
-                            gl={{
-                                antialias: false,
-                                powerPreference: "low-power",
-                            }}
-                        >
-                            <ambientLight intensity={1.3} />
-                            <directionalLight
-                                position={[6, 8, 6]}
-                                intensity={1.45}
-                            />
-                            <pointLight position={[-4, 3, 4]} intensity={1.1} />
-                            <Suspense fallback={<CanvasLoader />}>
-                                <PerspectiveCamera
-                                    makeDefault
-                                    position={[3.4, 1.1, 10.8]}
-                                />
-                                <Model
-                                    position={[2.8, -1.55, 0]}
-                                    rotation={[0, -0.3, 0]}
-                                    scale={2.5}
-                                />
-                            </Suspense>
-                            <OrbitControls
-                                enablePan={true}
-                                enableZoom={true}
-                                enableRotate={true}
-                                minDistance={3.2}
-                                maxDistance={22}
-                                minPolarAngle={0}
-                                maxPolarAngle={Math.PI}
-                                target={[2.55, 0.25, 0]}
-                            />
-                        </Canvas>
-                    )}
+                    <NodeConnectorFallback />
                 </div>
             </div>
         </section>

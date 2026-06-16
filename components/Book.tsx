@@ -8,8 +8,8 @@ import BookPages from "./BookPages";
 
 export default function Book() {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1); // Spreads: 1, 2, 3, 4
-  const totalSpreads = 4;
+  const [currentPage, setCurrentPage] = useState(1); // Spreads: 1, 2, 3
+  const totalSpreads = 3;
 
   const goToPage = (pageNumber: number) => {
     if (pageNumber >= 1 && pageNumber <= totalSpreads) {
