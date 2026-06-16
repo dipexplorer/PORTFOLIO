@@ -11,18 +11,6 @@ export default function Book() {
   const [currentPage, setCurrentPage] = useState(1); // Spreads: 1, 2, 3, 4
   const totalSpreads = 4;
 
-  const handleNext = () => {
-    if (currentPage < totalSpreads) {
-      setCurrentPage((prev) => prev + 1);
-    }
-  };
-
-  const handlePrev = () => {
-    if (currentPage > 1) {
-      setCurrentPage((prev) => prev - 1);
-    }
-  };
-
   const goToPage = (pageNumber: number) => {
     if (pageNumber >= 1 && pageNumber <= totalSpreads) {
       setCurrentPage(pageNumber);
@@ -95,8 +83,8 @@ export default function Book() {
               className="transform-preserve-3d relative"
             >
               {/* Outer Shell Wrapper (giving it a depth look) */}
-              <div className="absolute inset-0 bg-[#d4c8bc] rounded-2xl -rotate-1 translate-y-1 shadow-lg pointer-events-none" />
-              <div className="absolute inset-0 bg-[#c7bab0] rounded-2xl rotate-1 translate-y-2 shadow-lg pointer-events-none" />
+              <div className="absolute inset-0 bg-slate-900 border border-slate-800 rounded-2xl -rotate-1 translate-y-1 shadow-lg pointer-events-none" />
+              <div className="absolute inset-0 bg-slate-950 border border-cyan-900/30 rounded-2xl rotate-1 translate-y-2 shadow-lg pointer-events-none" />
               
               {/* Main Book Shell */}
               <div className="relative z-10">
@@ -119,7 +107,7 @@ export default function Book() {
             <button
               onClick={() => navigatePage("prev")}
               disabled={currentPage === 1}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-slate-300 bg-white hover:bg-slate-50 transition-colors disabled:opacity-30 disabled:cursor-not-allowed select-none cursor-pointer"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-cyan-800/40 bg-cyan-950 text-cyan-400 hover:bg-cyan-900/60 transition-colors disabled:opacity-30 disabled:cursor-not-allowed select-none cursor-pointer"
             >
               <ChevronLeft className="w-4 h-4" />
               <span>Prev Spread</span>
@@ -136,8 +124,8 @@ export default function Book() {
                   }}
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
                     currentPage === idx + 1
-                      ? "bg-cyan-600 w-5"
-                      : "bg-slate-300 hover:bg-slate-400"
+                      ? "bg-cyan-400 w-5"
+                      : "bg-cyan-950 border border-cyan-800/50 hover:bg-cyan-900"
                   } cursor-pointer`}
                   title={`Go to Spread ${idx + 1}`}
                 />
@@ -147,7 +135,7 @@ export default function Book() {
             <button
               onClick={() => navigatePage("next")}
               disabled={currentPage === totalSpreads}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-slate-300 bg-white hover:bg-slate-50 transition-colors disabled:opacity-30 disabled:cursor-not-allowed select-none cursor-pointer"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-cyan-800/40 bg-cyan-950 text-cyan-400 hover:bg-cyan-900/60 transition-colors disabled:opacity-30 disabled:cursor-not-allowed select-none cursor-pointer"
             >
               <span>Next Spread</span>
               <ChevronRight className="w-4 h-4" />
@@ -166,7 +154,7 @@ export default function Book() {
                 setIsOpen(false);
                 setCurrentPage(1);
               }}
-              className="flex items-center gap-1 text-[10px] text-cyan-700 hover:text-cyan-600 underline underline-offset-2 transition-colors cursor-pointer"
+              className="flex items-center gap-1 text-[10px] text-cyan-400 hover:text-cyan-300 underline underline-offset-2 transition-colors cursor-pointer"
             >
               <BookOpen className="w-3.5 h-3.5" />
               <span>Close Logbook</span>

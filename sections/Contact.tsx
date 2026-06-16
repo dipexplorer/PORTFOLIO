@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Mail, Send, GitBranch, MessageSquare, Terminal } from "lucide-react";
+import { Send, GitBranch, MessageSquare, Terminal } from "lucide-react";
 
 // Custom LinkedIn icon component
 function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
@@ -35,9 +35,9 @@ export default function Contact() {
             {/* Background Orbs */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <motion.div 
-                    animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.15, 0.1] }}
+                    animate={{ scale: [1, 1.1, 1], opacity: [0.05, 0.08, 0.05] }}
                     transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-500/10 rounded-full blur-[150px]" 
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/10 rounded-full blur-[150px]" 
                 />
             </div>
 
@@ -48,15 +48,15 @@ export default function Contact() {
                     transition={{ duration: 0.8 }}
                     className="flex flex-col items-center text-center mb-16"
                 >
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-100 dark:border-indigo-500/20 text-sm font-semibold text-indigo-600 dark:text-indigo-400 mb-6">
-                        <MessageSquare className="w-4 h-4" />
-                        <span>What's Next?</span>
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-950/40 border border-cyan-800/30 text-sm font-semibold text-cyan-400 mb-6 font-mono">
+                        <MessageSquare className="w-4 h-4 text-cyan-400" />
+                        <span>TRANSMISSION // CHANNEL</span>
                     </div>
-                    <h2 className="text-5xl md:text-7xl font-extrabold text-zinc-900 dark:text-white mb-6 tracking-tighter">
-                        Let's Build <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-500 to-cyan-500">Together</span>
+                    <h2 className="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tighter">
+                        Let&apos;s Build <span className="text-cyan-400 font-bold">Together</span>
                     </h2>
-                    <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
-                        I'm currently looking for new opportunities. Whether you have a question or just want to say hi, my inbox is always open.
+                    <p className="text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed font-mono">
+                        {"// The communication socket is open. Drop an inquiry payload below or connect via email."}
                     </p>
                 </motion.div>
 
@@ -64,53 +64,53 @@ export default function Contact() {
                     initial={{ opacity: 0, y: 50, scale: 0.95 }}
                     animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 50, scale: 0.95 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="max-w-3xl mx-auto rounded-3xl bg-white/60 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 p-8 md:p-12 overflow-hidden backdrop-blur-2xl shadow-2xl relative"
+                    className="max-w-3xl mx-auto rounded-3xl bg-slate-950/70 border border-cyan-500/20 p-8 md:p-12 overflow-hidden backdrop-blur-2xl shadow-2xl relative"
                 >
-                    <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-indigo-500 via-purple-500 to-cyan-500" />
+                    <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-cyan-600 via-cyan-400 to-teal-400" />
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <div>
-                            <div className="flex items-center gap-3 mb-6 text-zinc-900 dark:text-white">
-                                <Terminal className="w-8 h-8 text-indigo-500" />
-                                <h3 className="text-2xl font-bold">Connect via Email</h3>
+                            <div className="flex items-center gap-3 mb-6 text-white font-mono">
+                                <Terminal className="w-8 h-8 text-cyan-400" />
+                                <h3 className="text-xl font-bold">[EMAIL_DISPATCH]</h3>
                             </div>
-                            <p className="text-zinc-600 dark:text-zinc-400 mb-8">
-                                Ready to bring your ideas to life? Send me an email and let's start the conversation.
+                            <p className="text-slate-400 mb-8 font-mono text-sm leading-relaxed">
+                                {"// Ready to compile clean architectures? Dispatch a message and establish the handshake."}
                             </p>
                             <a 
                                 href="mailto:contact@dipjyoti.dev"
-                                className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-xl font-bold text-lg hover:scale-105 transition-all shadow-lg hover:shadow-indigo-500/25"
+                                className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-cyan-950 border border-cyan-500/40 text-cyan-400 rounded-xl font-bold text-base hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-cyan-950/40 font-mono tracking-wider cursor-pointer"
                             >
-                                Say Hello
-                                <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                Establish Connection_
+                                <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                             </a>
                         </div>
 
-                        <div className="flex flex-col gap-4 border-t md:border-t-0 md:border-l border-zinc-200 dark:border-zinc-800 pt-8 md:pt-0 md:pl-12">
-                            <h4 className="text-sm font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-4">Or find me on</h4>
+                        <div className="flex flex-col gap-4 border-t md:border-t-0 md:border-l border-cyan-900/30 pt-8 md:pt-0 md:pl-12">
+                            <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4 font-mono">{"// Connect via Nodes"}</h4>
                             
-                            <a href="https://github.com/dipexplorer" target="_blank" rel="noreferrer" className="group flex items-center gap-4 p-4 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800/50 transition-colors border border-transparent hover:border-zinc-200 dark:hover:border-zinc-700">
-                                <span className="p-3 bg-zinc-100 dark:bg-zinc-800 rounded-lg group-hover:scale-110 transition-transform text-zinc-900 dark:text-white">
+                            <a href="https://github.com/dipexplorer" target="_blank" rel="noreferrer" className="group flex items-center gap-4 p-4 rounded-xl hover:bg-cyan-950/20 transition-colors border border-transparent hover:border-cyan-500/20">
+                                <span className="p-3 bg-cyan-950/30 text-cyan-400 border border-cyan-800/30 rounded-lg group-hover:scale-110 transition-transform">
                                     <GitBranch className="w-6 h-6" />
                                 </span>
-                                <span className="font-semibold text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-900 dark:group-hover:text-white transition-colors">GitHub</span>
+                                <span className="font-semibold text-slate-300 group-hover:text-cyan-400 transition-colors font-mono text-sm">GitHub // dipexplorer</span>
                             </a>
 
-                            <a href="https://linkedin.com/in/dipjyoti-das" target="_blank" rel="noreferrer" className="group flex items-center gap-4 p-4 rounded-xl hover:bg-indigo-50 dark:hover:bg-indigo-500/10 transition-colors border border-transparent hover:border-indigo-100 dark:hover:border-indigo-500/20">
-                                <span className="p-3 bg-indigo-100 dark:bg-indigo-500/20 rounded-lg group-hover:scale-110 transition-transform text-indigo-600 dark:text-indigo-400">
+                            <a href="https://linkedin.com/in/dipjyoti-das" target="_blank" rel="noreferrer" className="group flex items-center gap-4 p-4 rounded-xl hover:bg-cyan-950/20 transition-colors border border-transparent hover:border-cyan-500/20">
+                                <span className="p-3 bg-cyan-950/30 text-cyan-400 border border-cyan-800/30 rounded-lg group-hover:scale-110 transition-transform">
                                     <LinkedinIcon className="w-6 h-6" />
                                 </span>
-                                <span className="font-semibold text-zinc-700 dark:text-zinc-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">LinkedIn</span>
+                                <span className="font-semibold text-slate-300 group-hover:text-cyan-400 transition-colors font-mono text-sm">LinkedIn // dipjyoti-das</span>
                             </a>
                         </div>
                     </div>
                 </motion.div>
 
                 {/* Signature / Footer Bottom */}
-                <div className="mt-32 text-center text-zinc-500 dark:text-zinc-500 font-medium text-sm flex flex-col items-center gap-2">
-                    <p>Designed & Built by Dipjyoti Das</p>
+                <div className="mt-32 text-center text-slate-500 font-mono text-xs flex flex-col items-center gap-2">
+                    <p>{"// Designed & Built by Dipjyoti Das"}</p>
                     <p className="flex items-center gap-1 justify-center">
-                        Need an ultra-modern website? <a href="mailto:contact@dipjyoti.dev" className="text-indigo-500 hover:text-indigo-400 underline decoration-indigo-500/30 underline-offset-4">Let's talk.</a>
+                        {"// Systems consultation: "} <a href="mailto:contact@dipjyoti.dev" className="text-cyan-400 hover:text-cyan-300 underline decoration-cyan-400/30 underline-offset-4 font-bold cursor-pointer">[ENGAGE_LOG]</a>
                     </p>
                 </div>
             </div>

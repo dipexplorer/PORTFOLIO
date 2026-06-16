@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import { useEffect, useState } from "react";
@@ -23,7 +24,7 @@ export default function AppEffects() {
         <>
             {/* Scroll Progress Bar */}
             <motion.div
-                className="fixed top-0 left-0 right-0 h-1 z-9999 origin-left bg-linear-to-r from-blue-500 via-indigo-500 to-purple-600"
+                className="fixed top-0 left-0 right-0 h-1 z-9999 origin-left bg-linear-to-r from-cyan-600 via-cyan-400 to-teal-400"
                 style={{ scaleX }}
             />
         </>

@@ -1,28 +1,61 @@
+import Projects from "@/sections/Projects";
+import Navbar from "@/sections/NavBar";
+import Hero from "@/sections/Hero";
+import Contact from "@/sections/Contact";
+import AppEffects from "@/components/AppEffects";
 import Book from "@/components/Book";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-slate-950 px-4 md:px-8 py-6 relative overflow-hidden">
+    <div className="flex min-h-screen flex-col bg-slate-950 font-sans text-slate-100 relative overflow-x-hidden">
       {/* Background blueprint details */}
-      <div className="absolute inset-0 blueprint-grid opacity-30 pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_10%,rgba(2,6,23,0.75)_80%)] pointer-events-none" />
+      <div className="fixed inset-0 blueprint-grid opacity-20 pointer-events-none z-0" />
+      <div className="fixed inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(2,6,23,0.85)_95%)] pointer-events-none z-0" />
       
-      {/* Header Branding */}
-      <header className="absolute top-6 left-6 md:left-12 flex items-center gap-3 select-none z-20">
-        <span className="font-mono text-[9px] text-cyan-500/60 border border-cyan-500/25 px-2 py-0.5 rounded-sm uppercase tracking-widest bg-cyan-950/20">
-          SYS_LOG // ONLINE
-        </span>
-      </header>
+      <AppEffects />
+      <Navbar />
 
-      {/* Main Book Shell */}
-      <div className="w-full max-w-5xl z-10 my-auto">
-        <Book />
-      </div>
+      <main className="w-full flex-1 relative z-10">
+        {/* Hero Section */}
+        <Hero />
+
+        {/* Experience Section - Blueprints Logbook */}
+        <section id="experience" className="w-full py-20 md:py-28 relative overflow-hidden border-t border-b border-cyan-500/10">
+          <div className="mx-auto max-w-7xl px-4 md:px-6 relative z-10">
+            {/* Section Header */}
+            <div className="flex flex-col items-center mb-12 text-center">
+              <span className="font-mono text-[9px] text-cyan-400 border border-cyan-500/25 px-2.5 py-1 rounded-sm uppercase tracking-widest bg-cyan-950/20 mb-4">
+                SYS_ARCH // EXPERIENCES
+              </span>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-none">
+                Interactive{" "}
+                <span className="text-cyan-400 font-bold">
+                  Logbook
+                </span>
+              </h2>
+              <p className="text-xs md:text-sm text-zinc-400 mt-4 max-w-xl font-mono">
+                Click &quot;Access Logbook_&quot; to browse academic credentials, open-source work, and professional history.
+              </p>
+            </div>
+
+            {/* Book Layout */}
+            <div className="w-full flex justify-center">
+              <Book />
+            </div>
+          </div>
+        </section>
+
+        {/* Projects Section */}
+        <Projects />
+
+        {/* Contact Section */}
+        <Contact />
+      </main>
 
       {/* Footer Branding */}
-      <footer className="absolute bottom-4 text-center text-[9px] font-mono text-cyan-600/35 tracking-widest select-none z-20">
+      <footer className="w-full py-8 text-center text-[9px] font-mono text-cyan-600/35 tracking-widest select-none relative z-10 border-t border-cyan-500/5">
         ENGINEERING JOURNAL OF DIPJYOTI DAS • GUWAHATI, IND • © 2026
       </footer>
-    </main>
+    </div>
   );
 }

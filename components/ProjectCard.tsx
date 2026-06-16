@@ -1,5 +1,5 @@
+
 import { Project } from "@/types/project";
-import { div } from "three/tsl";
 
 export default function ProjectCard({ project }: { project: Project }) {
     return (

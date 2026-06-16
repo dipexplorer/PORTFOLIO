@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #faf7f2;
-  --foreground: #1e293b;
+  --background: #020617;
+  --foreground: #f8fafc;
   
   --book-bg-cream: #faf7f2;
   --book-border: #d4c8bc;
@@ -17,8 +17,8 @@
 }
 
 body {
-  background-color: #f3f0e8;
-  color: var(--foreground);
+  background-color: #020617;
+  color: #f8fafc;
   overflow-x: hidden;
 }
 

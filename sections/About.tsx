@@ -81,7 +81,7 @@ export default function About() {
                         </h2>
                         <div className="space-y-6 text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">
                             <p>
-                                I'm a passionate Full Stack Developer with a strong foundation in building modern web applications. My journey in technology started with curiosity and has evolved into a dedicated career focused on creating impactful digital solutions.
+                                I&apos;m a passionate Full Stack Developer with a strong foundation in building modern web applications. My journey in technology started with curiosity and has evolved into a dedicated career focused on creating impactful digital solutions.
                             </p>
                             <p>
                                 I specialize in developing scalable applications using cutting-edge technologies like React, Next.js, and Node.js. My experience spans from highly responsive frontend interfaces to robust backend microservices, database design, and cloud deployment.

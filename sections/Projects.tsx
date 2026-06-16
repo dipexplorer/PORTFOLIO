@@ -48,7 +48,7 @@ const SpotlightCard = ({
                 ease: "easeOut",
             }}
             onMouseMove={handleMouseMove}
-            className={`group relative flex flex-col justify-between h-full rounded-3xl bg-white/50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 p-8 md:p-10 overflow-hidden backdrop-blur-xl transition-shadow duration-500 hover:shadow-2xl hover:shadow-blue-500/10 ${getGridClass(
+            className={`group relative flex flex-col justify-between h-full rounded-3xl bg-slate-950/70 border border-cyan-500/10 p-8 md:p-10 overflow-hidden backdrop-blur-xl transition-all duration-500 hover:border-cyan-500/30 hover:shadow-[0_0_30px_rgba(6,182,212,0.08)] ${getGridClass(
                 index,
             )}`}
         >
@@ -59,7 +59,7 @@ const SpotlightCard = ({
                     background: useMotionTemplate`
                         radial-gradient(
                             650px circle at ${mouseX}px ${mouseY}px,
-                            rgba(59,130,246,0.12),
+                            rgba(6,182,212,0.12),
                             transparent 80%
                         )
                     `,
@@ -72,7 +72,7 @@ const SpotlightCard = ({
                     background: useMotionTemplate`
                         radial-gradient(
                             300px circle at ${mouseX}px ${mouseY}px,
-                            rgba(99,102,241,0.15),
+                            rgba(6,182,212,0.15),
                             transparent 80%
                         )
                     `,
@@ -82,7 +82,7 @@ const SpotlightCard = ({
             <div className="relative z-10 flex-1 flex flex-col">
                 {/* Top Bar with Icon */}
                 <div className="flex items-start justify-between mb-8">
-                    <div className="p-4 rounded-2xl bg-blue-50/50 dark:bg-white/5 text-blue-600 dark:text-blue-400 ring-1 ring-blue-100 dark:ring-white/10 shadow-sm group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
+                    <div className="p-4 rounded-2xl bg-cyan-950/30 border border-cyan-800/30 text-cyan-400 shadow-sm group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
                         <FolderGit2 className="w-6 h-6 md:w-8 md:h-8" />
                     </div>
                     <div className="flex gap-3">
@@ -91,7 +91,7 @@ const SpotlightCard = ({
                                 href={project.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-zinc-500 hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400 transition-all p-3 hover:bg-zinc-100/80 dark:hover:bg-white/10 rounded-full shadow-xs ring-1 ring-transparent hover:ring-zinc-200 dark:hover:ring-white/10 group-hover:-translate-y-1 duration-300"
+                                className="text-slate-400 hover:text-cyan-400 transition-all p-3 hover:bg-cyan-950/30 rounded-full shadow-xs ring-1 ring-transparent hover:ring-cyan-800/30 group-hover:-translate-y-1 duration-300"
                             >
                                 <GitBranch className="w-5 h-5" />
                                 <span className="sr-only">GitHub</span>
@@ -101,29 +101,29 @@ const SpotlightCard = ({
                 </div>
 
                 {/* Content */}
-                <motion.h3 className="text-2xl md:text-3xl font-extrabold text-zinc-900 dark:text-white mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 tracking-tight">
+                <motion.h3 className="text-2xl md:text-3xl font-extrabold text-white mb-4 group-hover:text-cyan-400 transition-colors duration-300 tracking-tight">
                     {project.title}
                 </motion.h3>
 
                 {project.highlight && (
-                    <div className="mb-6 pl-4 border-l-2 border-blue-500/50 dark:border-blue-500/30">
-                        <p className="text-sm font-medium text-blue-600/80 dark:text-blue-400/80 italic">
-                            "{project.highlight}"
+                    <div className="mb-6 pl-4 border-l-2 border-cyan-500/40">
+                        <p className="text-sm font-medium text-cyan-400/80 italic font-mono">
+                            &quot;{project.highlight}&quot;
                         </p>
                     </div>
                 )}
 
-                <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 mb-8 leading-relaxed flex-1 group-hover:text-zinc-800 dark:group-hover:text-zinc-300 transition-colors duration-300">
+                <p className="text-base md:text-lg text-slate-400 mb-8 leading-relaxed flex-1 group-hover:text-slate-300 transition-colors duration-300">
                     {project.description}
                 </p>
             </div>
 
             {/* Technologies array with staggered hover styling */}
-            <div className="relative z-10 mt-auto pt-6 border-t border-zinc-200/80 dark:border-zinc-800/80 flex flex-wrap gap-2.5">
+            <div className="relative z-10 mt-auto pt-6 border-t border-cyan-900/30 flex flex-wrap gap-2.5">
                 {project.tech.map((tech) => (
                     <span
                         key={tech}
-                        className="px-3.5 py-1.5 rounded-lg bg-zinc-100/50 dark:bg-zinc-800/50 text-xs font-bold tracking-wide text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/5 hover:-translate-y-1 hover:bg-blue-50 dark:hover:bg-blue-500/10 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-500/30 transition-all duration-300 cursor-default shadow-xs"
+                        className="px-3.5 py-1.5 rounded-lg bg-cyan-950/20 text-xs font-bold tracking-wide text-cyan-400/90 border border-cyan-800/30 hover:-translate-y-1 hover:bg-cyan-950/45 hover:text-cyan-300 hover:border-cyan-500/40 transition-all duration-300 cursor-default shadow-xs font-mono"
                     >
                         {tech}
                     </span>
@@ -144,19 +144,19 @@ export default function Projects() {
                 <motion.div
                     animate={{
                         scale: [1, 1.2, 1],
-                        opacity: [0.1, 0.15, 0.1],
+                        opacity: [0.05, 0.08, 0.05],
                     }}
                     transition={{
                         duration: 8,
                         repeat: Infinity,
                         ease: "easeInOut",
                     }}
-                    className="absolute top-20 right-0 w-150 h-150 bg-blue-500/10 rounded-full blur-[120px]"
+                    className="absolute top-20 right-0 w-150 h-150 bg-cyan-500/10 rounded-full blur-[120px]"
                 />
                 <motion.div
                     animate={{
                         scale: [1, 1.3, 1],
-                        opacity: [0.1, 0.2, 0.1],
+                        opacity: [0.05, 0.1, 0.05],
                     }}
                     transition={{
                         duration: 10,
@@ -164,7 +164,7 @@ export default function Projects() {
                         ease: "easeInOut",
                         delay: 1,
                     }}
-                    className="absolute bottom-20 left-0 w-125 h-125 bg-purple-500/10 rounded-full blur-[120px]"
+                    className="absolute bottom-20 left-0 w-125 h-125 bg-teal-500/10 rounded-full blur-[120px]"
                 />
             </div>
 
@@ -179,21 +179,19 @@ export default function Projects() {
                 >
                     <motion.div
                         whileHover={{ scale: 1.05 }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700/50 text-sm font-semibold text-zinc-900 dark:text-zinc-200 mb-8 shadow-sm backdrop-blur-sm"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-950/40 border border-cyan-800/30 text-sm font-semibold text-cyan-400 mb-8 shadow-sm backdrop-blur-sm font-mono"
                     >
-                        <Sparkles className="w-4 h-4 text-blue-500" />
+                        <Sparkles className="w-4 h-4 text-cyan-400" />
                         <span>Featured Masterpieces</span>
                     </motion.div>
-                    <h2 className="text-5xl md:text-7xl font-extrabold text-zinc-900 dark:text-white mb-6 tracking-tighter">
+                    <h2 className="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tighter">
                         My{" "}
-                        <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-500 via-indigo-500 to-purple-600">
+                        <span className="text-cyan-400 font-bold">
                             Projects
                         </span>
                     </h2>
-                    <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
-                        A curation of my recent engineering work focusing on
-                        scalable architecture, artificial intelligence, and
-                        beautiful user experiences.
+                    <p className="text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed font-mono">
+                        {"// Curation of selected engineering works focusing on scalable backend architectures and AI cognitive systems."}
                     </p>
                 </motion.div>
 

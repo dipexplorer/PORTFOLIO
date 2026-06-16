@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Mail, ExternalLink, Terminal, Code, Award, GraduationCap, Send, CheckCircle2 } from "lucide-react";
+import { Mail, ExternalLink, Terminal, GraduationCap, Send, CheckCircle2 } from "lucide-react";
 import MiniTerminal from "./MiniTerminal";
 
 function GithubIcon(props: React.SVGProps<SVGSVGElement>) {
@@ -97,7 +97,7 @@ export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
               </p>
               
               <p className="text-xs text-slate-600/90 leading-relaxed font-mono border-l-2 border-cyan-600/50 pl-3 italic my-4">
-                "Driven by a love for engineering complex logic, optimizing systems for 60% database load reductions, and architecting scalable digital blueprints."
+                &quot;Driven by a love for engineering complex logic, optimizing systems for 60% database load reductions, and architecting scalable digital blueprints.&quot;
               </p>
             </div>
 
@@ -590,7 +590,7 @@ export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
         <div className="absolute right-0 top-0 bottom-0 w-2.5 ruler-ticks-right opacity-35" />
         
         {/* spine fold crease shadow on the left side of right page */}
-        <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-cyan-950/5 via-cyan-950/2 to-transparent pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-6 bg-linear-to-r from-cyan-950/5 via-cyan-950/2 to-transparent pointer-events-none" />
 
         <div className="pr-6 pl-4 py-4 h-full relative z-10 flex flex-col justify-between">
           {renderRightPage()}

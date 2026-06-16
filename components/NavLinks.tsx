@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const links = [
+    { name: "Experience", href: "#experience" },
     { name: "Projects", href: "#projects" },
     { name: "Contact", href: "#contact" },
 ];
@@ -31,7 +32,7 @@ export default function NavLinks({ isMobile = false }: { isMobile?: boolean }) {
     }, []);
 
     return (
-        <ul className={`flex ${isMobile ? "flex-col items-center gap-6" : "items-center gap-1"}`}>
+        <ul className={`flex ${isMobile ? "flex-col items-center gap-6" : "items-center gap-1"} font-mono`}>
             {links.map((link) => {
                 const isActive = activeSection === link.href;
                 
@@ -40,10 +41,10 @@ export default function NavLinks({ isMobile = false }: { isMobile?: boolean }) {
                         <Link
                             href={link.href}
                             onClick={() => setActiveSection(link.href)}
-                            className={`relative z-10 block px-5 py-2 text-sm font-bold tracking-wide transition-colors duration-300 ${
+                            className={`relative z-10 block px-5 py-2 text-xs font-bold tracking-widest transition-colors duration-300 ${
                                 isActive
-                                    ? "text-white"
-                                    : "text-zinc-400 hover:text-white"
+                                    ? "text-cyan-400"
+                                    : "text-slate-400 hover:text-cyan-300"
                             }`}
                         >
                             {link.name}
@@ -51,7 +52,7 @@ export default function NavLinks({ isMobile = false }: { isMobile?: boolean }) {
                         {isActive && (
                             <motion.div
                                 layoutId={`magic-pill-${isMobile ? "mobile" : "desktop"}`}
-                                className="absolute inset-0 z-0 rounded-full bg-linear-to-r from-blue-500/20 to-purple-500/20 border border-white/10 shadow-sm"
+                                className="absolute inset-0 z-0 rounded-full bg-cyan-950/40 border border-cyan-500/30 shadow-[0_0_15px_rgba(6,182,212,0.1)]"
                                 transition={{ type: "spring", stiffness: 400, damping: 35 }}
                             />
                         )}
