@@ -44,7 +44,9 @@ const itemVariants = {
     show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 50 } },
 };
 
-export default function Hero() {
+import { Contribution } from "@/lib/github";
+
+export default function Hero({ contributions }: { contributions: Contribution[] }) {
     return (
         <section className="w-full px-4 pb-8 pt-24 md:px-6 relative">
             <div className="mx-auto flex max-w-7xl justify-between flex-col md:flex-row items-center gap-8 md:gap-4">
@@ -140,11 +142,9 @@ export default function Hero() {
                 <div 
                     className="relative h-[60vh] md:h-[70vh] min-h-130 w-full overflow-hidden px-4 md:px-8 py-8 md:w-[50%] md:py-10 flex items-center justify-center border border-cyan-800/10 bg-slate-950/20 rounded-2xl backdrop-blur-xs"
                 >
-                    {/* Technical framing lines */}
-                    <div className="absolute top-3 left-3 text-[8px] text-cyan-500/35 font-mono">SYS_TENSOR_GRID</div>
-                    <div className="absolute bottom-3 right-3 text-[8px] text-cyan-500/35 font-mono">STATUS: OPERATIONAL</div>
+
                     
-                    <NodeConnectorFallback />
+                    <NodeConnectorFallback contributions={contributions} />
                 </div>
             </div>
         </section>

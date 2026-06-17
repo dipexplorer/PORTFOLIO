@@ -2,41 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
 /* ─────────────────────────── DATA ──────────────────────────── */
-interface Contribution {
-  id: number; cid: number; repo: string; label: string; url: string; details: string;
-}
-const CONTRIBUTIONS: Contribution[] = [
-  // ── Cluster 0: SahiDawa ──
-  { id:0,cid:0,repo:"RatLoopz / sahidawa-india",label:"[PR #83] Client Image Preprocessing",url:"https://github.com/RatLoopz/sahidawa-india",details:"Compressed prescription images by 80% using local canvas downsampling before IPFS uploads." },
-  { id:1,cid:0,repo:"RatLoopz / sahidawa-india",label:"[Issue #42] Jan Aushadhi DB Schema Sync",url:"https://github.com/RatLoopz/sahidawa-india",details:"Created automated schema mapping pipelines to synchronize generic drug datasets." },
-  { id:2,cid:0,repo:"RatLoopz / sahidawa-india",label:"[PR #95] Offline ServiceWorker Caching",url:"https://github.com/RatLoopz/sahidawa-india",details:"Implemented offline-first medicine lookup via local ServiceWorker & IndexedDB queues." },
-  { id:3,cid:0,repo:"RatLoopz / sahidawa-india",label:"[Commit 8f1e2c9] Add PWA Manifest Config",url:"https://github.com/RatLoopz/sahidawa-india",details:"Configured Progressive Web App manifest properties, local icons, and asset caches." },
-  { id:4,cid:0,repo:"RatLoopz / sahidawa-india",label:"[PR #104] Generic Drugs Search Algorithm",url:"https://github.com/RatLoopz/sahidawa-india",details:"Optimized regex-based generic medicine name matching to bypass database query latency." },
-  // ── Cluster 1: LegalHub ──
-  { id:5,cid:1,repo:"dipexplorer / LegalHub",label:"[Commit a4c9b1f] Integrate Mistral AI query engine",url:"https://github.com/dipexplorer/LegalHub",details:"Architected semantic search query resolution pipeline utilizing local Mistral-7B models." },
-  { id:6,cid:1,repo:"dipexplorer / LegalHub",label:"[PR #18] Jest testing framework setup",url:"https://github.com/dipexplorer/LegalHub",details:"Created test coverage suite for REST endpoints, routes, and core MVC model layers." },
-  { id:7,cid:1,repo:"dipexplorer / LegalHub",label:"[Commit d5f8a2e] MVC directory refactor",url:"https://github.com/dipexplorer/LegalHub",details:"Decoupled route controllers from model database schemas for modular project scaling." },
-  { id:8,cid:1,repo:"dipexplorer / LegalHub",label:"[PR #29] Socket.io real-time chat sync",url:"https://github.com/dipexplorer/LegalHub",details:"Added WebSocket brokers to synchronize chat rooms and system state between users." },
-  { id:9,cid:1,repo:"dipexplorer / LegalHub",label:"[Commit 7c9a2f1] OAuth & Passport auth setup",url:"https://github.com/dipexplorer/LegalHub",details:"Added secure Google OAuth controllers and local username/JWT session managers." },
-  // ── Cluster 2: LearnSight ──
-  { id:10,cid:2,repo:"dipexplorer / LearnSight",label:"[PR #14] Dynamic difficulty scoring engine",url:"https://github.com/dipexplorer/LearnSight",details:"Created adaptive learning algorithm adjusting quiz difficulty based on performance." },
-  { id:11,cid:2,repo:"dipexplorer / LearnSight",label:"[Commit e9f4c32] Firebase Firestore sync logic",url:"https://github.com/dipexplorer/LearnSight",details:"Synchronized user cognitive metrics to remote document collection on state mutation." },
-  { id:12,cid:2,repo:"dipexplorer / LearnSight",label:"[PR #5] Multi-cognitive radar charts",url:"https://github.com/dipexplorer/LearnSight",details:"Rendered interactive SVG radar charts displaying real-time cognitive score changes." },
-  { id:13,cid:2,repo:"dipexplorer / LearnSight",label:"[Commit d3b1a2f] Responsive Tailwind optimization",url:"https://github.com/dipexplorer/LearnSight",details:"Cleaned up layout modules to optimize rendering performance on small viewports." },
-  { id:14,cid:2,repo:"dipexplorer / LearnSight",label:"[PR #22] Local score offline persistence",url:"https://github.com/dipexplorer/LearnSight",details:"Enabled local offline persistence fallback during network degradation events." },
-  // ── Cluster 3: Acadence ──
-  { id:15,cid:3,repo:"dipexplorer / Acadence",label:"[Commit e3b9f42] Supabase schema & RLS setup",url:"https://github.com/dipexplorer/Acadence",details:"Designed database tables, foreign keys, triggers, and Row Level Security config." },
-  { id:16,cid:3,repo:"dipexplorer / Acadence",label:"[PR #11] Role-based access control filters",url:"https://github.com/dipexplorer/Acadence",details:"Restricted dashboard API endpoints using claims verify check on JWT session headers." },
-  { id:17,cid:3,repo:"dipexplorer / Acadence",label:"[Commit f4b9c1a] Attendance predictor simulator",url:"https://github.com/dipexplorer/Acadence",details:"Built attendance simulator displaying eligibility projections across multiple courses." },
-  { id:18,cid:3,repo:"dipexplorer / Acadence",label:"[PR #3] Minimum eligibility threshold engine",url:"https://github.com/dipexplorer/Acadence",details:"Implemented logic to estimate classes needed to clear the 75% minimum threshold." },
-  { id:19,cid:3,repo:"dipexplorer / Acadence",label:"[Commit c2d1e89] Mobile responsive shell layout",url:"https://github.com/dipexplorer/Acadence",details:"Designed responsive sidebar navigation layout targeting standard viewport resolutions." },
-  // ── Cluster 4: VideTube ──
-  { id:20,cid:4,repo:"dipexplorer / VideTube",label:"[PR #12] Redis catalog cache performance",url:"https://github.com/dipexplorer/VideTube",details:"Reduced database query load by 60% with Redis cache serialization." },
-  { id:21,cid:4,repo:"dipexplorer / VideTube",label:"[Commit d2a5f8e] JWT session validation cookies",url:"https://github.com/dipexplorer/VideTube",details:"Configured secure access token validation and HTTP-only cookie handlers." },
-  { id:22,cid:4,repo:"dipexplorer / VideTube",label:"[PR #8] Cloudinary API video upload flow",url:"https://github.com/dipexplorer/VideTube",details:"Integrated multipart video uploads with automated transcoding on Cloudinary CDN." },
-  { id:23,cid:4,repo:"dipexplorer / VideTube",label:"[Commit e1b2c3d] Mongo aggregation comment pipelines",url:"https://github.com/dipexplorer/VideTube",details:"Built aggregation stage to query comments, video likes, and sub counts in single pipeline." },
-  { id:24,cid:4,repo:"dipexplorer / VideTube",label:"[PR #20] Subscribers views channel tracking",url:"https://github.com/dipexplorer/VideTube",details:"Optimized channel subscribers index query for faster dashboard load." },
-];
+import { Contribution } from "@/lib/github";
 
 /* ─────────────────────── CLUSTER META ──────────────────────── */
 const CLUSTER = [
@@ -47,25 +13,7 @@ const CLUSTER = [
   { stroke: "#fbbf24", name: "VideTube"  },  // Amber
 ];
 
-/* ──────────────── CONSTELLATION SHAPES (10 pts each) ───────── */
-// Points are relative to each constellation's center (cx, cy)
-const CONS = [
-  // 0 SahiDawa – Medical Cross (plus sign with extra nodes)
-  { cx:182, cy:200, label:"SahiDawa",
-    pts:[ [0,-55],[0,-27],[0,0],[0,27],[0,55], [-42,-8],[-21,-8],[21,-8],[42,-8],[0,-38] ] },
-  // 1 LegalHub – Scales of Justice
-  { cx:948, cy:152, label:"LegalHub",
-    pts:[ [0,-56],[0,-18],[0,16], [-52,-4],[52,-4], [-30,-22],[30,-22], [-62,16],[62,16],[0,-38] ] },
-  // 2 LearnSight – All-seeing Eye
-  { cx:598, cy:498, label:"LearnSight",
-    pts:[ [-68,0],[-46,-28],[0,-44],[46,-28],[68,0], [38,22],[0,32],[-38,22], [0,0],[0,-16] ] },
-  // 3 Acadence – Academic Mortarboard Cap
-  { cx:165, cy:455, label:"Acadence",
-    pts:[ [0,-52], [-55,-20],[-72,4],[-40,4],[0,4],[40,4],[72,4],[55,-20], [14,44],[-14,44] ] },
-  // 4 VideTube – Play Button in Frame
-  { cx:960, cy:452, label:"VideTube",
-    pts:[ [-56,-52],[56,-52],[56,52],[-56,52], [-22,-33],[37,0],[-22,33], [-56,0],[56,0],[0,-52] ] },
-];
+
 
 /* ──────────────────── PARTICLE PHYSICS ─────────────────────── */
 interface Particle {
@@ -75,30 +23,30 @@ interface Particle {
 
 const GX = 600, GY = 310, W = 1200, H = 600;
 
-function initParticles(): Particle[] {
+function initParticles(conts: Contribution[]): Particle[] {
   const counts = [0, 0, 0, 0, 0];
-  return Array.from({ length: 50 }, (_, i) => {
-    const cid  = i % 5;
+  const len = Math.max(conts.length, 1);
+  return conts.map((c, i) => {
+    const cid  = c.cid;
     const cIdx = counts[cid]++;
     // Logarithmic spiral arms (2 arms, 180° apart)
     const arm = i % 2;
-    const t   = (i / 50) * 3.2 * Math.PI + arm * Math.PI;
-    const r   = 55 + (t / (3.2 * Math.PI)) * 245 + Math.sin(i * 7.31 + 1.4) * 24;
+    const t   = (i / len) * 3.2 * Math.PI + arm * Math.PI;
+    const r   = 55 + (t / (3.2 * Math.PI)) * 180 + Math.sin(i * 7.31 + 1.4) * 20;
     const a   = t + Math.sin(i * 13.7) * 0.38;
     // Initial tangential velocity for natural CCW rotation
     const spd = 0.52 + Math.sin(i * 2.71) * 0.08;
     return {
-      id: i, cid, cIdx,
+      id: c.id, cid, cIdx,
       x:  GX + r * Math.cos(a),
-      y:  GY + r * Math.sin(a),
+      y:  GY + r * Math.sin(a) * 0.4, // Elliptical 3D perspective
       vx: -spd * Math.sin(a),
-      vy:  spd * Math.cos(a),
+      vy:  spd * Math.cos(a) * 0.4,   // Elliptical velocity
     };
   });
 }
 
 /* ───────────────────────── TYPES ───────────────────────────── */
-type Mode = "GALAXY" | "CONSTELLATION";
 type SingPhase = "COLLAPSE" | "FLASH" | "EXPLODE";
 
 interface FrameState {
@@ -110,10 +58,8 @@ interface FrameState {
 }
 
 /* ─────────────────────── COMPONENT ─────────────────────────── */
-export default function NodeConnectorFallback() {
-  const [mode,    setMode]    = useState<Mode>("GALAXY");
+export default function NodeConnectorFallback({ contributions }: { contributions: Contribution[] }) {
   const [hovId,   setHovId]   = useState<number | null>(null);
-  const [btnHov,  setBtnHov]  = useState(false);
   // mounted gates star field and particle rendering to client-only,
   // preventing SSR ↔ client floating-point trig precision mismatches
   const [mounted, setMounted] = useState(false);
@@ -128,9 +74,8 @@ export default function NodeConnectorFallback() {
   });
 
   // ── Physics refs (mutated directly in rAF, never trigger React render) ──
-  const psRef      = useRef<Particle[]>(initParticles());
+  const psRef      = useRef<Particle[]>(initParticles(contributions));
   const mouseRef   = useRef<{ x: number | null; y: number | null }>({ x: null, y: null });
-  const modeRef    = useRef<Mode>("GALAXY");
   const hovIdRef   = useRef<number | null>(null);
   const pulseRef   = useRef<{ x: number; y: number; r: number; alive: boolean } | null>(null);
   const singRef    = useRef<{ x: number; y: number; phase: SingPhase; frame: number } | null>(null);
@@ -139,7 +84,6 @@ export default function NodeConnectorFallback() {
   const warpFRef   = useRef(0);
   const rafRef     = useRef<number | null>(null);
 
-  useEffect(() => { modeRef.current  = mode;  }, [mode]);
   useEffect(() => { hovIdRef.current = hovId; }, [hovId]);
   // Signal client mount so star field renders only in browser
   useEffect(() => { setMounted(true); }, []);
@@ -152,8 +96,6 @@ export default function NodeConnectorFallback() {
       const my = mouseRef.current.y;
       const sg = singRef.current;
       const pu = pulseRef.current;
-      const cm = modeRef.current;
-
       /* ── Singularity state machine ── */
       if (sg) {
         sg.frame++;
@@ -218,24 +160,28 @@ export default function NodeConnectorFallback() {
             p.vx *= 0.72; p.vy *= 0.72;
           }
           // EXPLODE: velocity carries particles, gravity slowly recaptures them
-        } else if (cm === "GALAXY") {
-          /* ── Orbital galaxy motion ── */
-          const dx = p.x - GX, dy = p.y - GY;
-          const d  = Math.sqrt(dx * dx + dy * dy) + 1;
-          const tx = -dy / d, ty = dx / d; // tangential unit vector (CCW)
-          p.vx += tx * 0.058;  // tangential orbital drive
-          p.vy += ty * 0.058;
-          p.vx -= dx * 0.00011; // subtle radial gravity toward core
-          p.vy -= dy * 0.00011;
-          p.vx *= 0.9835; p.vy *= 0.9835; // space drag
         } else {
-          /* ── Constellation attraction ── */
-          const cs = CONS[p.cid];
-          const pt = cs.pts[p.cIdx % 10];
-          const tx = cs.cx + pt[0], ty = cs.cy + pt[1];
-          p.vx += (tx - p.x) * 0.048;
-          p.vy += (ty - p.y) * 0.048;
-          p.vx *= 0.855; p.vy *= 0.855;
+          /* ── Orbital galaxy motion (Elliptical 3D Perspective) ── */
+          const isHovered = p.id === hovIdRef.current;
+          const dx = p.x - GX, dy = p.y - GY;
+          const sy = dy * 2.5; // Un-scale the 0.4 Y-squash to calculate true distance in the circular plane
+          const d  = Math.sqrt(dx * dx + sy * sy) + 1;
+          
+          const tx = -sy / d, ty = dx / d; // Tangential unit vector in circular space (CCW)
+          
+          if (isHovered) {
+            // Drastically slow down the hovered node so it is easy to read/click
+            p.vx *= 0.1;
+            p.vy *= 0.1;
+          } else {
+            p.vx += tx * 0.058;              // Apply drive
+            p.vy += (ty * 0.4) * 0.058;      // Squash Y-drive to match ellipse
+            
+            p.vx -= dx * 0.00012;            // Radial gravity toward core
+            p.vy -= dy * 0.00012;            // (dy naturally scales the pull perfectly for an ellipse)
+            
+            p.vx *= 0.9835; p.vy *= 0.9835;  // Space drag
+          }
         }
 
         /* ── Mouse gravitational lens ── */
@@ -253,11 +199,11 @@ export default function NodeConnectorFallback() {
         if (spd > 14) { p.vx = (p.vx / spd) * 14; p.vy = (p.vy / spd) * 14; }
         p.x += p.vx; p.y += p.vy;
 
-        /* ── Boundary bounce ── */
-        if      (p.x < 12)     { p.x = 12;     p.vx =  Math.abs(p.vx) * 0.65; }
-        else if (p.x > W - 12) { p.x = W - 12; p.vx = -Math.abs(p.vx) * 0.65; }
-        if      (p.y < 12)     { p.y = 12;     p.vy =  Math.abs(p.vy) * 0.65; }
-        else if (p.y > H - 12) { p.y = H - 12; p.vy = -Math.abs(p.vy) * 0.65; }
+        /* ── Boundary bounce — clamped to visible viewport zone (slice-safe: x:285-915) ── */
+        if      (p.x < 285)     { p.x = 285;     p.vx =  Math.abs(p.vx) * 0.65; }
+        else if (p.x > W - 285) { p.x = W - 285; p.vx = -Math.abs(p.vx) * 0.65; }
+        if      (p.y < 18)     { p.y = 18;     p.vy =  Math.abs(p.vy) * 0.65; }
+        else if (p.y > H - 18) { p.y = H - 18; p.vy = -Math.abs(p.vy) * 0.65; }
       });
 
       /* ── Build warp display data ── */
@@ -312,7 +258,6 @@ export default function NodeConnectorFallback() {
   const handleMove = (e: React.MouseEvent<SVGSVGElement>) => {
     const { x, y } = toWorld(e);
     mouseRef.current = { x, y };
-    setBtnHov(x >= 36 && x <= 328 && y >= 536 && y <= 592);
 
     const id = findClosest(x, y);
     if (id !== hovIdRef.current) {
@@ -326,24 +271,27 @@ export default function NodeConnectorFallback() {
 
   const handleLeave = () => {
     mouseRef.current = { x: null, y: null };
-    setHovId(null); setBtnHov(false);
+    setHovId(null);
   };
 
   const handleClick = (e: React.MouseEvent<SVGSVGElement>) => {
     const { x, y } = toWorld(e);
-    // Button zone — toggle mode, no singularity
-    if (x >= 36 && x <= 328 && y >= 536 && y <= 592) {
-      setMode(m => m === "GALAXY" ? "CONSTELLATION" : "GALAXY");
-      return;
-    }
-    // Open GitHub on node click (wider radius: 26 SVG units for easier targeting)
-    const id = findClosest(x, y, 26);
-    if (id !== null) {
-      const p = psRef.current[id];
-      // Find the contribution for this particle's cluster + within-cluster index
-      const clusterContribs = CONTRIBUTIONS.filter(c => c.cid === p.cid);
-      const contrib = clusterContribs[p.cIdx % Math.max(clusterContribs.length, 1)];
+
+    // Open GitHub ONLY if user is actively hovering a node (tooltip is showing).
+    // We do NOT use findClosest here — with 50 dense particles, any canvas click
+    // would almost always find a particle within radius, causing random link opens.
+    const hoveredId = hovIdRef.current;
+    if (hoveredId !== null) {
+      const p = psRef.current[hoveredId];
+      const contrib = contributions.find(c => c.id === p.id);
       if (contrib?.url) window.open(contrib.url, "_blank", "noopener,noreferrer");
+    } else {
+      // Check if user clicked the Galactic Core
+      const dx = x - GX;
+      const dy = y - GY;
+      if (Math.sqrt(dx * dx + dy * dy) <= 65) {
+        window.open("https://github.com/dipexplorer", "_blank", "noopener,noreferrer");
+      }
     }
     // 🌌 Singularity triggered at click point
     singRef.current = { x, y, phase: "COLLAPSE", frame: 0 };
@@ -351,15 +299,14 @@ export default function NodeConnectorFallback() {
 
   /* ── Derived display values ── */
   const { coords, mouse, pulse, sing, warp } = frame;
-  const hovNode   = coords.find(c => c.id === hovId);
-  const hovPart   = hovNode ? psRef.current.find(p => p.id === hovNode.id) : null;
-  const hovContrib = hovPart ? CONTRIBUTIONS.filter(c => c.cid === hovPart.cid)[hovPart.cIdx % 5] || null : null;
+  const hovNode    = coords.find(c => c.id === hovId);
+  const hovContrib = hovNode ? contributions.find(c => c.id === hovNode.id) || null : null;
 
   /* ── Connection line rendering ── */
   const renderConns = () => {
     const lines: React.ReactNode[] = [];
     const mx = mouse.x, my = mouse.y;
-    const ambMax = mode === "CONSTELLATION" ? 110 : 90;
+    const ambMax = 90;
 
     /* Ambient proximity web */
     for (let i = 0; i < coords.length; i++) {
@@ -420,8 +367,8 @@ export default function NodeConnectorFallback() {
   /* ── Tooltip card ── */
   const renderTooltip = () => {
     if (!hovNode || !hovContrib) return null;
-    const ox   = hovNode.x > 855 ? -346 : 16;
-    const oy   = hovNode.y > 425 ? -116 : -14;
+    const ox   = hovNode.x > 620 ? -354 : 16;
+    const oy   = hovNode.y > 450 ? -116 : -14;
     const meta = CLUSTER[hovNode.cid];
     return (
       <g transform={`translate(${hovNode.x + ox},${hovNode.y + oy})`}>
@@ -430,7 +377,7 @@ export default function NodeConnectorFallback() {
         {/* Cluster accent bar at top */}
         <rect x="0" y="-14" width="338" height="7" rx="3.5" fill={meta.stroke} fillOpacity="0.9" />
         <text x="13" y="7" fill={meta.stroke} fontSize="8.5" fontFamily="monospace" letterSpacing="1.2">
-          {meta.name.toUpperCase()} // CONTRIBUTION
+          {meta.name.toUpperCase()} {"// CONTRIBUTION"}
         </text>
         <text x="13" y="28" fill="#ffffff" fontSize="10.5" fontWeight="700" fontFamily="monospace">
           {hovContrib.label}
@@ -488,96 +435,119 @@ export default function NodeConnectorFallback() {
   return (
     <div className="w-full h-full absolute inset-0 z-0 overflow-hidden">
       <svg
-        viewBox={`0 0 ${W} ${H}`}
+        viewBox="200 0 800 600"
         className="w-full h-full cursor-crosshair"
-        preserveAspectRatio="xMidYMid slice"
+        preserveAspectRatio="xMidYMid meet"
         suppressHydrationWarning
         onMouseMove={handleMove}
         onMouseLeave={handleLeave}
         onClick={handleClick}
       >
-        {/* ── Shared animations & filters ── */}
+        {/* ── Animations & Filters ── */}
         <defs>
           <style>{`
-            @keyframes flow { from { stroke-dashoffset: 24; } to { stroke-dashoffset: 0; } }
-            .synapse-pulse  { stroke-dasharray: 6 14; animation: flow 1.4s linear infinite; }
-            @keyframes halo-beat  { 0%,100% { opacity: .22; } 50% { opacity: .7; } }
-            .halo-beat { animation: halo-beat 2.1s ease-in-out infinite; }
-            @keyframes core-pulse { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
-            .core-pulse { animation: core-pulse 3s ease-in-out infinite; }
-            @keyframes constellation-label { from { opacity: 0; } to { opacity: .62; } }
-            .cons-label { animation: constellation-label .8s ease-out forwards; }
+            @keyframes flow { from { stroke-dashoffset:24; } to { stroke-dashoffset:0; } }
+            .synapse-pulse { stroke-dasharray:6 14; animation:flow 1.4s linear infinite; }
+            @keyframes halo-beat { 0%,100%{opacity:.18;} 50%{opacity:.65;} }
+            .halo-beat { animation:halo-beat 2.2s ease-in-out infinite; }
+            @keyframes core-pulse { 0%,100%{opacity:.5;} 50%{opacity:1;} }
+            .core-pulse { animation:core-pulse 3s ease-in-out infinite; }
+            @keyframes card-in { from{opacity:0;transform:translateY(8px);} to{opacity:1;transform:translateY(0);} }
+            .card-in { animation:card-in .55s cubic-bezier(.22,1,.36,1) forwards; }
+            @keyframes edge-draw { from{stroke-dashoffset:400;} to{stroke-dashoffset:0;} }
+            .cons-edge { stroke-dasharray:400; animation:edge-draw 1.2s ease-out forwards; }
+            @keyframes hint-fade { 0%,100%{opacity:.45;} 50%{opacity:.85;} }
+            .hint-anim { animation:hint-fade 3s ease-in-out infinite; }
+            @keyframes btn-breathe { 0%,100%{filter:drop-shadow(0 0 5px rgba(34,211,238,.25));} 50%{filter:drop-shadow(0 0 14px rgba(34,211,238,.55));} }
+            .btn-idle { animation:btn-breathe 2.8s ease-in-out infinite; }
+            @keyframes orbit-spin { from{stroke-dashoffset:0;} to{stroke-dashoffset:-200;} }
+            .orbit-ring { animation:orbit-spin 18s linear infinite; stroke-dasharray:8 16; }
+            .orbit-ring-r { animation:orbit-spin 24s linear infinite reverse; stroke-dasharray:5 22; }
           `}</style>
 
           {/* Soft glow */}
-          <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
-            <feGaussianBlur stdDeviation="3.5" result="b" />
+          <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="4" result="b" />
             <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
           </filter>
-          {/* Strong glow */}
-          <filter id="sglow" x="-60%" y="-60%" width="220%" height="220%">
-            <feGaussianBlur stdDeviation="8" result="b" />
+          {/* Medium glow */}
+          <filter id="mglow" x="-60%" y="-60%" width="220%" height="220%">
+            <feGaussianBlur stdDeviation="7" result="b" />
             <feMerge><feMergeNode in="b" /><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
           </filter>
-          {/* Extreme glow (singularity flash) */}
+          {/* Strong glow */}
+          <filter id="sglow" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur stdDeviation="11" result="b" />
+            <feMerge><feMergeNode in="b" /><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+          </filter>
+          {/* Extreme glow */}
           <filter id="xglow" x="-120%" y="-120%" width="340%" height="340%">
             <feGaussianBlur stdDeviation="18" result="b" />
             <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
           </filter>
 
-          {/* Background nebula */}
+          {/* Central nebula */}
           <radialGradient id="nebula" cx="50%" cy="52%" r="48%">
-            <stop offset="0%"   stopColor="rgba(34,211,238,0.055)" />
-            <stop offset="50%"  stopColor="rgba(99,102,241,0.022)" />
+            <stop offset="0%"   stopColor="rgba(34,211,238,0.07)" />
+            <stop offset="45%"  stopColor="rgba(99,102,241,0.035)" />
+            <stop offset="100%" stopColor="transparent" />
+          </radialGradient>
+          {/* Corner accent nebulae */}
+          <radialGradient id="neb2" cx="20%" cy="25%" r="35%">
+            <stop offset="0%" stopColor="rgba(45,212,191,0.055)" />
+            <stop offset="100%" stopColor="transparent" />
+          </radialGradient>
+          <radialGradient id="neb3" cx="80%" cy="75%" r="35%">
+            <stop offset="0%" stopColor="rgba(129,140,248,0.055)" />
             <stop offset="100%" stopColor="transparent" />
           </radialGradient>
 
-          {/* Per-cluster radial gradients for constellation zones */}
+          {/* Per-cluster gradients — stronger */}
           {CLUSTER.map((c, i) => (
             <radialGradient key={i} id={`cg${i}`} cx="50%" cy="50%" r="50%">
-              <stop offset="0%"   stopColor={c.stroke} stopOpacity="0.2" />
-              <stop offset="100%" stopColor={c.stroke} stopOpacity="0"   />
+              <stop offset="0%"   stopColor={c.stroke} stopOpacity="0.32" />
+              <stop offset="70%"  stopColor={c.stroke} stopOpacity="0.06" />
+              <stop offset="100%" stopColor={c.stroke} stopOpacity="0"    />
             </radialGradient>
           ))}
         </defs>
 
-        {/* ── Background nebula glow ── */}
-        <ellipse cx={GX} cy={GY} rx="450" ry="260" fill="url(#nebula)" />
+        {/* ── Atmosphere ── */}
+        <ellipse cx={GX} cy={GY} rx="500" ry="290" fill="url(#nebula)" />
+        <ellipse cx="350" cy="200" rx="300" ry="200" fill="url(#neb2)" />
+        <ellipse cx="850" cy="420" rx="280" ry="180" fill="url(#neb3)" />
 
-        {/* ── Deterministic star field — client-only (avoids SSR float precision mismatch) ── */}
-        {mounted && Array.from({ length: 145 }, (_, i) => {
+        {/* ── Star field ── */}
+        {mounted && Array.from({ length: 160 }, (_, i) => {
           const phi = 137.508 * (i + 1) * (Math.PI / 180);
-          const r2  = Math.sqrt((i + 1) / 145);
-          const sx  = GX + r2 * 585 * Math.cos(phi + i * 0.41);
-          const sy  = GY + r2 * 285 * Math.sin(phi + i * 0.63);
-          if (sx < 4 || sx > W - 4 || sy < 4 || sy > H - 4) return null;
+          const r2  = Math.sqrt((i + 1) / 160);
+          const sx  = GX + r2 * 560 * Math.cos(phi + i * 0.41);
+          const sy  = GY + r2 * 270 * Math.sin(phi + i * 0.63);
+          if (sx < 10 || sx > W - 10 || sy < 10 || sy > H - 10) return null;
+          const big = i % 22 === 0;
           return (
             <circle key={`st${i}`} cx={sx} cy={sy}
-              r={0.22 + (i % 5) * 0.18}
-              fill="white" fillOpacity={0.07 + (i % 7) * 0.055} />
+              r={big ? 1.2 : 0.25 + (i % 5) * 0.17}
+              fill="white" fillOpacity={big ? 0.5 : 0.08 + (i % 7) * 0.055}
+              filter={big ? "url(#glow)" : undefined} />
           );
         })}
 
-        {/* ── Galactic core (GALAXY mode only) ── */}
-        {mode === "GALAXY" && (
-          <>
-            <circle cx={GX} cy={GY} r="40"  fill="rgba(34,211,238,0.04)" filter="url(#xglow)" className="core-pulse" />
-            <circle cx={GX} cy={GY} r="11"  fill="rgba(34,211,238,0.15)" filter="url(#glow)" />
-            <circle cx={GX} cy={GY} r="3.8" fill="rgba(255,255,255,0.6)"  filter="url(#glow)" />
-          </>
-        )}
-
-        {/* ── Constellation zone glows (CONSTELLATION mode) ── */}
-        {mode === "CONSTELLATION" && CONS.map((c, i) => (
-          <g key={`cz${i}`}>
-            <ellipse cx={c.cx} cy={c.cy} rx="98" ry="82" fill={`url(#cg${i})`} />
-            <text x={c.cx} y={c.cy - 88}
-              fill={CLUSTER[i].stroke} fontSize="8" fontFamily="monospace"
-              textAnchor="middle" letterSpacing="2.8" className="cons-label">
-              {CLUSTER[i].name.toUpperCase()}
-            </text>
-          </g>
+        {/* ── Galaxy mode: orbital core + rings ── */}
+        {/* Orbit rings */}
+        {[105, 185, 268].map((r, i) => (
+          <ellipse key={`or${i}`} cx={GX} cy={GY}
+            rx={r} ry={r * 0.4}
+            fill="none"
+            stroke={i === 1 ? "rgba(129,140,248,0.08)" : "rgba(34,211,238,0.07)"}
+            strokeWidth="1"
+            className={i % 2 === 0 ? "orbit-ring" : "orbit-ring-r"} />
         ))}
+        {/* Core glow layers */}
+        <circle cx={GX} cy={GY} r="55"  fill="rgba(34,211,238,0.05)" filter="url(#xglow)" className="core-pulse" />
+        <circle cx={GX} cy={GY} r="22"  fill="rgba(34,211,238,0.12)" filter="url(#mglow)" />
+        <circle cx={GX} cy={GY} r="7"   fill="rgba(255,255,255,0.55)" filter="url(#glow)" />
+        <circle cx={GX} cy={GY} r="2.5" fill="white" />
 
         {/* ── Connection lines ── */}
         {renderConns()}
@@ -585,14 +555,14 @@ export default function NodeConnectorFallback() {
         {/* ── EM pulse ring ── */}
         {pulse && (
           <circle cx={pulse.x} cy={pulse.y} r={pulse.r} fill="none"
-            stroke="#22d3ee" strokeWidth="1.6"
-            strokeOpacity={Math.max(0, 0.6 - pulse.r / 300)} filter="url(#glow)" />
+            stroke="#22d3ee" strokeWidth="1.8"
+            strokeOpacity={Math.max(0, 0.65 - pulse.r / 280)} filter="url(#glow)" />
         )}
 
         {/* ── Hyperspace warp lines ── */}
         {warp.map((l, i) => (
           <line key={`wl${i}`} x1={l.x1} y1={l.y1} x2={l.x2} y2={l.y2}
-            stroke={l.col} strokeWidth="1.9" strokeOpacity={l.op} filter="url(#glow)" />
+            stroke={l.col} strokeWidth="2" strokeOpacity={l.op} filter="url(#glow)" />
         ))}
 
         {/* ── Singularity visual ── */}
@@ -600,26 +570,26 @@ export default function NodeConnectorFallback() {
 
         {/* ── Particles ── */}
         {coords.map(c => {
-          const mx   = mouse.x, my = mouse.y;
-          const isH  = hovId === c.id;
+          const mx  = mouse.x, my = mouse.y;
+          const isH = hovId === c.id;
           const near = mx !== null && my !== null &&
                        Math.sqrt((mx - c.x) ** 2 + (my - c.y) ** 2) < 195;
           const meta = CLUSTER[c.cid];
-          const r    = isH ? 6.0 : near ? 4.3 : 2.9;
+          const r    = isH ? 7 : near ? 5 : 3.5;
           return (
             <g key={c.id}>
               {isH && (
                 <>
-                  <circle cx={c.x} cy={c.y} r="18" fill="none"
-                    stroke={meta.stroke} strokeOpacity="0.18" strokeWidth="1" className="halo-beat" />
-                  <circle cx={c.x} cy={c.y} r="10" fill="none"
-                    stroke={meta.stroke} strokeOpacity="0.52" strokeWidth="1" filter="url(#glow)" />
+                  <circle cx={c.x} cy={c.y} r="26" fill="none"
+                    stroke={meta.stroke} strokeOpacity="0.15" strokeWidth="1.5" className="halo-beat" />
+                  <circle cx={c.x} cy={c.y} r="14" fill="none"
+                    stroke={meta.stroke} strokeOpacity="0.5" strokeWidth="1.2" filter="url(#glow)" />
                 </>
               )}
               <circle cx={c.x} cy={c.y} r={r}
                 fill={meta.stroke}
-                fillOpacity={isH ? 1 : near ? 0.92 : 0.72}
-                filter={isH ? "url(#sglow)" : near ? "url(#glow)" : undefined} />
+                fillOpacity={isH ? 1 : near ? 0.95 : 0.78}
+                filter={isH ? "url(#sglow)" : near ? "url(#mglow)" : "url(#glow)"} />
             </g>
           );
         })}
@@ -627,33 +597,24 @@ export default function NodeConnectorFallback() {
         {/* ── Contribution tooltip ── */}
         {renderTooltip()}
 
-        {/* ── Mode toggle button ── */}
-        <g style={{ cursor: "pointer" }}>
-          <rect x="36" y="546" width="294" height="28" rx="5"
-            fill={btnHov ? "rgba(34,211,238,0.1)" : "rgba(34,211,238,0.03)"}
-            stroke={btnHov ? "rgba(34,211,238,0.42)" : "rgba(34,211,238,0.15)"}
-            strokeWidth="0.9" />
-          <text x="50" y="565"
-            fill={btnHov ? "#22d3ee" : "rgba(34,211,238,0.52)"}
-            fontSize="9.5" fontWeight="700" fontFamily="monospace" letterSpacing="0.8"
-            filter={btnHov ? "url(#glow)" : undefined}>
-            {mode === "GALAXY"
-              ? "[ VIEW_PROJECT_CONSTELLATIONS ▶ ]"
-              : "[ ◀ RETURN_TO_GALAXY_MODE ]"}
+        {/* ── HUD Interaction hint ── */}
+        <g className="hint-anim">
+          {/* Left bracket */}
+          <path d="M 270 550 L 260 550 L 260 580 L 270 580" fill="none" stroke="#22d3ee" strokeWidth="1.5" opacity="0.6"/>
+          {/* Background Panel */}
+          <rect x="260" y="550" width="680" height="30" fill="rgba(2,6,23,0.4)" stroke="rgba(34,211,238,0.15)" strokeWidth="1" />
+          {/* Right bracket */}
+          <path d="M 930 550 L 940 550 L 940 580 L 930 580" fill="none" stroke="#22d3ee" strokeWidth="1.5" opacity="0.6"/>
+          
+          {/* Text */}
+          <text x="600" y="569" textAnchor="middle" fill="#94a3b8" fontSize="10.5" fontFamily="monospace" letterSpacing="1.8">
+            <tspan fill="#2dd4bf" fontWeight="bold">HOVER</tspan> PARTICLES FOR GITHUB COMMITS 
+            <tspan fill="#334155" fontWeight="bold">  ||  </tspan> 
+            <tspan fill="#818cf8" fontWeight="bold">CLICK</tspan> CORE FOR GITHUB PROFILE
           </text>
         </g>
-
-        {/* ── Status label ── */}
-        <text x={W - 14} y="28"
-          fill="rgba(34,211,238,0.28)" fontSize="7.5" fontFamily="monospace"
-          textAnchor="end" letterSpacing="1.5">
-          {mode === "GALAXY" ? "GALACTIC_CORTEX // ORBITAL" : "GALACTIC_CORTEX // CONSTELLATION"}
-        </text>
-        <text x={W - 14} y="42"
-          fill="rgba(34,211,238,0.16)" fontSize="6.5" fontFamily="monospace" textAnchor="end">
-          NODES: {coords.length} // CLUSTERS: 5 // STATUS: LIVE
-        </text>
       </svg>
     </div>
   );
 }
+

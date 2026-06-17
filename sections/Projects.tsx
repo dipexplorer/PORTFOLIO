@@ -28,12 +28,14 @@ const SpotlightCard = ({
         mouseY.set(clientY - top);
     }
 
-    // Dynamic grid spans for 4 items in a 3-col grid logic
+    // Dynamic grid spans for 8 items in a 3-col bento grid
+    // Pattern: wide-narrow | narrow-wide | wide-narrow | narrow-wide
     const getGridClass = (i: number) => {
-        if (i === 0) return "md:col-span-2 lg:col-span-2"; // Row 1 Left
-        if (i === 1) return "md:col-span-1 lg:col-span-1"; // Row 1 Right
-        if (i === 2) return "md:col-span-1 lg:col-span-1"; // Row 2 Left
-        if (i === 3) return "md:col-span-2 lg:col-span-2"; // Row 2 Right
+        const pattern = i % 4;
+        if (pattern === 0) return "md:col-span-2 lg:col-span-2"; // Wide left
+        if (pattern === 1) return "md:col-span-1 lg:col-span-1"; // Narrow right
+        if (pattern === 2) return "md:col-span-1 lg:col-span-1"; // Narrow left
+        if (pattern === 3) return "md:col-span-2 lg:col-span-2"; // Wide right
         return "col-span-1";
     };
 

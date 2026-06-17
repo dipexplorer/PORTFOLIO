@@ -5,7 +5,11 @@ import Contact from "@/sections/Contact";
 import AppEffects from "@/components/AppEffects";
 import Book from "@/components/Book";
 
-export default function Home() {
+import { fetchGithubContributions } from "@/lib/github";
+
+export default async function Home() {
+  const contributions = await fetchGithubContributions();
+
   return (
     <div className="flex min-h-screen flex-col bg-slate-950 font-sans text-slate-100 relative overflow-x-hidden">
       {/* Background blueprint details */}
@@ -17,7 +21,7 @@ export default function Home() {
 
       <main className="w-full flex-1 relative z-10">
         {/* Hero Section */}
-        <Hero />
+        <Hero contributions={contributions} />
 
         {/* Experience Section - Blueprints Logbook */}
         <section id="experience" className="w-full py-20 md:py-28 relative overflow-hidden border-t border-b border-cyan-500/10">
