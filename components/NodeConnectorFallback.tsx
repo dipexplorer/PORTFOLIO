@@ -86,6 +86,7 @@ export default function NodeConnectorFallback({ contributions }: { contributions
 
   useEffect(() => { hovIdRef.current = hovId; }, [hovId]);
   // Signal client mount so star field renders only in browser
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { setMounted(true); }, []);
 
   /* ── Main animation loop ── */

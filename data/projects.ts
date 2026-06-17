@@ -4,7 +4,7 @@ export const projects: Project[] = [
     {
         title: "SahiDawa – Medicine Verification Platform",
         description:
-            "GSSoC'26 open-source platform helping citizens verify medicines, find trusted Jan Aushadhi pharmacies, and report suspicious drugs — built for low-bandwidth environments across India. Features IPFS-based prescription uploads, offline ServiceWorker caching, and generic drug search optimized for rural access.",
+            "SahiDawa is an open-source platform that helps citizens verify medicines, find trusted pharmacies, and report suspicious drugs — designed for low-bandwidth environments and multilingual access across India.",
         tech: [
             "Next.js",
             "TypeScript",
@@ -14,64 +14,68 @@ export const projects: Project[] = [
             "PWA",
         ],
         highlight:
-            "GSSoC'26 · 62 ⭐ · 285 forks — Healthcare platform serving rural India with offline-first PWA medicine verification.",
+            "GSSoC'26 · 62 ⭐ — Healthcare platform serving rural India with offline-first PWA medicine verification.",
         github: "https://github.com/RatLoopz/sahidawa-india",
+        liveUrl: "https://sahidawa-india-web.vercel.app",
+        image: "/projects/sahidawa_ui_ss/sahidawa_stickman_infographic.png",
+        images: [
+            "/projects/sahidawa_ui_ss/sahidawa_stickman_infographic.png",
+            "/projects/sahidawa_ui_ss/sahidawa-india-web.vercel.app_en_home.png",
+            "/projects/sahidawa_ui_ss/sahidawa-india-web.vercel.app_en.png",
+            "/projects/sahidawa_ui_ss/sahidawa-india-web.vercel.app_en (1).png"
+        ],
+        features: [
+            "Offline-first PWA for rural access",
+            "IPFS decentralised storage integration",
+            "Multi-lingual accessibility support"
+        ]
+    },
+    {
+        title: "AADSS – Attendance Decision System",
+        description:
+            "Academic Attendance Decision Support System (AADSS) with advanced analytics. Built predictive eligibility analytics to help students simulate attendance scenarios, calculate minimum class thresholds, and avoid failing due to attendance shortfalls.",
+        tech: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
+        highlight:
+            "Ongoing production system with predictive eligibility analytics and real-time attendance policy simulation.",
+        github: "https://github.com/dipexplorer/AADSS",
+        liveUrl: "https://aadss-ygag.vercel.app/",
+        image: "/projects/aadss_ui_ss/aadss_stickman_infographic.png",
+        images: [
+            "/projects/aadss_ui_ss/aadss_stickman_infographic.png",
+            "/projects/aadss_ui_ss/aadss.png",
+            "/projects/aadss_ui_ss/aadss-ygag.vercel.app_calendar-dashboard.png",
+            "/projects/aadss_ui_ss/aadss-ygag.vercel.app_calendar-dashboard (1).png",
+            "/projects/aadss_ui_ss/aadss-ygag.vercel.app_calendar-dashboard (2).png"
+        ],
     },
     {
         title: "LegalHub – AI Legal Platform",
         description:
-            "GSSoC'25 open-source platform simplifying legal concepts, providing essential legal documents, and educating users about their rights. Architected AI-powered query resolution with Mistral AI, real-time WebSocket communication, OAuth authentication, and Jest CI pipelines. 18 stars · 56 forks.",
+            "LegalHub (GSSoC'25) is a comprehensive platform designed to simplify legal concepts, provide essential legal documents, and educate users about their rights. Architected AI-powered query resolution with Mistral AI and real-time WebSocket communication.",
         tech: [
             "Node.js",
             "Express.js",
             "MongoDB",
             "Mistral AI",
             "Socket.io",
-            "Passport.js",
             "EJS",
         ],
         highlight:
-            "GSSoC'25 · 18 ⭐ · 56 forks — AI-powered legal platform integrating Mistral AI and semantic search for intelligent query resolution.",
+            "GSSoC'25 · 18 ⭐ — AI-powered legal platform integrating Mistral AI and semantic search for intelligent query resolution.",
         github: "https://github.com/dipexplorer/LegalHuB",
-    },
-    {
-        title: "AADSS – Attendance Decision System",
-        description:
-            "Academic Attendance Decision Support System with advanced analytics and policy simulation engine. Built predictive eligibility analytics to help students simulate attendance scenarios, calculate minimum class thresholds, and avoid failing due to attendance shortfalls.",
-        tech: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
-        highlight:
-            "Ongoing production system with predictive eligibility analytics and real-time attendance policy simulation.",
-        github: "https://github.com/dipexplorer/AADSS",
-    },
-    {
-        title: "AI Support Triage System",
-        description:
-            "High-performance multi-domain support triage system that classifies, routes, and generates grounded responses without LLM hallucination. Uses RAG pipelines with domain-specific vector stores to ensure factually accurate, source-grounded answers across multiple enterprise domains.",
-        tech: ["Python", "RAG", "Vector DB", "LLM", "FastAPI"],
-        highlight:
-            "Zero-hallucination AI triage engine using retrieval-augmented generation across multiple enterprise domains.",
-        github: "https://github.com/dipexplorer/AI-Support-Triage-System",
-    },
-    {
-        title: "VideTube – Video Streaming Backend",
-        description:
-            "Scalable video backend with JWT access/refresh token flow, Cloudinary media uploads, and modular REST APIs for videos, comments, likes, and subscriptions. Optimized using Redis caching and MongoDB aggregation pipelines, reducing database load by 60% and improving API response times significantly.",
-        tech: [
-            "Node.js",
-            "Express.js",
-            "MongoDB",
-            "Redis",
-            "JWT",
-            "Cloudinary",
+        liveUrl: "https://legalhub-zwk9.onrender.com",
+        image: "/projects/legalhub_ui_ss/legalhub_stickman_infographic.png",
+        images: [
+            "/projects/legalhub_ui_ss/legalhub_stickman_infographic.png",
+            "/projects/legalhub_ui_ss/legalhub_live.png",
+            "/projects/legalhub_ui_ss/legalhub-zwk9.onrender.com_rights.png",
+            "/projects/legalhub_ui_ss/legalhub-zwk9.onrender.com_api_articles_689263fb40b8c577b897c643.png"
         ],
-        highlight:
-            "Redis caching + MongoDB aggregation reduced database load by 60% and significantly improved API response times.",
-        github: "https://github.com/dipexplorer/VideTube",
     },
     {
         title: "LearnSight – Adaptive Learning Platform",
         description:
-            "Adaptive learning engine with diagnostic testing and personalized practice generation. Uses dynamic scoring algorithms to adjust difficulty in real time based on user performance across multiple cognitive dimensions, with Firebase Firestore for persistent multi-device sync.",
+            "LearnSight — Adaptive learning system with diagnostic testing and personalized practice generation, built using Next.js, Firebase, and data-driven logic. Uses dynamic scoring algorithms to adjust difficulty in real time.",
         tech: [
             "Next.js",
             "TypeScript",
@@ -82,32 +86,79 @@ export const projects: Project[] = [
         highlight:
             "Dynamic difficulty scoring engine adapts quiz content in real time based on cognitive performance metrics.",
         github: "https://github.com/dipexplorer/learnsight",
+        liveUrl: "https://lea-edi0.onrender.com/",
+        image: "/projects/learnsight_ui_ss/learnsight_stickman_infographic.png",
+        images: [
+            "/projects/learnsight_ui_ss/learnsight_stickman_infographic.png",
+            "/projects/learnsight_ui_ss/learnsight_live.png",
+            "/projects/learnsight_ui_ss/lea-edi0.onrender.com_student_diagnostic.png",
+            "/projects/learnsight_ui_ss/lea-edi0.onrender.com_student_diagnostic (1).png",
+            "/projects/learnsight_ui_ss/lea-edi0.onrender.com_student_diagnostic (2).png",
+            "/projects/learnsight_ui_ss/lea-edi0.onrender.com_student_diagnostic (3).png",
+            "/projects/learnsight_ui_ss/lea-edi0.onrender.com_student_diagnostic (4).png",
+            "/projects/learnsight_ui_ss/lea-edi0.onrender.com_student_diagnostic (5).png"
+        ],
+        features: [
+            "Real-time diagnostic testing",
+            "Adaptive difficulty scoring engine",
+            "Firestore real-time state sync"
+        ]
     },
     {
-        title: "Acadence – Intelligent Attendance System",
+        title: "AI Support Triage System",
         description:
-            "Role-based attendance management system with Supabase-backed server logic and RLS access control. Built predictive analytics module to simulate attendance scenarios and calculate eligibility thresholds, with a clean mobile-responsive dashboard UI.",
-        tech: ["Next.js", "Supabase", "TypeScript", "Tailwind CSS"],
+            "A high-performance support triage system that classifies, routes, and generates grounded responses across multiple domains without relying on LLM hallucination. Uses RAG pipelines with domain-specific vector stores.",
+        tech: ["Python", "RAG", "Vector DB", "LLM", "FastAPI"],
         highlight:
-            "Row Level Security + predictive analytics help students track and simulate eligibility across all courses.",
-        github: "https://github.com/dipexplorer/Acadence",
+            "Zero-hallucination AI triage engine using retrieval-augmented generation across multiple enterprise domains.",
+        github: "https://github.com/dipexplorer/AI-Support-Triage-System",
+        image: "/projects/ai_trainge_support_ui_ss/ai_triage_stickman_infographic.png",
+        images: [
+            "/projects/ai_trainge_support_ui_ss/ai_triage_stickman_infographic.png",
+            "/projects/ai_trainge_support_ui_ss/ai_triage_live.png",
+            "/projects/ai_trainge_support_ui_ss/localhost_8765_.png",
+            "/projects/ai_trainge_support_ui_ss/localhost_8765_ (1).png"
+        ]
     },
     {
-        title: "SidebarSync – LinkedIn AI Engagement",
+        title: "VideTube – Video Streaming Backend",
         description:
-            "Open-source Chrome extension that automates authentic LinkedIn engagement by analyzing posts and generating context-aware comments in any tone with a single click. Fully configurable tone settings (professional, casual, insightful) with flexible prompt engineering for personalized output.",
-        tech: ["JavaScript", "Chrome Extension API", "AI", "Prompt Engineering"],
+            "Backend system for a video platform with JWT access/refresh flow, media uploads, and modular API architecture using Node.js, Express, and MongoDB. Optimized using Redis caching and aggregation pipelines.",
+        tech: [
+            "Node.js",
+            "Express.js",
+            "MongoDB",
+            "Redis",
+            "JWT",
+            "Cloudinary",
+        ],
         highlight:
-            "Open-source LinkedIn AI engagement tool — context-aware comment generation with configurable tone and style.",
-        github: "https://github.com/RatLoopz/SidebarSync",
+            "Redis caching + MongoDB aggregation reduced database load and significantly improved API response times.",
+        github: "https://github.com/dipexplorer/VideTube",
+        image: "/projects/videtube_stickman_infographic.png",
+        images: [
+            "/projects/videtube_stickman_infographic.png"
+        ],
+        features: [
+            "JWT Access & Refresh token rotation",
+            "Redis caching layer optimization",
+            "Complex MongoDB aggregation pipelines"
+        ]
     },
     {
-        title: "Airbnb Clone – Full Stack Booking App",
+        title: "Stealth Protocol",
         description:
-            "Full-stack web application inspired by Airbnb, built with Node.js, Express, and MongoDB. Features property listing workflows, image uploads, booking management, user authentication, and interactive map-based search — deployed with complete CRUD functionality and MVC architecture.",
-        tech: ["Node.js", "Express.js", "MongoDB", "EJS", "Cloudinary", "Mapbox"],
+            "I'm always experimenting with new architectures and building new systems. Check out my GitHub profile to see my latest commits, active repositories, and ongoing open-source contributions.",
+        tech: ["TypeScript", "Rust", "Go", "Docker"],
         highlight:
-            "End-to-end property listing & booking platform with map-based search, image uploads, and full CRUD workflows.",
-        github: "https://github.com/dipexplorer/Airbnb-Project",
-    },
+            "Currently brewing something new...",
+        github: "https://github.com/dipexplorer",
+        image: "",
+        images: [],
+        features: [
+            "Continuous deployment pipelines",
+            "Exploring web3 and decentralized systems",
+            "Building scalable microservices"
+        ]
+    }
 ];

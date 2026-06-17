@@ -1,4 +1,5 @@
 import Projects from "@/sections/Projects";
+import Skills from "@/sections/Skills";
 import Navbar from "@/sections/NavBar";
 import Hero from "@/sections/Hero";
 import Contact from "@/sections/Contact";
@@ -51,6 +52,9 @@ export default async function Home() {
 
         {/* Projects Section */}
         <Projects />
+
+        {/* Skills / Tech Stack Section */}
+        <Skills />
 
         {/* Contact Section */}
         <Contact />

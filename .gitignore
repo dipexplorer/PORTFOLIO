@@ -49,3 +49,7 @@ next-env.d.ts
 *.pdf
 DESIGN.md
 SKILL.md
+
+# python testing
+.venv/
+test_*.py
