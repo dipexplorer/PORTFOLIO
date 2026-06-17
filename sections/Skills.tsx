@@ -332,8 +332,8 @@ export default function Skills() {
                 {/* ── Bottom "Secondary Protocols" ── */}
                 <div className="mt-24 relative w-full max-w-5xl mx-auto">
                     {/* Glowing Top Line */}
-                    <div className="absolute left-1/2 top-0 -translate-x-1/2 w-full max-w-2xl h-px bg-gradient-to-r from-transparent via-cyan-500/40 to-transparent" />
-                    <div className="absolute left-1/2 top-0 -translate-x-1/2 w-1/4 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent blur-[2px]" />
+                    <div className="absolute left-1/2 top-0 -translate-x-1/2 w-full max-w-2xl h-px bg-linear-to-r from-transparent via-cyan-500/40 to-transparent" />
+                    <div className="absolute left-1/2 top-0 -translate-x-1/2 w-1/4 h-[2px] bg-linear-to-r from-transparent via-cyan-400 to-transparent blur-[2px]" />
                     
                     <div className="pt-10 flex flex-col items-center">
                         <motion.div 
@@ -361,7 +361,7 @@ export default function Skills() {
                                     className="group relative px-4 py-2 rounded-lg border border-slate-800/80 bg-slate-900/40 hover:bg-slate-800/80 hover:border-cyan-500/50 hover:shadow-[0_0_15px_rgba(6,182,212,0.15)] transition-all duration-300 cursor-default overflow-hidden"
                                 >
                                     {/* Shine effect on hover */}
-                                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-500/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
+                                    <div className="absolute inset-0 bg-linear-to-r from-transparent via-cyan-500/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
                                     
                                     <span className="relative z-10 font-mono text-xs font-bold text-slate-400 group-hover:text-cyan-300 transition-colors flex items-center gap-2">
                                         <span className="text-slate-600 group-hover:text-cyan-500 transition-colors">~</span>
