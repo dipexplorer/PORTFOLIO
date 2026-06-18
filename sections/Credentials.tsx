@@ -59,24 +59,6 @@ export default function Credentials() {
             issuer: "InnoByte Services",
             date: "2024",
             link: "/certificates/innobyte_internship_certificate.jpeg"
-        },
-        {
-            title: "Core Contributor",
-            issuer: "GSSoC 2024",
-            date: "2024",
-            link: "/certificates/GSSOC_24_contributor_certificate.jpeg"
-        },
-        {
-            title: "Hacktoberfest Tree Plant Reward",
-            issuer: "Trees for Tribals, India",
-            date: "2024",
-            link: "/certificates/hacktober_25_tree_plant_certificate.jpeg"
-        },
-        {
-            title: "Paranox Certificate",
-            issuer: "Paranox",
-            date: "2024",
-            link: "/certificates/paranox_Dipjyoti Das__Certificate.pdf"
         }
     ];
 
