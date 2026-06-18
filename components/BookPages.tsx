@@ -61,59 +61,59 @@ export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
         return (
           <div className="flex flex-col justify-between h-full p-6 md:p-8 paper-grid relative">
             <div className="flex justify-between items-center text-[10px] text-cyan-700/60 font-mono border-b border-cyan-800/10 pb-2 mb-4">
-              <span>{"LOG_101 // SYSTEM_ARCHITECTURE"}</span>
+              <span>{"LOG_101 // PROBLEM_SOLVING"}</span>
               <span>P. 03</span>
             </div>
 
             <div className="flex-1 flex flex-col justify-center space-y-5">
               <div>
                 <span className="text-[10px] font-mono bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded border border-cyan-200/50 tracking-wider font-bold">
-                  ACADENCE_ENGINE // GEO_VALIDATION
+                  CHEGG_SME_LOGS
                 </span>
                 <h3 className="text-base font-black text-slate-800 font-serif mt-2 leading-snug">
-                  Geo-Spatial Attendance Architecture
+                  Computer Science Subject Matter Expert
                 </h3>
                 <p className="text-[10px] text-slate-500 font-mono mt-0.5">
-                  Action Log: Jan 2024 • Multi-Engine Deployment
+                  Action Log: Apr 2023 – Oct 2024 • Rating: 4.8/5.0
                 </p>
                 <ul className="mt-2 text-xs text-slate-700 space-y-1.5 list-none pl-0">
                   <li className="flex items-start gap-1.5">
                     <span className="text-cyan-600 select-none">▸</span>
-                    <span>Designed multi-engine architecture (Validation, Analytics) with Haversine GPS geofencing and Supabase Auth.</span>
+                    <span>Evaluated and authored solutions for 500+ complex technical problems across DSA, System Design, DBMS, and Networks.</span>
                   </li>
                   <li className="flex items-start gap-1.5">
                     <span className="text-cyan-600 select-none">▸</span>
-                    <span>Dockerized and deployed Next.js 15 App Router pipelines utilizing optimized Server Actions.</span>
+                    <span>Maintained top-tier quality metrics while breaking down advanced computing concepts for students.</span>
                   </li>
                 </ul>
               </div>
 
               <div className="border-t border-dashed border-cyan-900/10 pt-4">
                 <span className="text-[10px] font-mono bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded border border-cyan-200/50 tracking-wider font-bold">
-                  LEARNSIGHT // ADAPTIVE_AI
+                  GSSOC_PROJECT_LEADERSHIP
                 </span>
                 <h3 className="text-base font-black text-slate-800 font-serif mt-2 leading-snug">
-                  Adaptive Learning Diagnostic Engine
+                  Project Admin & Technical Mentor
                 </h3>
                 <p className="text-[10px] text-slate-500 font-mono mt-0.5">
-                  Action Log: Apr 2024 • Firestore Persistence
+                  Action Log: GSSoC 2025 • Role: Admin
                 </p>
                 <ul className="mt-2 text-xs text-slate-700 space-y-1.5 list-none pl-0">
                   <li className="flex items-start gap-1.5">
                     <span className="text-cyan-600 select-none">▸</span>
-                    <span>Developed a dynamic AI diagnostic engine adjusting real-time difficulty across 4 cognitive dimensions.</span>
+                    <span>Directed and mentored a team of 33+ contributors on LegalHub, enforcing strict code quality and GitHub workflows.</span>
                   </li>
                   <li className="flex items-start gap-1.5">
                     <span className="text-cyan-600 select-none">▸</span>
-                    <span>Integrated Firestore for real-time session state persistence and personalized path routing.</span>
+                    <span>Conducted rigorous code reviews for 80+ PRs, guiding junior developers through complex MVC architecture.</span>
                   </li>
                 </ul>
               </div>
             </div>
 
             <div className="border-t border-cyan-800/10 pt-4 flex justify-between items-center text-[9px] text-cyan-700/50 font-mono">
-              <span>HAVERSINE: SECURED</span>
-              <span>ROUTING: DYNAMIC</span>
+              <span>SOLUTIONS: 500+</span>
+              <span>MENTORSHIP: ACTIVE</span>
             </div>
           </div>
         );
@@ -167,10 +167,10 @@ export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
                 </span>
                 <nav className="mt-2 space-y-2">
                   {[
-                    { title: "LOG #101: Geo-Spatial Architecture", page: 2 },
-                    { title: "LOG #102: Open Source & AI Integration", page: 2 },
+                    { title: "LOG #101: Problem Solving & Mentorship", page: 2 },
+                    { title: "LOG #102: Open Source Impact", page: 2 },
                     { title: "LOG #201: Terminal CLI & Operations", page: 3 },
-                    { title: "LOG #202: System Diagnostics & Matrix", page: 3 },
+                    { title: "LOG #202: Engineering Philosophy", page: 3 },
                   ].map((item) => (
                     <button
                       key={item.title}
@@ -222,34 +222,12 @@ export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
         return (
           <div className="flex flex-col justify-between h-full p-6 md:p-8 paper-grid relative">
             <div className="flex justify-between items-center text-[10px] text-cyan-700/60 font-mono border-b border-cyan-800/10 pb-2 mb-4">
-              <span>{"LOG_102 // OPEN_SOURCE_LEADS"}</span>
+              <span>{"LOG_102 // OPEN_SOURCE_IMPACT"}</span>
               <span>P. 04</span>
             </div>
 
             <div className="flex-1 flex flex-col justify-center space-y-5">
               <div>
-                <span className="text-[10px] font-mono bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded border border-cyan-200/50 tracking-wider font-bold">
-                  GSSOC_25_LEGALHUB
-                </span>
-                <h3 className="text-base font-black text-slate-800 font-serif mt-2 leading-snug">
-                  AI Integration & WebSocket Stream
-                </h3>
-                <p className="text-[10px] text-slate-500 font-mono mt-0.5">
-                  Action Log: Mar 2025 – Jun 2025 • Project Admin
-                </p>
-                <ul className="mt-2 text-xs text-slate-700 space-y-1.5 list-none pl-0">
-                  <li className="flex items-start gap-1.5">
-                    <span className="text-cyan-600 select-none">▸</span>
-                    <span>Directed a team of 33+ contributors, merging 80+ PRs (ranked #53 on leaderboard).</span>
-                  </li>
-                  <li className="flex items-start gap-1.5">
-                    <span className="text-cyan-600 select-none">▸</span>
-                    <span>Integrated Socket.io for real-time channels and Mistral AI API for semantic query matching.</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="border-t border-dashed border-cyan-900/10 pt-4">
                 <span className="text-[10px] font-mono bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded border border-cyan-200/50 tracking-wider font-bold">
                   HACKTOBERFEST_24
                 </span>
@@ -257,16 +235,38 @@ export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
                   Global Distributed Contributions
                 </h3>
                 <p className="text-[10px] text-slate-500 font-mono mt-0.5">
-                  Action Log: Oct 2024 – Nov 2024 • Rank #27
+                  Action Log: Oct 2024 – Nov 2024 • Rank: #27 Globally
                 </p>
                 <ul className="mt-2 text-xs text-slate-700 space-y-1.5 list-none pl-0">
                   <li className="flex items-start gap-1.5">
                     <span className="text-cyan-600 select-none">▸</span>
-                    <span>Successfully merged 83+ PRs across multiple international repositories.</span>
+                    <span>Successfully merged 83+ PRs across multiple international open-source repositories.</span>
                   </li>
                   <li className="flex items-start gap-1.5">
                     <span className="text-cyan-600 select-none">▸</span>
-                    <span>Earned SuperContributor badge with 6/6 fast-approved core pipeline optimizations.</span>
+                    <span>Earned SuperContributor badge with 6/6 fast-approved core pipeline optimizations and backend bug fixes.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="border-t border-dashed border-cyan-900/10 pt-4">
+                <span className="text-[10px] font-mono bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded border border-cyan-200/50 tracking-wider font-bold">
+                  GSSOC_CORE_CONTRIBUTOR
+                </span>
+                <h3 className="text-base font-black text-slate-800 font-serif mt-2 leading-snug">
+                  High-Impact System Patches
+                </h3>
+                <p className="text-[10px] text-slate-500 font-mono mt-0.5">
+                  Action Log: 2024 - 2025 • Total Merged: 160+
+                </p>
+                <ul className="mt-2 text-xs text-slate-700 space-y-1.5 list-none pl-0">
+                  <li className="flex items-start gap-1.5">
+                    <span className="text-cyan-600 select-none">▸</span>
+                    <span>Consistently ranked in the top percentiles (#53 on GSSoC leaderboard) for volume and quality of code shipped.</span>
+                  </li>
+                  <li className="flex items-start gap-1.5">
+                    <span className="text-cyan-600 select-none">▸</span>
+                    <span>Specialized in resolving critical backend bottlenecks, optimizing MongoDB aggregations, and securing API endpoints.</span>
                   </li>
                 </ul>
               </div>
@@ -282,58 +282,30 @@ export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
         return (
           <div className="flex flex-col justify-between h-full p-6 md:p-8 paper-grid relative">
             <div className="flex justify-between items-center text-[10px] text-cyan-700/60 font-mono border-b border-cyan-800/10 pb-2 mb-4">
-              <span>SECTION_03_SKILLS</span>
+              <span>SECTION_03_PHILOSOPHY</span>
               <span>P. 06</span>
             </div>
 
             <div className="flex-1 flex flex-col justify-center space-y-4">
               <div>
                 <span className="text-[9px] font-mono text-cyan-600/70 tracking-widest uppercase flex items-center gap-1.5 mb-2">
-                  SKILLS_MATRIX // DIRECTORY
+                  ENGINEERING_MINDSET // PRINCIPLES
                 </span>
-                <div className="space-y-3 font-mono text-[10px] text-slate-700">
-                  {/* Languages */}
-                  <div className="space-y-1">
-                    <div className="flex justify-between text-[9px] text-slate-500">
-                      <span>[LANGUAGES]</span>
-                      <span>TS / JS / Python / Java / SQL</span>
-                    </div>
-                    <div className="w-full h-1 bg-cyan-900/10 rounded-full overflow-hidden">
-                      <div className="w-[95%] h-full bg-cyan-600" />
-                    </div>
+                
+                <div className="space-y-4 text-xs text-slate-700 leading-relaxed mt-4">
+                  <div>
+                    <h4 className="font-bold text-slate-800 font-serif">I. Scalability First</h4>
+                    <p className="text-[11px] mt-1">Systems should be designed to handle growth. I prioritize robust database indexing, caching layers (Redis), and stateless backend nodes to ensure high availability under load.</p>
                   </div>
-
-                  {/* Frameworks */}
-                  <div className="space-y-1">
-                    <div className="flex justify-between text-[9px] text-slate-500">
-                      <span>[FRAMEWORKS]</span>
-                      <span>Next.js 15 / React / Express / Mistral AI</span>
-                    </div>
-                    <div className="w-full h-1 bg-cyan-900/10 rounded-full overflow-hidden">
-                      <div className="w-[90%] h-full bg-cyan-600" />
-                    </div>
+                  
+                  <div>
+                    <h4 className="font-bold text-slate-800 font-serif">II. Modular Architecture</h4>
+                    <p className="text-[11px] mt-1">Clean code is maintainable code. I enforce strict MVC patterns, separated services/controllers, and single-responsibility components in every repository I touch.</p>
                   </div>
-
-                  {/* Databases */}
-                  <div className="space-y-1">
-                    <div className="flex justify-between text-[9px] text-slate-500">
-                      <span>[DATABASES]</span>
-                      <span>PostgreSQL / MongoDB / Supabase / Redis</span>
-                    </div>
-                    <div className="w-full h-1 bg-cyan-900/10 rounded-full overflow-hidden">
-                      <div className="w-[85%] h-full bg-cyan-600" />
-                    </div>
-                  </div>
-
-                  {/* Devops / Tools */}
-                  <div className="space-y-1">
-                    <div className="flex justify-between text-[9px] text-slate-500">
-                      <span>[OPERATIONS]</span>
-                      <span>GitHub Actions / Docker / Jest / Socket.io</span>
-                    </div>
-                    <div className="w-full h-1 bg-cyan-900/10 rounded-full overflow-hidden">
-                      <div className="w-[85%] h-full bg-cyan-600" />
-                    </div>
+                  
+                  <div>
+                    <h4 className="font-bold text-slate-800 font-serif">III. CI/CD & Automation</h4>
+                    <p className="text-[11px] mt-1">Manual deployment is a failure of engineering. I automate testing (Jest) and containerize applications (Docker) via GitHub Actions to ensure predictable, zero-downtime shipping.</p>
                   </div>
                 </div>
               </div>
@@ -344,26 +316,26 @@ export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
                 <div className="grid grid-cols-2 gap-1.5 mt-1 text-[9px]">
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    <span>JEST_COVERAGE: 11_MODS</span>
+                    <span>MINDSET: SCALABLE</span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    <span>GLOBAL_RANK: #27</span>
+                    <span>CODE: MODULAR</span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    <span>PRS_MERGED: 160+</span>
+                    <span>DEPLOY: AUTOMATED</span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    <span>AI_INTEGRATION: ACTIVE</span>
+                    <span>ARCH: SOLID</span>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="border-t border-cyan-800/10 pt-4 flex justify-between items-center text-[9px] text-cyan-700/50 font-mono">
-              <span>SKILLS_REF: STACK_v2.0</span>
+              <span>MANIFESTO: COMPILED</span>
               <span>INDEX: ALL_OK</span>
             </div>
           </div>
