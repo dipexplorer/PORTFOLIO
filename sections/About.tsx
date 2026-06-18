@@ -71,13 +71,13 @@ export default function About() {
                                 </p>
                                 
                                 <p className="pt-4 border-t border-slate-800/50">
-                                    <span className="text-slate-500">/*</span>
+                                    <span className="text-slate-500">{"/*"}</span>
                                     <br />
                                     &nbsp;&nbsp;When I&apos;m not optimizing queries or deploying containers,<br />
                                     &nbsp;&nbsp;you can find me exploring the latest in ML models,<br />
                                     &nbsp;&nbsp;tweaking system configurations, or conceptualizing my next build.
                                     <br />
-                                    <span className="text-slate-500">*/</span>
+                                    <span className="text-slate-500">{"*/"}</span>
                                 </p>
 
                                 {/* Blinking cursor */}

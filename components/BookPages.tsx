@@ -61,55 +61,59 @@ export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
         return (
           <div className="flex flex-col justify-between h-full p-6 md:p-8 paper-grid relative">
             <div className="flex justify-between items-center text-[10px] text-cyan-700/60 font-mono border-b border-cyan-800/10 pb-2 mb-4">
-              <span>{"LOG_101 // BACKEND_OPTIMIZATION"}</span>
+              <span>{"LOG_101 // SYSTEM_ARCHITECTURE"}</span>
               <span>P. 03</span>
             </div>
 
             <div className="flex-1 flex flex-col justify-center space-y-5">
               <div>
                 <span className="text-[10px] font-mono bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded border border-cyan-200/50 tracking-wider font-bold">
-                  EXPRESS_MVC_TUNING
+                  ACADENCE_ENGINE // GEO_VALIDATION
                 </span>
                 <h3 className="text-base font-black text-slate-800 font-serif mt-2 leading-snug">
-                  E-Commerce Caching & Load Optimization
+                  Geo-Spatial Attendance Architecture
                 </h3>
                 <p className="text-[10px] text-slate-500 font-mono mt-0.5">
-                  Action Log: Jan 2024 • Module: InnoByte
+                  Action Log: Jan 2024 • Multi-Engine Deployment
                 </p>
                 <ul className="mt-2 text-xs text-slate-700 space-y-1.5 list-none pl-0">
                   <li className="flex items-start gap-1.5">
                     <span className="text-cyan-600 select-none">▸</span>
-                    <span>Designed modular Express.js MVC routing structure with clean controller schemas.</span>
+                    <span>Designed multi-engine architecture (Validation, Analytics) with Haversine GPS geofencing and Supabase Auth.</span>
                   </li>
                   <li className="flex items-start gap-1.5">
                     <span className="text-cyan-600 select-none">▸</span>
-                    <span>Integrated a Redis caching layer for heavy catalog requests, resulting in a ~60% reduction in MongoDB load.</span>
+                    <span>Dockerized and deployed Next.js 15 App Router pipelines utilizing optimized Server Actions.</span>
                   </li>
                 </ul>
               </div>
 
               <div className="border-t border-dashed border-cyan-900/10 pt-4">
                 <span className="text-[10px] font-mono bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded border border-cyan-200/50 tracking-wider font-bold">
-                  CS_PROBLEM_SOLVING
+                  LEARNSIGHT // ADAPTIVE_AI
                 </span>
                 <h3 className="text-base font-black text-slate-800 font-serif mt-2 leading-snug">
-                  Chegg Technical Support Logs
+                  Adaptive Learning Diagnostic Engine
                 </h3>
                 <p className="text-[10px] text-slate-500 font-mono mt-0.5">
-                  Action Log: Apr 2023 – Oct 2024 • Rating: 4.8/5.0
+                  Action Log: Apr 2024 • Firestore Persistence
                 </p>
                 <ul className="mt-2 text-xs text-slate-700 space-y-1.5 list-none pl-0">
                   <li className="flex items-start gap-1.5">
                     <span className="text-cyan-600 select-none">▸</span>
-                    <span>Analyzed and solved 500+ complex technical problems in data structures, SQL databases, and computer networks.</span>
+                    <span>Developed a dynamic AI diagnostic engine adjusting real-time difficulty across 4 cognitive dimensions.</span>
+                  </li>
+                  <li className="flex items-start gap-1.5">
+                    <span className="text-cyan-600 select-none">▸</span>
+                    <span>Integrated Firestore for real-time session state persistence and personalized path routing.</span>
                   </li>
                 </ul>
               </div>
             </div>
 
             <div className="border-t border-cyan-800/10 pt-4 flex justify-between items-center text-[9px] text-cyan-700/50 font-mono">
-              <span>DB_LOAD: -60%</span>
-              <span>RATING: 4.8/5.0</span>
+              <span>HAVERSINE: SECURED</span>
+              <span>ROUTING: DYNAMIC</span>
             </div>
           </div>
         );
@@ -163,8 +167,8 @@ export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
                 </span>
                 <nav className="mt-2 space-y-2">
                   {[
-                    { title: "LOG #101: Backend & DB Optimization", page: 2 },
-                    { title: "LOG #102: Open Source & AI Projects", page: 2 },
+                    { title: "LOG #101: Geo-Spatial Architecture", page: 2 },
+                    { title: "LOG #102: Open Source & AI Integration", page: 2 },
                     { title: "LOG #201: Terminal CLI & Operations", page: 3 },
                     { title: "LOG #202: System Diagnostics & Matrix", page: 3 },
                   ].map((item) => (
@@ -292,10 +296,10 @@ export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
                   <div className="space-y-1">
                     <div className="flex justify-between text-[9px] text-slate-500">
                       <span>[LANGUAGES]</span>
-                      <span>TS / JS / Python / SQL / C++</span>
+                      <span>TS / JS / Python / Java / SQL</span>
                     </div>
                     <div className="w-full h-1 bg-cyan-900/10 rounded-full overflow-hidden">
-                      <div className="w-[90%] h-full bg-cyan-600" />
+                      <div className="w-[95%] h-full bg-cyan-600" />
                     </div>
                   </div>
 
@@ -303,10 +307,10 @@ export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
                   <div className="space-y-1">
                     <div className="flex justify-between text-[9px] text-slate-500">
                       <span>[FRAMEWORKS]</span>
-                      <span>Next.js / React / Express / Node.js</span>
+                      <span>Next.js 15 / React / Express / Mistral AI</span>
                     </div>
                     <div className="w-full h-1 bg-cyan-900/10 rounded-full overflow-hidden">
-                      <div className="w-[85%] h-full bg-cyan-600" />
+                      <div className="w-[90%] h-full bg-cyan-600" />
                     </div>
                   </div>
 
@@ -314,10 +318,10 @@ export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
                   <div className="space-y-1">
                     <div className="flex justify-between text-[9px] text-slate-500">
                       <span>[DATABASES]</span>
-                      <span>PostgreSQL / MongoDB / Redis / Firestore</span>
+                      <span>PostgreSQL / MongoDB / Supabase / Redis</span>
                     </div>
                     <div className="w-full h-1 bg-cyan-900/10 rounded-full overflow-hidden">
-                      <div className="w-[80%] h-full bg-cyan-600" />
+                      <div className="w-[85%] h-full bg-cyan-600" />
                     </div>
                   </div>
 
@@ -325,10 +329,10 @@ export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
                   <div className="space-y-1">
                     <div className="flex justify-between text-[9px] text-slate-500">
                       <span>[OPERATIONS]</span>
-                      <span>Git / GitHub / Docker / CI/CD / Linux</span>
+                      <span>GitHub Actions / Docker / Jest / Socket.io</span>
                     </div>
                     <div className="w-full h-1 bg-cyan-900/10 rounded-full overflow-hidden">
-                      <div className="w-[75%] h-full bg-cyan-600" />
+                      <div className="w-[85%] h-full bg-cyan-600" />
                     </div>
                   </div>
                 </div>
@@ -340,19 +344,19 @@ export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
                 <div className="grid grid-cols-2 gap-1.5 mt-1 text-[9px]">
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    <span>REST_API: OK</span>
+                    <span>JEST_COVERAGE: 11_MODS</span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    <span>WS_SOCKETS: OK</span>
+                    <span>GLOBAL_RANK: #27</span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    <span>DB_OPTIM: -60% LOAD</span>
+                    <span>PRS_MERGED: 160+</span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    <span>MVC_ARCH: VERIFIED</span>
+                    <span>AI_INTEGRATION: ACTIVE</span>
                   </div>
                 </div>
               </div>
