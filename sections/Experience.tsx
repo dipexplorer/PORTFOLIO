@@ -2,13 +2,25 @@
 
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Briefcase, GitPullRequest, Code2, Users, Trophy, Database, Server } from "lucide-react";
+import { Briefcase, GitPullRequest, Code2, Users, Trophy, Database, Server, Activity } from "lucide-react";
 
 export default function Experience() {
     const containerRef = useRef(null);
     const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
     const experiences = [
+        {
+            id: 0,
+            role: "Creator & Lead Developer",
+            company: "SahiDawa",
+            date: "Jan 2025 – Present",
+            location: "Remote",
+            icon: <Activity className="w-5 h-5 text-teal-400" />,
+            points: [
+                "Leading the development of an open-source platform that helps citizens verify medicines and report suspicious drugs.",
+                "Architecting the system for low-bandwidth environments with multi-lingual access across India, built with Next.js and Firebase."
+            ]
+        },
         {
             id: 1,
             role: "Project Admin – LegalHub",
