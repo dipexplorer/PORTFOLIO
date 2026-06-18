@@ -12,7 +12,7 @@ import {
     SiMongodb, SiPostgresql, SiRedis, SiDocker, SiFirebase,
     SiNumpy, SiPandas, SiScikitlearn, SiHuggingface, SiLangchain,
     SiVercel, SiSupabase, SiSocketdotio,
-    SiThreedotjs, SiShadcnui, SiRadixui, SiOpenjdk, SiGithubactions, SiPostman, SiJest
+    SiShadcnui, SiRadixui, SiOpenjdk, SiGithubactions, SiPostman, SiJest
 } from "react-icons/si";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -33,7 +33,6 @@ const CATEGORIES: Category[] = [
             { name: "TypeScript", level: 85, desc: "Static type-safe JavaScript", icon: <SiTypescript />, badge: "CORE" },
             { name: "Tailwind CSS", level: 95, desc: "Utility-first CSS framework", icon: <SiTailwindcss />, badge: "CORE" },
             { name: "Framer Motion", level: 80, desc: "Production animation library", icon: <SiFramer />, badge: "ACTIVE" },
-            { name: "Three.js", level: 65, desc: "3D WebGL rendering", icon: <SiThreedotjs />, badge: "LEARNING" },
             { name: "shadcn/ui", level: 90, desc: "Accessible UI components", icon: <SiShadcnui />, badge: "CORE" },
             { name: "Radix UI", level: 85, desc: "Unstyled primitive components", icon: <SiRadixui />, badge: "ACTIVE" },
         ]
