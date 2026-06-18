@@ -121,9 +121,9 @@ export default function About() {
                         </div>
 
                         {/* Signature / Personal Touch Card */}
-                        <div className="p-8 rounded-xl bg-gradient-to-br from-cyan-950/20 to-slate-900/40 border border-cyan-800/30 relative overflow-hidden flex-1 flex flex-col justify-center">
+                        <div className="p-8 rounded-xl bg-linear-to-br from-cyan-950/20 to-slate-900/40 border border-cyan-800/30 relative overflow-hidden flex-1 flex flex-col justify-center">
                             {/* Decorative background grid */}
-                            <div className="absolute inset-0 bg-[linear-gradient(to_right,#06b6d41a_1px,transparent_1px),linear-gradient(to_bottom,#06b6d41a_1px,transparent_1px)] bg-[size:24px_24px] opacity-30 [mask-image:linear-gradient(to_bottom,white,transparent)]"></div>
+                            <div className="absolute inset-0 bg-[linear-gradient(to_right,#06b6d41a_1px,transparent_1px),linear-gradient(to_bottom,#06b6d41a_1px,transparent_1px)] bg-size-[24px_24px] opacity-30 mask-[linear-gradient(to_bottom,white,transparent)]"></div>
                             
                             <div className="relative z-10">
                                 <p className="text-sm text-slate-400 italic mb-6 leading-relaxed">

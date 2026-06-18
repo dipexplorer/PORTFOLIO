@@ -216,7 +216,7 @@ export default function MiniTerminal() {
             {line.html ? (
                 <pre className="whitespace-pre font-mono text-[10px] sm:text-xs leading-relaxed font-medium">{line.text}</pre>
             ) : (
-                <span className="break-words">{line.text}</span>
+                <span className="wrap-break-word">{line.text}</span>
             )}
           </div>
         ))}
