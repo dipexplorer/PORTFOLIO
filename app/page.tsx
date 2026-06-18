@@ -4,6 +4,7 @@ import Navbar from "@/sections/NavBar";
 import Hero from "@/sections/Hero";
 import Contact from "@/sections/Contact";
 import Credentials from "@/sections/Credentials";
+import Experience from "@/sections/Experience";
 import AppEffects from "@/components/AppEffects";
 import Book from "@/components/Book";
 
@@ -25,8 +26,8 @@ export default async function Home() {
         {/* Hero Section */}
         <Hero contributions={contributions} />
 
-        {/* Experience Section - Blueprints Logbook */}
-        <section id="experience" className="w-full py-20 md:py-28 relative overflow-hidden border-t border-b border-cyan-500/10">
+        {/* Interactive Logbook */}
+        <section id="logbook" className="w-full py-20 md:py-28 relative overflow-hidden border-t border-b border-cyan-500/10">
           <div className="mx-auto max-w-7xl px-4 md:px-6 relative z-10">
             {/* Section Header */}
             <div className="flex flex-col items-center mb-12 text-center">
@@ -50,6 +51,9 @@ export default async function Home() {
             </div>
           </div>
         </section>
+
+        {/* Experience Timeline Section */}
+        <Experience />
 
         {/* Credentials & Achievements Vault */}
         <Credentials />
