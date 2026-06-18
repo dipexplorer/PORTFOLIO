@@ -68,6 +68,69 @@ export default function BookPages({ currentPage }: BookPagesProps) {
             </div>
           </div>
         );
+      case 2:
+        return (
+          <div className="flex flex-col justify-between h-full p-6 md:p-8 paper-grid relative">
+            <div className="flex justify-between items-center text-[10px] text-cyan-700/60 font-mono border-b border-cyan-800/10 pb-2 mb-4">
+              <span>{"SYS_ENV // COMMAND_CENTER"}</span>
+              <span>P. 03</span>
+            </div>
+
+            <div className="flex-1 flex flex-col justify-center space-y-6">
+              <div>
+                <span className="text-[10px] font-mono text-cyan-600/70 tracking-widest uppercase flex items-center gap-1.5 mb-2 border-b border-cyan-800/10 pb-1">
+                  <Terminal className="w-3.5 h-3.5 text-cyan-600" />
+                  WORKSPACE_SETUP
+                </span>
+                
+                <div className="space-y-4 font-mono text-[11px] text-slate-700 mt-4">
+                  <div className="bg-slate-900 text-slate-300 p-4 rounded-lg shadow-inner border border-slate-800 relative overflow-hidden">
+                    {/* ASCII Art OS Logo (Linux) */}
+                    <pre className="text-[6px] leading-[6px] text-cyan-500/30 absolute right-2 top-2 select-none">
+                      {`
+         _
+       | |
+       | |__
+       | '_ \\
+       | | | |
+       |_| |_|
+                      `}
+                    </pre>
+                    <div className="relative z-10 space-y-2">
+                      <div className="flex">
+                        <span className="text-cyan-500 w-24">OS:</span>
+                        <span className="text-slate-100">Linux (Core Unix Kernel)</span>
+                      </div>
+                      <div className="flex">
+                        <span className="text-cyan-500 w-24">EDITOR:</span>
+                        <span className="text-slate-100">VS Code (High Performance)</span>
+                      </div>
+                      <div className="flex">
+                        <span className="text-cyan-500 w-24">SHELL:</span>
+                        <span className="text-slate-100">ZSH / Bash</span>
+                      </div>
+                      <div className="flex">
+                        <span className="text-cyan-500 w-24">WORKFLOW:</span>
+                        <span className="text-slate-100">Keyboard-centric, CLI Heavy</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <p className="text-xs text-slate-600 leading-relaxed italic border-l-2 border-cyan-600/30 pl-3">
+                  &quot;A developer&apos;s environment is the physical manifestation of their mind. Keep it clean, keep it fast, and run it on Linux.&quot;
+                </p>
+              </div>
+            </div>
+
+            <div className="border-t border-cyan-800/10 pt-4 flex justify-between items-center text-[9px] text-cyan-700/50 font-mono">
+              <span>STATUS: OPTIMIZED</span>
+              <span>UPTIME: 99.9%</span>
+            </div>
+          </div>
+        );
       default:
         return null;
     }
@@ -131,6 +194,48 @@ export default function BookPages({ currentPage }: BookPagesProps) {
             <div className="border-t border-cyan-800/10 pt-4 flex justify-between items-center text-[9px] text-cyan-700/50 font-mono">
               <span>CLI EMULATOR v1.0</span>
               <span>ACADEMIA STAMP: OK</span>
+            </div>
+          </div>
+        );
+      case 2:
+        return (
+          <div className="flex flex-col justify-between h-full p-6 md:p-8 paper-grid relative">
+            <div className="flex justify-between items-center text-[10px] text-cyan-700/60 font-mono border-b border-cyan-800/10 pb-2 mb-4">
+              <span>{"LOG_201 // CURRENT_OPERATIONS"}</span>
+              <span>P. 04</span>
+            </div>
+
+            <div className="flex-1 flex flex-col justify-center space-y-6">
+              <div>
+                <span className="text-[10px] font-mono text-cyan-600/70 tracking-widest uppercase flex items-center gap-1.5 mb-2 border-b border-cyan-800/10 pb-1">
+                  ACTIVE_RESEARCH_PROTOCOLS
+                </span>
+                
+                <div className="space-y-5 text-xs text-slate-700 leading-relaxed mt-4">
+                  <div className="relative pl-4 border-l border-cyan-200">
+                    <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
+                    <h4 className="font-bold text-slate-800 font-serif text-sm">Advanced AI & ML</h4>
+                    <p className="text-[11px] mt-1 text-slate-600">Deep diving into the mathematical foundations of neural networks, RAG (Retrieval-Augmented Generation) architectures, and fine-tuning Large Language Models for production deployments.</p>
+                  </div>
+                  
+                  <div className="relative pl-4 border-l border-cyan-200">
+                    <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <h4 className="font-bold text-slate-800 font-serif text-sm">Cyber Security</h4>
+                    <p className="text-[11px] mt-1 text-slate-600">Exploring modern web vulnerabilities, penetration testing methodologies, and securing high-traffic API endpoints against sophisticated attack vectors.</p>
+                  </div>
+                  
+                  <div className="relative pl-4 border-l border-cyan-200">
+                    <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                    <h4 className="font-bold text-slate-800 font-serif text-sm">Distributed Systems</h4>
+                    <p className="text-[11px] mt-1 text-slate-600">Studying scalable microservices, message brokering, and high-availability backend patterns to support massive concurrent traffic.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="border-t border-cyan-800/10 pt-4 flex justify-between items-center text-[9px] text-cyan-700/50 font-mono">
+              <span>RESEARCH_NODE: ACTIVE</span>
+              <span>KNOWLEDGE_BASE: EXPANDING</span>
             </div>
           </div>
         );
