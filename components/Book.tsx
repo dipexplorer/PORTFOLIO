@@ -88,7 +88,7 @@ export default function Book() {
               
               {/* Main Book Shell */}
               <div className="relative z-10">
-                <BookPages currentPage={currentPage} />
+                <BookPages currentPage={currentPage} goToPage={goToPage} />
               </div>
             </motion.div>
           )}

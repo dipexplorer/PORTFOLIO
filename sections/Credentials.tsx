@@ -12,18 +12,20 @@ export default function Credentials() {
         {
             title: "Hacktoberfest 2024",
             role: "SuperContributor",
-            image: "/certificates/current_hacktoberfest_hollopin_badges.png",
+            image: "https://holopin.io/@dipexplorer",
             fallbackIcon: <Trophy className="w-10 h-10 text-rose-500" />,
             glow: "shadow-rose-500/20",
-            border: "border-rose-500/30"
+            border: "border-rose-500/30",
+            linkLabel: "Official Profile"
         },
         {
             title: "GSSoC 2025",
             role: "Project Admin",
-            image: "", // No specific badge image, fallback to icon
+            image: "/certificates/GSSOC_25_project_admin_Certificate_Dipjyoti_Das.png",
             fallbackIcon: <ShieldCheck className="w-10 h-10 text-amber-500" />,
             glow: "shadow-amber-500/20",
-            border: "border-amber-500/30"
+            border: "border-amber-500/30",
+            linkLabel: "View Certificate"
         },
         {
             title: "GSSoC 2024",
@@ -31,7 +33,8 @@ export default function Credentials() {
             image: "/certificates/gssoc24_contributor_badges.jpeg",
             fallbackIcon: <Award className="w-10 h-10 text-emerald-500" />,
             glow: "shadow-emerald-500/20",
-            border: "border-emerald-500/30"
+            border: "border-emerald-500/30",
+            linkLabel: "View Badge"
         }
     ];
 
@@ -95,24 +98,26 @@ export default function Credentials() {
                         </h3>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                             {badges.map((badge, i) => (
-                                <div key={i} className={`p-6 rounded-xl bg-slate-900/40 border hover:bg-slate-800/60 transition-all group flex flex-col items-center text-center shadow-lg ${badge.glow} ${badge.border}`}>
+                                <a 
+                                    key={i} 
+                                    href={badge.image || "#"}
+                                    target={badge.image ? "_blank" : undefined}
+                                    rel={badge.image ? "noopener noreferrer" : undefined}
+                                    className={`p-6 rounded-xl bg-slate-900/40 border hover:bg-slate-800/60 transition-all group flex flex-col items-center text-center shadow-lg ${badge.image ? "cursor-pointer" : "cursor-default"} ${badge.glow} ${badge.border}`}
+                                >
                                     <div className="w-20 h-20 mb-4 rounded-full bg-slate-950/80 flex items-center justify-center overflow-hidden border border-slate-800 relative">
-                                        {/* Image overlay (shows if user adds image, otherwise falls back to icon) */}
-                                        <div className="absolute inset-0 flex items-center justify-center opacity-50 group-hover:opacity-100 transition-opacity">
+                                        <div className="flex items-center justify-center opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">
                                             {badge.fallbackIcon}
                                         </div>
-                                        {/* React img tag handling missing src gracefully */}
-                                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                                        <img 
-                                            src={badge.image} 
-                                            alt={badge.title} 
-                                            className="w-full h-full object-cover relative z-10"
-                                            onError={(e) => { e.currentTarget.style.display = 'none'; }} 
-                                        />
                                     </div>
                                     <div className="text-sm font-bold text-slate-200 mb-1">{badge.title}</div>
                                     <div className="text-[10px] font-mono text-cyan-500/80 uppercase tracking-widest">{badge.role}</div>
-                                </div>
+                                    {badge.image && (
+                                        <div className="mt-3 text-[9px] text-slate-500 flex items-center gap-1 group-hover:text-cyan-400 transition-colors">
+                                            <ExternalLink className="w-3 h-3" /> {badge.linkLabel || "View Badge"}
+                                        </div>
+                                    )}
+                                </a>
                             ))}
                         </div>
                     </motion.div>
