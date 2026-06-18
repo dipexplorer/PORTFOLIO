@@ -8,8 +8,8 @@ import BookPages from "./BookPages";
 
 export default function Book() {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1); // Spreads: 1, 2, 3
-  const totalSpreads = 3;
+  const [currentPage, setCurrentPage] = useState(1); // Spreads: 1
+  const totalSpreads = 1;
 
   const goToPage = (pageNumber: number) => {
     if (pageNumber >= 1 && pageNumber <= totalSpreads) {
@@ -88,7 +88,7 @@ export default function Book() {
               
               {/* Main Book Shell */}
               <div className="relative z-10">
-                <BookPages currentPage={currentPage} goToPage={goToPage} />
+                <BookPages currentPage={currentPage} />
               </div>
             </motion.div>
           )}

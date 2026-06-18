@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Briefcase, GitPullRequest, Code2, Users, Trophy, Database, Server, Activity } from "lucide-react";
+import { Briefcase, GitPullRequest, Code2, Trophy, Database, Server, Activity } from "lucide-react";
 
 export default function Experience() {
     const containerRef = useRef(null);
