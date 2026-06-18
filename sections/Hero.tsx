@@ -76,19 +76,25 @@ export default function Hero({ contributions }: { contributions: Contribution[] 
 
                         {/* Description */}
                         <motion.p variants={itemVariants} className="text-xs md:text-sm text-slate-400 leading-relaxed max-w-lg font-mono">
+                            <span className="text-slate-500">{"// Led "}</span>
+                            <span className="text-cyan-400">33+ open-source contributors</span>
+                            <span className="text-slate-500">{" as a "}</span>
+                            <span className="text-slate-200">20-year-old student</span>
+                            <span className="text-slate-500">{"."}</span>
+                            <br />
                             <span className="text-slate-500">{"// Building "}</span>
-                            <span className="text-slate-200">robust backend systems</span>
-                            <span className="text-slate-500">{", "}</span>
-                            <span className="text-slate-200">distributed architectures</span>
-                            <span className="text-slate-500">{" and "}</span>
-                            <span className="text-cyan-400">AI-powered platforms</span>
-                            <span className="text-slate-500">.</span>
+                            <span className="text-slate-200">SahiDawa</span>
+                            <span className="text-slate-500">{" — a medicine safety platform for "}</span>
+                            <span className="text-cyan-400">India</span>
+                            <span className="text-slate-500">{"."}</span>
                             <br />
                             <span className="text-slate-500">{"// Specializing in "}</span>
-                            <span className="text-slate-200">real-time Socket communication</span>
-                            <span className="text-slate-500">{" and "}</span>
-                            <span className="text-cyan-400">database optimization</span>
-                            <span className="text-slate-500">.</span>
+                            <span className="text-slate-200">real-time systems</span>
+                            <span className="text-slate-500">{", "}</span>
+                            <span className="text-slate-200">backend architecture</span>
+                            <span className="text-slate-500">{" & "}</span>
+                            <span className="text-cyan-400">AI integration</span>
+                            <span className="text-slate-500">{"."}</span>
                         </motion.p>
 
                         {/* Social Links */}

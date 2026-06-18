@@ -50,7 +50,7 @@ export default function Experience() {
             id: 3,
             role: "Semifinalist – LearnSight",
             company: "Hack-A-Thon: AI for Education 2025",
-            date: "Early 2025",
+            date: "Feb 2025",
             location: "Remote",
             icon: <Trophy className="w-5 h-5 text-yellow-400" />,
             points: [
@@ -62,7 +62,7 @@ export default function Experience() {
             id: 4,
             role: "Full Stack Developer Intern",
             company: "InnoByte Services",
-            date: "Late 2024",
+            date: "Oct – Dec 2024",
             location: "Remote",
             icon: <Database className="w-5 h-5 text-blue-400" />,
             points: [
@@ -74,7 +74,7 @@ export default function Experience() {
             id: 5,
             role: "Open Source Contributor",
             company: "GSSoC Ext & Hacktoberfest",
-            date: "Oct 2024 – Nov 2025",
+            date: "Oct – Nov 2024",
             location: "Remote",
             icon: <GitPullRequest className="w-5 h-5 text-rose-400" />,
             points: [

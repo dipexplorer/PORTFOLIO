@@ -2,17 +2,17 @@
 
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Terminal, Code2, Cpu, Activity } from "lucide-react";
+import { Code2, Activity, GitPullRequest, Users, Terminal } from "lucide-react";
 
 export default function About() {
     const containerRef = useRef(null);
     const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
     const stats = [
-        { icon: <Terminal className="w-5 h-5" />, value: "3+", label: "YRS_EXPERIENCE" },
-        { icon: <Code2 className="w-5 h-5" />, value: "15+", label: "SYSTEMS_BUILT" },
-        { icon: <Cpu className="w-5 h-5" />, value: "3", label: "AI_MODELS_INTEGRATED" },
-        { icon: <Activity className="w-5 h-5" />, value: "100%", label: "UPTIME_FOCUS" },
+        { icon: <GitPullRequest className="w-5 h-5" />, value: "160+", label: "OPEN_SOURCE_PRS" },
+        { icon: <Users className="w-5 h-5" />, value: "33+", label: "CONTRIBUTORS_LED" },
+        { icon: <Code2 className="w-5 h-5" />, value: "500+", label: "PROBLEMS_SOLVED" },
+        { icon: <Activity className="w-5 h-5" />, value: "4.8★", label: "QUALITY_RATING" },
     ];
 
     return (
@@ -127,7 +127,7 @@ export default function About() {
                             
                             <div className="relative z-10">
                                 <p className="text-sm text-slate-400 italic mb-6 leading-relaxed">
-                                    &quot;Technology is only as good as the impact it makes. I don&apos;t just write code; I engineer digital experiences that push boundaries.&quot;
+                                    &quot;I started SahiDawa because counterfeit medicines kill people in India and no one was building a tool that ordinary citizens could actually use to verify what they&apos;re taking. That&apos;s the kind of problem I want to work on — real impact, not just clean code.&quot;
                                 </p>
                                 
                                 <div className="mt-auto pt-4 border-t border-cyan-800/30">
