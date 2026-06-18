@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Briefcase, GitPullRequest, Code2 } from "lucide-react";
+import { Briefcase, GitPullRequest, Code2, Users, Trophy, Database, Server } from "lucide-react";
 
 export default function Experience() {
     const containerRef = useRef(null);
@@ -24,6 +24,42 @@ export default function Experience() {
         },
         {
             id: 2,
+            role: "Team Leader – RatsLoopz",
+            company: "Social Winter of Code (SWoC) Season 5",
+            date: "Jan 2025 – Mar 2025",
+            location: "Remote",
+            icon: <Users className="w-5 h-5 text-purple-400" />,
+            points: [
+                "Selected as a core participant and formed team 'RatsLoopz' to collaborate on impactful open-source projects.",
+                "Mentored teammates and contributed to real-world applications during the 3-month hackathon phase."
+            ]
+        },
+        {
+            id: 3,
+            role: "Semifinalist – LearnSight",
+            company: "Hack-A-Thon: AI for Education 2025",
+            date: "Early 2025",
+            location: "Remote",
+            icon: <Trophy className="w-5 h-5 text-yellow-400" />,
+            points: [
+                "Built an AI-powered adaptive diagnostic engine with Next.js and Firebase that dynamically adjusts question difficulty.",
+                "Integrated real-time Firestore synchronization and a radar chart visualization to map student learning dimensions."
+            ]
+        },
+        {
+            id: 4,
+            role: "Full Stack Developer Intern",
+            company: "InnoByte Services",
+            date: "Late 2024",
+            location: "Remote",
+            icon: <Database className="w-5 h-5 text-blue-400" />,
+            points: [
+                "Architected the backend for a scalable e-commerce application using Node.js, Express, and MongoDB.",
+                "Built robust RESTful APIs for product management, secure JWT authentication, and order processing with Joi validation."
+            ]
+        },
+        {
+            id: 5,
             role: "Open Source Contributor",
             company: "GSSoC Ext & Hacktoberfest",
             date: "Oct 2024 – Nov 2025",
@@ -35,7 +71,7 @@ export default function Experience() {
             ]
         },
         {
-            id: 3,
+            id: 6,
             role: "Computer Science Subject Matter Expert",
             company: "Chegg India",
             date: "Apr 2023 – Oct 2024",
@@ -44,6 +80,18 @@ export default function Experience() {
             points: [
                 "Evaluated and authored solutions for 500+ complex technical problems across DSA, System Design, and DBMS.",
                 "Maintained a 4.8/5 quality rating over 18 months, breaking down advanced computing concepts."
+            ]
+        },
+        {
+            id: 7,
+            role: "Computer Networking Intern",
+            company: "Trans Virtual Private Limited",
+            date: "Jan 2024",
+            location: "Guwahati",
+            icon: <Server className="w-5 h-5 text-orange-400" />,
+            points: [
+                "Gained hands-on experience setting up and maintaining network systems, including enterprise routers and switches.",
+                "Navigated device CLIs and utilized tools like PuTTY to execute configuration commands and diagnose network issues."
             ]
         }
     ];
