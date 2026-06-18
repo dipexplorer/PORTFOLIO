@@ -12,7 +12,7 @@ export default function Credentials() {
         {
             title: "Hacktoberfest 2024",
             role: "SuperContributor",
-            image: "/credentials/hacktoberfest-badge.png", // User needs to upload
+            image: "/certificates/current_hacktoberfest_hollopin_badges.png",
             fallbackIcon: <Trophy className="w-10 h-10 text-rose-500" />,
             glow: "shadow-rose-500/20",
             border: "border-rose-500/30"
@@ -20,7 +20,7 @@ export default function Credentials() {
         {
             title: "GSSoC 2025",
             role: "Project Admin",
-            image: "/credentials/gssoc-admin.png",
+            image: "", // No specific badge image, fallback to icon
             fallbackIcon: <ShieldCheck className="w-10 h-10 text-amber-500" />,
             glow: "shadow-amber-500/20",
             border: "border-amber-500/30"
@@ -28,7 +28,7 @@ export default function Credentials() {
         {
             title: "GSSoC 2024",
             role: "Core Contributor",
-            image: "/credentials/gssoc-contributor.png",
+            image: "/certificates/gssoc24_contributor_badges.jpeg",
             fallbackIcon: <Award className="w-10 h-10 text-emerald-500" />,
             glow: "shadow-emerald-500/20",
             border: "border-emerald-500/30"
@@ -37,22 +37,46 @@ export default function Credentials() {
 
     const certificates = [
         {
-            title: "Chegg Subject Matter Expert",
-            issuer: "Chegg India",
-            date: "2023 - 2024",
-            link: "/credentials/chegg-cert.pdf"
+            title: "Project Admin - LegalHub",
+            issuer: "GSSoC 2025",
+            date: "2025",
+            link: "/certificates/GSSOC_25_project_admin_Certificate_Dipjyoti_Das.png"
         },
         {
-            title: "Hackathon Winner / Participant",
-            issuer: "Global Hackathons",
+            title: "Signal & Telecom Field Training",
+            issuer: "Northeast Frontier Railway",
+            date: "2025",
+            link: "/certificates/NFR_summer_internship_certificate.png"
+        },
+        {
+            title: "LearnSight Hackathon Semifinalist",
+            issuer: "AI for Education",
+            date: "2025",
+            link: "/certificates/hack-a-thon_certificate.jpeg"
+        },
+        {
+            title: "Full Stack Developer Internship",
+            issuer: "InnoByte Services",
             date: "2024",
-            link: "/credentials/hackathon-cert.pdf"
+            link: "/certificates/innobyte_internship_certificate.jpeg"
         },
         {
-            title: "Open Source Contributor",
-            issuer: "GirlScript Foundation",
-            date: "2024 - 2025",
-            link: "/credentials/gssoc-cert.pdf"
+            title: "Core Contributor",
+            issuer: "GSSoC 2024",
+            date: "2024",
+            link: "/certificates/GSSOC_24_contributor_certificate.jpeg"
+        },
+        {
+            title: "Hacktoberfest Tree Plant Reward",
+            issuer: "Trees for Tribals, India",
+            date: "2024",
+            link: "/certificates/hacktober_25_tree_plant_certificate.jpeg"
+        },
+        {
+            title: "Paranox Certificate",
+            issuer: "Paranox",
+            date: "2024",
+            link: "/certificates/paranox_Dipjyoti Das__Certificate.pdf"
         }
     ];
 
