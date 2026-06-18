@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Briefcase, GitPullRequest, Code2, Trophy, Database, Server, Activity } from "lucide-react";
+import { Briefcase, GitPullRequest, Code2, Trophy, Database, Server, Activity, Radio } from "lucide-react";
 
 export default function Experience() {
     const containerRef = useRef(null);
@@ -22,7 +22,7 @@ export default function Experience() {
             ]
         },
         {
-            id: 2,
+            id: 1,
             role: "Project Admin – LegalHub",
             company: "GirlScript Summer of Code (GSSoC) 2025",
             date: "May 2025 – Aug 2025",
@@ -32,6 +32,18 @@ export default function Experience() {
                 "Led code reviews for 33+ contributors across 80+ PRs on LegalHub (18 stars, 56 forks); ranked #53 on GSSoC leaderboard.",
                 "Architected MVC backend with Express.js and MongoDB; shipped Mistral AI legal Q&A and real-time WebSocket chat.",
                 "Set up CI/CD via GitHub Actions with automated Jest test runs across 11 modules."
+            ]
+        },
+        {
+            id: 2,
+            role: "Signal & Telecom Field Trainee",
+            company: "Northeast Frontier Railway",
+            date: "Jun 2025 – Jul 2025",
+            location: "Guwahati",
+            icon: <Radio className="w-5 h-5 text-purple-400" />,
+            points: [
+                "Completed intensive field training within the Signal & Telecom Department under the Dy. CSTE/Network office.",
+                "Gained hands-on insights into railway networking architecture, telecommunications infrastructure, and signal engineering."
             ]
         },
         {
