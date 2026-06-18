@@ -3,6 +3,7 @@ import Skills from "@/sections/Skills";
 import Navbar from "@/sections/NavBar";
 import Hero from "@/sections/Hero";
 import Contact from "@/sections/Contact";
+import Credentials from "@/sections/Credentials";
 import AppEffects from "@/components/AppEffects";
 import Book from "@/components/Book";
 
@@ -49,6 +50,9 @@ export default async function Home() {
             </div>
           </div>
         </section>
+
+        {/* Credentials & Achievements Vault */}
+        <Credentials />
 
         {/* Projects Section */}
         <Projects />

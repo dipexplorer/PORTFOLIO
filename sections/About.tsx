@@ -131,7 +131,7 @@ export default function About() {
                                 </p>
                                 
                                 <div className="mt-auto pt-4 border-t border-cyan-800/30">
-                                    <div className="text-[10px] font-mono text-cyan-500 mb-2 tracking-widest uppercase">// Architected by</div>
+                                    <div className="text-[10px] font-mono text-cyan-500 mb-2 tracking-widest uppercase">{"// Architected by"}</div>
                                     {/* Stylized Signature using serif font */}
                                     <div className="text-3xl font-serif italic text-slate-200 drop-shadow-[0_0_8px_rgba(6,182,212,0.4)]">
                                         Dipjyoti Das
