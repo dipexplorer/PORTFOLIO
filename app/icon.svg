@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee" /> <!-- Cyan 400 -->
+      <stop offset="100%" stop-color="#0284c7" /> <!-- Light Blue 600 -->
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0891b2" /> <!-- Cyan 600 -->
+      <stop offset="100%" stop-color="#38bdf8" /> <!-- Light Blue 400 -->
+    </linearGradient>
+  </defs>
+  
+  <rect width="100" height="100" rx="22" fill="#020617"/>
+  
+  <!-- Tech corner accents -->
+  <path d="M 15 25 L 15 15 L 25 15" fill="none" stroke="#38bdf8" stroke-width="3" opacity="0.4" stroke-linecap="round"/>
+  <path d="M 85 25 L 85 15 L 75 15" fill="none" stroke="#38bdf8" stroke-width="3" opacity="0.4" stroke-linecap="round"/>
+  <path d="M 15 75 L 15 85 L 25 85" fill="none" stroke="#38bdf8" stroke-width="3" opacity="0.4" stroke-linecap="round"/>
+  <path d="M 85 75 L 85 85 L 75 85" fill="none" stroke="#38bdf8" stroke-width="3" opacity="0.4" stroke-linecap="round"/>
+
+  <!-- Left 'D' -->
+  <path d="M 18 25 L 18 75 L 34 75 C 51 75 58 63 58 50 C 58 37 51 25 34 25 Z" fill="none" stroke="url(#grad1)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Right 'D' -->
+  <path d="M 42 25 L 42 75 L 58 75 C 75 75 82 63 82 50 C 82 37 75 25 58 25 Z" fill="none" stroke="url(#grad2)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+  
+  <!-- Central tech node at the intersection -->
+  <circle cx="42" cy="50" r="5" fill="#020617" />
+  <circle cx="42" cy="50" r="2.5" fill="#67e8f9" />
+</svg>
