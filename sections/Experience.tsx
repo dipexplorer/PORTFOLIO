@@ -22,7 +22,7 @@ export default function Experience() {
             ]
         },
         {
-            id: 1,
+            id: 2,
             role: "Project Admin – LegalHub",
             company: "GirlScript Summer of Code (GSSoC) 2025",
             date: "May 2025 – Aug 2025",
@@ -32,18 +32,6 @@ export default function Experience() {
                 "Led code reviews for 33+ contributors across 80+ PRs on LegalHub (18 stars, 56 forks); ranked #53 on GSSoC leaderboard.",
                 "Architected MVC backend with Express.js and MongoDB; shipped Mistral AI legal Q&A and real-time WebSocket chat.",
                 "Set up CI/CD via GitHub Actions with automated Jest test runs across 11 modules."
-            ]
-        },
-        {
-            id: 2,
-            role: "Team Leader – RatsLoopz",
-            company: "Social Winter of Code (SWoC) Season 5",
-            date: "Jan 2025 – Mar 2025",
-            location: "Remote",
-            icon: <Users className="w-5 h-5 text-purple-400" />,
-            points: [
-                "Selected as a core participant and formed team 'RatsLoopz' to collaborate on impactful open-source projects.",
-                "Mentored teammates and contributed to real-world applications during the 3-month hackathon phase."
             ]
         },
         {
