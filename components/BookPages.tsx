@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Terminal, GraduationCap } from "lucide-react";
+import { Terminal, GraduationCap, Cpu, FlaskConical, Wifi, BookOpen } from "lucide-react";
 import MiniTerminal from "./MiniTerminal";
 
 interface BookPagesProps {
@@ -10,127 +10,139 @@ interface BookPagesProps {
 }
 
 export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
-  // Rendering individual pages based on currentPage spread
-  // Spread 1 (Pages 1 & 2): Intro, TOC & Education
-  // Spread 2 (Pages 3 & 4): Open Source & Internships/SME
-  // Spread 3 (Pages 5 & 6): CLI Terminal & Skills Matrix
+  // Spread 1 (Pages 1 & 2): Operator Intro (Left) | Currently Learning (Right)
+  // Spread 2 (Pages 3 & 4): Engineering Decisions (Left) | NFR Field Notes (Right)
+  // Spread 3 (Pages 5 & 6): MiniTerminal CLI (Left) | Networking Internship Log (Right)
 
   const renderLeftPage = () => {
     switch (currentPage) {
       case 1:
         return (
           <div className="flex flex-col justify-between h-full p-6 md:p-8 paper-grid relative">
-            {/* Technical top border and numbers */}
             <div className="flex justify-between items-center text-[10px] text-cyan-700/60 font-mono border-b border-cyan-800/10 pb-2 mb-4">
               <span>{"SYSTEMS_MANIFEST // LOGBOOK_v2.0"}</span>
               <span>P. 01</span>
             </div>
 
-            {/* Content */}
-            <div className="flex-1 flex flex-col justify-center my-auto">
-              <span className="text-[10px] font-mono text-cyan-600/80 tracking-widest uppercase">
-                SYSTEM OPERATOR:
-              </span>
-              <h2 className="text-3xl font-black text-slate-800 font-serif tracking-tight mt-1 mb-4">
-                Dipjyoti Das
-              </h2>
-              
-              <div className="space-y-2 font-mono text-[10px] text-slate-700 bg-cyan-900/5 p-3 rounded-lg border border-cyan-800/10 mb-4">
+            <div className="flex-1 flex flex-col justify-center space-y-4">
+              <div>
+                <span className="text-[10px] font-mono text-cyan-600/80 tracking-widest uppercase">
+                  SYSTEM OPERATOR:
+                </span>
+                <h2 className="text-3xl font-black text-slate-800 font-serif tracking-tight mt-1">
+                  Dipjyoti Das
+                </h2>
+              </div>
+
+              <div className="space-y-2 font-mono text-[10px] text-slate-700 bg-cyan-900/5 p-3 rounded-lg border border-cyan-800/10">
                 <div>SESSION_ID: <span className="text-cyan-700 font-bold">GU-CS-2024-2027</span></div>
                 <div>CLASS_ROLE: <span className="text-cyan-700 font-bold">SYSTEMS_DEVELOPER</span></div>
                 <div>LOCAL_NODE: <span className="text-cyan-700 font-bold">GUWAHATI_IND</span></div>
+                <div>STATUS: <span className="text-emerald-600 font-bold animate-pulse">ACTIVE_SESSION</span></div>
               </div>
 
-              <p className="text-sm text-slate-700 leading-relaxed drop-cap">
-                This logbook serves as an engineering record of architectural patterns, system optimizations, and open-source contribution activities. All logged events are verified via terminal telemetry.
-              </p>
-              
-              <p className="text-[10px] text-slate-500/90 leading-relaxed font-mono border-l-2 border-cyan-600/50 pl-3 italic my-3">
-                {"NOTICE: Sandboxed session log file. Authorized credentials and key actions are recorded in the hypervisor."}
-              </p>
+              <div>
+                <span className="text-[9px] font-mono text-cyan-600/70 tracking-widest uppercase flex items-center gap-1.5 mb-2">
+                  <BookOpen className="w-3 h-3" /> ABOUT THIS LOGBOOK
+                </span>
+                <p className="text-[11px] text-slate-600 leading-relaxed border-l-2 border-cyan-600/40 pl-3">
+                  This is my raw engineering diary — not a resume. It captures what I am currently learning, key technical decisions I made, and field observations from real-world internships. Things that shaped how I think as a developer.
+                </p>
+              </div>
+
+              <nav className="mt-1 space-y-1.5">
+                <span className="text-[9px] font-mono text-cyan-600/70 tracking-widest uppercase">CONTENTS</span>
+                {[
+                  { label: "Currently Learning", spread: 1 },
+                  { label: "Engineering Decisions", spread: 2 },
+                  { label: "NFR Field Notes", spread: 2 },
+                  { label: "CLI Interface", spread: 3 },
+                ].map((item) => (
+                  <button
+                    key={item.label}
+                    onClick={() => goToPage(item.spread)}
+                    className="w-full text-left font-mono text-[10px] text-slate-700 hover:text-cyan-600 transition-colors flex items-center justify-between group cursor-pointer"
+                  >
+                    <span className="group-hover:translate-x-0.5 transition-transform">▸ {item.label}</span>
+                    <span className="text-slate-400 text-[9px]">pg. {item.spread * 2 - 1}</span>
+                  </button>
+                ))}
+              </nav>
             </div>
 
-            {/* Left Page Footer */}
             <div className="border-t border-cyan-800/10 pt-4 flex justify-between items-center text-[9px] text-cyan-700/50 font-mono">
               <span>SYS_INIT: 2021</span>
               <span>FIRMWARE: NEXTJS_15</span>
             </div>
           </div>
         );
+
       case 2:
         return (
           <div className="flex flex-col justify-between h-full p-6 md:p-8 paper-grid relative">
             <div className="flex justify-between items-center text-[10px] text-cyan-700/60 font-mono border-b border-cyan-800/10 pb-2 mb-4">
-              <span>{"LOG_101 // BACKEND_OPTIMIZATION"}</span>
+              <span>{"LOG_201 // ARCHITECTURE_DECISIONS"}</span>
               <span>P. 03</span>
             </div>
 
-            <div className="flex-1 flex flex-col justify-center space-y-5">
+            <div className="flex-1 flex flex-col justify-center space-y-4">
               <div>
-                <span className="text-[10px] font-mono bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded border border-cyan-200/50 tracking-wider font-bold">
-                  EXPRESS_MVC_TUNING
+                <span className="text-[9px] font-mono text-cyan-600/70 tracking-widest uppercase flex items-center gap-1.5 mb-2">
+                  <Cpu className="w-3 h-3" /> WHY I PICKED THESE
                 </span>
-                <h3 className="text-base font-black text-slate-800 font-serif mt-2 leading-snug">
-                  E-Commerce Caching & Load Optimization
-                </h3>
-                <p className="text-[10px] text-slate-500 font-mono mt-0.5">
-                  Action Log: Jan 2024 • Module: InnoByte
+                <p className="text-[10px] text-slate-500 font-mono italic mb-3">
+                  Real decisions made on real projects — not textbook answers.
                 </p>
-                <ul className="mt-2 text-xs text-slate-700 space-y-1.5 list-none pl-0">
-                  <li className="flex items-start gap-1.5">
-                    <span className="text-cyan-600 select-none">▸</span>
-                    <span>Designed modular Express.js MVC routing structure with clean controller schemas.</span>
-                  </li>
-                  <li className="flex items-start gap-1.5">
-                    <span className="text-cyan-600 select-none">▸</span>
-                    <span>Integrated a Redis caching layer for heavy catalog requests, resulting in a ~60% reduction in MongoDB load.</span>
-                  </li>
-                </ul>
               </div>
 
-              <div className="border-t border-dashed border-cyan-900/10 pt-4">
-                <span className="text-[10px] font-mono bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded border border-cyan-200/50 tracking-wider font-bold">
-                  CS_PROBLEM_SOLVING
-                </span>
-                <h3 className="text-base font-black text-slate-800 font-serif mt-2 leading-snug">
-                  Chegg Technical Support Logs
-                </h3>
-                <p className="text-[10px] text-slate-500 font-mono mt-0.5">
-                  Action Log: Apr 2023 – Oct 2024 • Rating: 4.8/5.0
-                </p>
-                <ul className="mt-2 text-xs text-slate-700 space-y-1.5 list-none pl-0">
-                  <li className="flex items-start gap-1.5">
-                    <span className="text-cyan-600 select-none">▸</span>
-                    <span>Analyzed and solved 500+ complex technical problems in data structures, SQL databases, and computer networks.</span>
-                  </li>
-                </ul>
+              <div className="space-y-3">
+                <div className="bg-cyan-950/5 border border-cyan-800/10 rounded-lg p-3">
+                  <div className="text-[10px] font-mono font-bold text-cyan-700 mb-1">SahiDawa → Firestore over PostgreSQL</div>
+                  <p className="text-[10px] text-slate-600 leading-relaxed">
+                    Chose Firestore because SahiDawa needs real-time medicine batch updates across low-bandwidth Indian rural networks. PostgreSQL&apos;s polling would add latency. Firebase&apos;s offline sync is critical for the use case.
+                  </p>
+                </div>
+
+                <div className="bg-cyan-950/5 border border-cyan-800/10 rounded-lg p-3">
+                  <div className="text-[10px] font-mono font-bold text-cyan-700 mb-1">LegalHub → Socket.io over polling</div>
+                  <p className="text-[10px] text-slate-600 leading-relaxed">
+                    30+ contributors initially used long-polling for chat. Switched to Socket.io — reduced server request overhead by ~70% and gave users a true real-time feel for the legal Q&A channels.
+                  </p>
+                </div>
+
+                <div className="bg-cyan-950/5 border border-cyan-800/10 rounded-lg p-3">
+                  <div className="text-[10px] font-mono font-bold text-cyan-700 mb-1">InnoByte → Redis over DB cache</div>
+                  <p className="text-[10px] text-slate-600 leading-relaxed">
+                    Product catalog queries hit MongoDB on every page load. Added a Redis TTL cache layer — reduced DB load by ~60%. This was my first hands-on lesson in caching strategy.
+                  </p>
+                </div>
               </div>
             </div>
 
             <div className="border-t border-cyan-800/10 pt-4 flex justify-between items-center text-[9px] text-cyan-700/50 font-mono">
-              <span>DB_LOAD: -60%</span>
-              <span>RATING: 4.8/5.0</span>
+              <span>DECISIONS: REAL_WORLD</span>
+              <span>VERIFIED: IN_PROD</span>
             </div>
           </div>
         );
+
       case 3:
         return (
           <div className="flex flex-col justify-between h-full p-6 md:p-8 paper-grid relative">
             <div className="flex justify-between items-center text-[10px] text-cyan-700/60 font-mono border-b border-cyan-800/10 pb-2 mb-4">
-              <span>SECTION_03_TERMINAL</span>
+              <span>{"LOG_301 // CLI_INTERFACE"}</span>
               <span>P. 05</span>
             </div>
 
             <div className="flex-1 flex flex-col justify-center space-y-3">
-              <div className="flex items-center gap-2 text-slate-800 font-serif font-black text-lg">
+              <div className="flex items-center gap-2 text-slate-800 font-serif font-black text-base">
                 <Terminal className="w-5 h-5 text-cyan-600" />
-                <h3>System Log CLI Interface</h3>
+                <h3>System Log Terminal</h3>
               </div>
-              <p className="text-[11px] text-slate-600 leading-relaxed mb-2">
-                Interact directly with the log file nodes via this sandboxed terminal emulator. Run core queries to inspect stack metadata and project paths.
+              <p className="text-[10px] text-slate-500 font-mono leading-relaxed border-l border-cyan-300/40 pl-2">
+                Sandboxed emulator — run queries to inspect my stack, projects, and system paths.
               </p>
-              
-              {/* Terminal Box */}
+
               <MiniTerminal />
             </div>
 
@@ -140,6 +152,7 @@ export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
             </div>
           </div>
         );
+
       default:
         return null;
     }
@@ -151,219 +164,164 @@ export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
         return (
           <div className="flex flex-col justify-between h-full p-6 md:p-8 paper-grid relative">
             <div className="flex justify-between items-center text-[10px] text-cyan-700/60 font-mono border-b border-cyan-800/10 pb-2 mb-4">
-              <span>{"INDEX_PAGE // DIRECTORY"}</span>
+              <span>{"LOG_101 // CURRENTLY_LEARNING"}</span>
               <span>P. 02</span>
             </div>
 
-            <div className="flex-1 flex flex-col justify-center space-y-6">
-              {/* Table of Contents */}
+            <div className="flex-1 flex flex-col justify-center space-y-4">
               <div>
-                <span className="text-[9px] font-mono text-cyan-600/70 tracking-widest uppercase">
-                  LOGBOOK DIRECTORY
+                <span className="text-[9px] font-mono text-cyan-600/70 tracking-widest uppercase flex items-center gap-1.5 mb-1">
+                  <FlaskConical className="w-3 h-3" /> ACTIVE STUDY LOG
                 </span>
-                <nav className="mt-2 space-y-2">
-                  {[
-                    { title: "LOG #101: Backend & DB Optimization", page: 2 },
-                    { title: "LOG #102: Open Source & AI Projects", page: 2 },
-                    { title: "LOG #201: Terminal CLI & Operations", page: 3 },
-                    { title: "LOG #202: System Diagnostics & Matrix", page: 3 },
-                  ].map((item) => (
-                    <button
-                      key={item.title}
-                      onClick={() => goToPage(item.page)}
-                      className="w-full text-left font-serif text-slate-800 font-bold hover:text-cyan-600 transition-colors text-xs flex justify-between items-center group cursor-pointer"
-                    >
-                      <span className="group-hover:translate-x-1 transition-transform">{item.title}</span>
-                      <span className="font-mono text-[10px] text-cyan-600/70 border-b border-dotted border-cyan-800/30 flex-1 mx-2 h-1" />
-                      <span className="font-mono text-[9px] text-slate-500">SPREAD {item.page}</span>
-                    </button>
-                  ))}
-                </nav>
+                <p className="text-[10px] text-slate-500 font-mono">
+                  What I am actively building knowledge in right now.
+                </p>
               </div>
 
-              {/* Education section */}
-              <div className="border-t border-cyan-800/10 pt-4">
-                <span className="text-[9px] font-mono text-cyan-600/70 tracking-widest uppercase flex items-center gap-1.5 mb-2">
-                  <GraduationCap className="w-3.5 h-3.5 text-cyan-600" />
-                  ACADEMIC FOUNDATION
-                </span>
-                <div className="space-y-2.5">
-                  <div>
-                    <h4 className="text-xs font-black text-slate-800 font-serif">
-                      Gauhati University
-                    </h4>
-                    <p className="text-[10px] text-slate-500 font-mono mt-0.5">
-                      B.Tech in Computer Science • 2024 – 2027
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-black text-slate-800 font-serif">
-                      Assam Engineering Institute
-                    </h4>
-                    <p className="text-[10px] text-slate-500 font-mono mt-0.5">
-                      Diploma in Computer Engineering • CGPA: 8.5 • 2021 – 2024
-                    </p>
-                  </div>
+              <div className="space-y-3">
+                <div className="relative pl-3 border-l-2 border-amber-400/60">
+                  <span className="text-[9px] font-mono text-amber-600 uppercase tracking-wider font-bold">IN PROGRESS</span>
+                  <h4 className="text-xs font-black text-slate-800 font-serif mt-0.5">AI / Machine Learning</h4>
+                  <p className="text-[10px] text-slate-600 mt-0.5 leading-relaxed">
+                    Studying neural networks, supervised/unsupervised learning, and model fine-tuning. Exploring how to integrate ML inference into web apps via APIs (Mistral, OpenAI).
+                  </p>
+                </div>
+
+                <div className="relative pl-3 border-l-2 border-amber-400/60">
+                  <span className="text-[9px] font-mono text-amber-600 uppercase tracking-wider font-bold">IN PROGRESS</span>
+                  <h4 className="text-xs font-black text-slate-800 font-serif mt-0.5">Cybersecurity Fundamentals</h4>
+                  <p className="text-[10px] text-slate-600 mt-0.5 leading-relaxed">
+                    Learning ethical hacking basics, OWASP Top 10, network security, and secure API design. Practical labs on TryHackMe and reading about JWT security patterns.
+                  </p>
+                </div>
+
+                <div className="relative pl-3 border-l-2 border-cyan-400/60">
+                  <span className="text-[9px] font-mono text-cyan-600 uppercase tracking-wider font-bold">QUEUED NEXT</span>
+                  <h4 className="text-xs font-black text-slate-800 font-serif mt-0.5">System Design & DSA</h4>
+                  <p className="text-[10px] text-slate-600 mt-0.5 leading-relaxed">
+                    Deepening knowledge in distributed systems, rate limiting, CAP theorem, and consistent hashing. Practicing LeetCode patterns daily.
+                  </p>
+                </div>
+
+                <div className="relative pl-3 border-l-2 border-slate-300">
+                  <span className="text-[9px] font-mono text-slate-400 uppercase tracking-wider font-bold">ON RADAR</span>
+                  <h4 className="text-xs font-black text-slate-800 font-serif mt-0.5">Cloud & DevOps (AWS / Docker)</h4>
+                  <p className="text-[10px] text-slate-600 mt-0.5 leading-relaxed">
+                    Containerization with Docker, CI/CD pipelines, and cloud deployment on AWS (EC2, S3). Goal: self-host SahiDawa infrastructure.
+                  </p>
                 </div>
               </div>
             </div>
 
             <div className="border-t border-cyan-800/10 pt-4 flex justify-between items-center text-[9px] text-cyan-700/50 font-mono">
-              <span>INDEX_REF: VOL_1</span>
-              <span>ACADEMIA STAMP: OK</span>
+              <span>UPDATED: JUN_2025</span>
+              <span>MODE: LEARNING</span>
             </div>
           </div>
         );
+
       case 2:
         return (
           <div className="flex flex-col justify-between h-full p-6 md:p-8 paper-grid relative">
             <div className="flex justify-between items-center text-[10px] text-cyan-700/60 font-mono border-b border-cyan-800/10 pb-2 mb-4">
-              <span>{"LOG_102 // OPEN_SOURCE_LEADS"}</span>
+              <span>{"LOG_202 // NFR_FIELD_NOTES"}</span>
               <span>P. 04</span>
             </div>
 
-            <div className="flex-1 flex flex-col justify-center space-y-5">
+            <div className="flex-1 flex flex-col justify-center space-y-4">
               <div>
-                <span className="text-[10px] font-mono bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded border border-cyan-200/50 tracking-wider font-bold">
-                  GSSOC_25_LEGALHUB
+                <span className="text-[9px] font-mono text-cyan-600/70 tracking-widest uppercase flex items-center gap-1.5 mb-1">
+                  <Wifi className="w-3 h-3" /> FIELD OBSERVATION LOG
                 </span>
-                <h3 className="text-base font-black text-slate-800 font-serif mt-2 leading-snug">
-                  AI Integration & WebSocket Stream
-                </h3>
-                <p className="text-[10px] text-slate-500 font-mono mt-0.5">
-                  Action Log: Mar 2025 – Jun 2025 • Project Admin
-                </p>
-                <ul className="mt-2 text-xs text-slate-700 space-y-1.5 list-none pl-0">
-                  <li className="flex items-start gap-1.5">
-                    <span className="text-cyan-600 select-none">▸</span>
-                    <span>Directed a team of 33+ contributors, merging 80+ PRs (ranked #53 on leaderboard).</span>
-                  </li>
-                  <li className="flex items-start gap-1.5">
-                    <span className="text-cyan-600 select-none">▸</span>
-                    <span>Integrated Socket.io for real-time channels and Mistral AI API for semantic query matching.</span>
-                  </li>
-                </ul>
+                <h3 className="text-sm font-black text-slate-800 font-serif">Northeast Frontier Railway</h3>
+                <p className="text-[10px] text-slate-500 font-mono mt-0.5">Signal & Telecom Division • Summer 2025</p>
               </div>
 
-              <div className="border-t border-dashed border-cyan-900/10 pt-4">
-                <span className="text-[10px] font-mono bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded border border-cyan-200/50 tracking-wider font-bold">
-                  HACKTOBERFEST_24
-                </span>
-                <h3 className="text-base font-black text-slate-800 font-serif mt-2 leading-snug">
-                  Global Distributed Contributions
-                </h3>
-                <p className="text-[10px] text-slate-500 font-mono mt-0.5">
-                  Action Log: Oct 2024 – Nov 2024 • Rank #27
-                </p>
-                <ul className="mt-2 text-xs text-slate-700 space-y-1.5 list-none pl-0">
-                  <li className="flex items-start gap-1.5">
-                    <span className="text-cyan-600 select-none">▸</span>
-                    <span>Successfully merged 83+ PRs across multiple international repositories.</span>
-                  </li>
-                  <li className="flex items-start gap-1.5">
-                    <span className="text-cyan-600 select-none">▸</span>
-                    <span>Earned SuperContributor badge with 6/6 fast-approved core pipeline optimizations.</span>
-                  </li>
-                </ul>
+              <div className="space-y-2.5 text-[10px] text-slate-700 font-mono">
+                <div className="bg-cyan-950/5 border border-cyan-800/10 rounded p-2.5">
+                  <div className="text-cyan-700 font-bold text-[9px] uppercase mb-1">OBS_01 // Network Topology</div>
+                  <p className="leading-relaxed text-[10px] text-slate-600">
+                    Railway Signal networks use dedicated point-to-point copper and fiber links — completely air-gapped from the public internet. Reliability over bandwidth. No single point of failure.
+                  </p>
+                </div>
+
+                <div className="bg-cyan-950/5 border border-cyan-800/10 rounded p-2.5">
+                  <div className="text-cyan-700 font-bold text-[9px] uppercase mb-1">OBS_02 // CLI on Real Hardware</div>
+                  <p className="leading-relaxed text-[10px] text-slate-600">
+                    Used PuTTY to SSH into signal relay routers and switches. Executed IOS config commands live on production hardware — a completely different pressure than dev environments.
+                  </p>
+                </div>
+
+                <div className="bg-cyan-950/5 border border-cyan-800/10 rounded p-2.5">
+                  <div className="text-cyan-700 font-bold text-[9px] uppercase mb-1">OBS_03 // Key Takeaway</div>
+                  <p className="leading-relaxed text-[10px] text-slate-600">
+                    In railway systems, 99.999% uptime is not a marketing promise — it&apos;s a safety requirement. Taught me what &quot;fault tolerance&quot; really means beyond SLAs on paper.
+                  </p>
+                </div>
               </div>
             </div>
 
             <div className="border-t border-cyan-800/10 pt-4 flex justify-between items-center text-[9px] text-cyan-700/50 font-mono">
-              <span>RANK: #27_GLOBAL</span>
-              <span>VERIFIED: 160+ PRs</span>
+              <span>LOCATION: ASSAM_IND</span>
+              <span>CLEARANCE: FIELD_OPS</span>
             </div>
           </div>
         );
+
       case 3:
         return (
           <div className="flex flex-col justify-between h-full p-6 md:p-8 paper-grid relative">
             <div className="flex justify-between items-center text-[10px] text-cyan-700/60 font-mono border-b border-cyan-800/10 pb-2 mb-4">
-              <span>SECTION_03_SKILLS</span>
+              <span>{"LOG_302 // NETWORKING_INTERNSHIP"}</span>
               <span>P. 06</span>
             </div>
 
             <div className="flex-1 flex flex-col justify-center space-y-4">
               <div>
-                <span className="text-[9px] font-mono text-cyan-600/70 tracking-widest uppercase flex items-center gap-1.5 mb-2">
-                  SKILLS_MATRIX // DIRECTORY
+                <span className="text-[9px] font-mono text-cyan-600/70 tracking-widest uppercase flex items-center gap-1.5 mb-1">
+                  <GraduationCap className="w-3 h-3" /> INTERNSHIP FIELD LOG
                 </span>
-                <div className="space-y-3 font-mono text-[10px] text-slate-700">
-                  {/* Languages */}
-                  <div className="space-y-1">
-                    <div className="flex justify-between text-[9px] text-slate-500">
-                      <span>[LANGUAGES]</span>
-                      <span>TS / JS / Python / SQL / C++</span>
-                    </div>
-                    <div className="w-full h-1 bg-cyan-900/10 rounded-full overflow-hidden">
-                      <div className="w-[90%] h-full bg-cyan-600" />
-                    </div>
-                  </div>
-
-                  {/* Frameworks */}
-                  <div className="space-y-1">
-                    <div className="flex justify-between text-[9px] text-slate-500">
-                      <span>[FRAMEWORKS]</span>
-                      <span>Next.js / React / Express / Node.js</span>
-                    </div>
-                    <div className="w-full h-1 bg-cyan-900/10 rounded-full overflow-hidden">
-                      <div className="w-[85%] h-full bg-cyan-600" />
-                    </div>
-                  </div>
-
-                  {/* Databases */}
-                  <div className="space-y-1">
-                    <div className="flex justify-between text-[9px] text-slate-500">
-                      <span>[DATABASES]</span>
-                      <span>PostgreSQL / MongoDB / Redis / Firestore</span>
-                    </div>
-                    <div className="w-full h-1 bg-cyan-900/10 rounded-full overflow-hidden">
-                      <div className="w-[80%] h-full bg-cyan-600" />
-                    </div>
-                  </div>
-
-                  {/* Devops / Tools */}
-                  <div className="space-y-1">
-                    <div className="flex justify-between text-[9px] text-slate-500">
-                      <span>[OPERATIONS]</span>
-                      <span>Git / GitHub / Docker / CI/CD / Linux</span>
-                    </div>
-                    <div className="w-full h-1 bg-cyan-900/10 rounded-full overflow-hidden">
-                      <div className="w-[75%] h-full bg-cyan-600" />
-                    </div>
-                  </div>
-                </div>
+                <h3 className="text-sm font-black text-slate-800 font-serif">Trans Virtual Pvt. Ltd.</h3>
+                <p className="text-[10px] text-slate-500 font-mono mt-0.5">Computer Networking Internship • Jan 2024 • Guwahati</p>
               </div>
 
-              {/* Core Competencies block */}
-              <div className="border-t border-dashed border-cyan-900/10 pt-3 text-[10px] text-slate-600 space-y-1 font-mono">
-                <span className="text-[9px] text-cyan-600/70 uppercase font-bold tracking-wider">SYSTEM DIAGNOSTICS:</span>
-                <div className="grid grid-cols-2 gap-1.5 mt-1 text-[9px]">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    <span>REST_API: OK</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    <span>WS_SOCKETS: OK</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    <span>DB_OPTIM: -60% LOAD</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    <span>MVC_ARCH: VERIFIED</span>
-                  </div>
+              <div className="space-y-2.5">
+                <div className="relative pl-3 border-l-2 border-cyan-300/50">
+                  <div className="text-[9px] font-mono text-cyan-700 font-bold uppercase">Router & Switch Setup</div>
+                  <p className="text-[10px] text-slate-600 mt-0.5 leading-relaxed">
+                    Hands-on configuration of Cisco routers and managed switches — VLAN segmentation, trunk ports, and static routing. First time wiring a real rack.
+                  </p>
+                </div>
+
+                <div className="relative pl-3 border-l-2 border-cyan-300/50">
+                  <div className="text-[9px] font-mono text-cyan-700 font-bold uppercase">CLI Diagnostics</div>
+                  <p className="text-[10px] text-slate-600 mt-0.5 leading-relaxed">
+                    Used PuTTY terminal to access device CLIs. Learned to run <span className="font-mono bg-cyan-100 px-0.5 rounded">show ip route</span>, <span className="font-mono bg-cyan-100 px-0.5 rounded">ping</span>, and <span className="font-mono bg-cyan-100 px-0.5 rounded">traceroute</span> to diagnose live network issues.
+                  </p>
+                </div>
+
+                <div className="relative pl-3 border-l-2 border-cyan-300/50">
+                  <div className="text-[9px] font-mono text-cyan-700 font-bold uppercase">Key Insight</div>
+                  <p className="text-[10px] text-slate-600 mt-0.5 leading-relaxed">
+                    Understanding physical network layers changed how I think about latency in web apps. The round-trip time is never just code — it&apos;s cables, hops, and hardware in between.
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-3 mt-2 font-mono text-[9px] text-slate-500">
+                  <div className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> TCP/IP: OK</div>
+                  <div className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> VLAN: OK</div>
+                  <div className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> CLI: OK</div>
                 </div>
               </div>
             </div>
 
             <div className="border-t border-cyan-800/10 pt-4 flex justify-between items-center text-[9px] text-cyan-700/50 font-mono">
-              <span>SKILLS_REF: STACK_v2.0</span>
-              <span>INDEX: ALL_OK</span>
+              <span>HARDWARE: CISCO_IOS</span>
+              <span>MODE: FIELD_OPS</span>
             </div>
           </div>
         );
+
       default:
         return null;
     }
@@ -374,13 +332,9 @@ export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
       
       {/* LEFT PAGE SPREAD */}
       <div className="relative h-full flex flex-col justify-between overflow-hidden">
-        {/* Draft grid details */}
         <div className="absolute top-2 left-2 text-[8px] text-cyan-600/30 font-mono">GRID: A0-L</div>
         <div className="absolute bottom-2 left-2 text-[8px] text-cyan-600/30 font-mono">GRID: B0-L</div>
-        
-        {/* Ruler tick marks on the left edge */}
         <div className="absolute left-0 top-0 bottom-0 w-2.5 ruler-ticks-left opacity-35" />
-        
         <div className="pl-6 pr-4 py-4 h-full relative z-10 flex flex-col justify-between">
           {renderLeftPage()}
         </div>
@@ -388,16 +342,10 @@ export default function BookPages({ currentPage, goToPage }: BookPagesProps) {
 
       {/* RIGHT PAGE SPREAD */}
       <div className="relative h-full flex flex-col justify-between overflow-hidden">
-        {/* Draft grid details */}
         <div className="absolute top-2 right-2 text-[8px] text-cyan-600/30 font-mono">GRID: A0-R</div>
         <div className="absolute bottom-2 right-2 text-[8px] text-cyan-600/30 font-mono">GRID: B0-R</div>
-
-        {/* Ruler tick marks on the right edge */}
         <div className="absolute right-0 top-0 bottom-0 w-2.5 ruler-ticks-right opacity-35" />
-        
-        {/* spine fold crease shadow on the left side of right page */}
         <div className="absolute left-0 top-0 bottom-0 w-6 bg-linear-to-r from-cyan-950/5 via-cyan-950/2 to-transparent pointer-events-none" />
-
         <div className="pr-6 pl-4 py-4 h-full relative z-10 flex flex-col justify-between">
           {renderRightPage()}
         </div>
