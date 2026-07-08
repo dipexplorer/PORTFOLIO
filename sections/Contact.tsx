@@ -31,20 +31,33 @@ export default function Contact() {
     const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
     return (
-        <section id="contact" className="w-full px-4 py-32 md:px-6 relative overflow-hidden" ref={containerRef}>
+        <section
+            id="contact"
+            className="w-full px-4 py-32 md:px-6 relative overflow-hidden"
+            ref={containerRef}
+        >
             {/* Background Orbs */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <motion.div 
-                    animate={{ scale: [1, 1.1, 1], opacity: [0.05, 0.08, 0.05] }}
-                    transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/10 rounded-full blur-[150px]" 
+                <motion.div
+                    animate={{
+                        scale: [1, 1.1, 1],
+                        opacity: [0.05, 0.08, 0.05],
+                    }}
+                    transition={{
+                        duration: 7,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                    }}
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/10 rounded-full blur-[150px]"
                 />
             </div>
 
             <div className="mx-auto max-w-5xl relative z-10">
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 30 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                    animate={
+                        isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+                    }
                     transition={{ duration: 0.8 }}
                     className="flex flex-col items-center text-center mb-16"
                 >
@@ -53,31 +66,44 @@ export default function Contact() {
                         <span>TRANSMISSION // CHANNEL</span>
                     </div>
                     <h2 className="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tighter">
-                        Let&apos;s Build <span className="text-cyan-400 font-bold">Together</span>
+                        Let&apos;s Build{" "}
+                        <span className="text-cyan-400 font-bold">
+                            Together
+                        </span>
                     </h2>
                     <p className="text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed font-mono">
-                        {"// The communication socket is open. Drop an inquiry payload below or connect via email."}
+                        {
+                            "// The communication socket is open. Drop an inquiry payload below or connect via email."
+                        }
                     </p>
                 </motion.div>
 
                 <motion.div
                     initial={{ opacity: 0, y: 50, scale: 0.95 }}
-                    animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 50, scale: 0.95 }}
+                    animate={
+                        isInView
+                            ? { opacity: 1, y: 0, scale: 1 }
+                            : { opacity: 0, y: 50, scale: 0.95 }
+                    }
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="max-w-3xl mx-auto rounded-3xl bg-slate-950/70 border border-cyan-500/20 p-8 md:p-12 overflow-hidden backdrop-blur-2xl shadow-2xl relative"
                 >
                     <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-cyan-600 via-cyan-400 to-teal-400" />
-                    
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <div>
                             <div className="flex items-center gap-3 mb-6 text-white font-mono">
                                 <Terminal className="w-8 h-8 text-cyan-400" />
-                                <h3 className="text-xl font-bold">[EMAIL_DISPATCH]</h3>
+                                <h3 className="text-xl font-bold">
+                                    [EMAIL_DISPATCH]
+                                </h3>
                             </div>
                             <p className="text-slate-400 mb-8 font-mono text-sm leading-relaxed">
-                                {"// Ready to compile clean architectures? Dispatch a message and establish the handshake."}
+                                {
+                                    "// Ready to compile clean architectures? Dispatch a message and establish the handshake."
+                                }
                             </p>
-                            <a 
+                            <a
                                 href="mailto:contact@dipjyoti.dev"
                                 className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-cyan-950 border border-cyan-500/40 text-cyan-400 rounded-xl font-bold text-base hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-cyan-950/40 font-mono tracking-wider cursor-pointer"
                             >
@@ -87,20 +113,36 @@ export default function Contact() {
                         </div>
 
                         <div className="flex flex-col gap-4 border-t md:border-t-0 md:border-l border-cyan-900/30 pt-8 md:pt-0 md:pl-12">
-                            <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4 font-mono">{"// Connect via Nodes"}</h4>
-                            
-                            <a href="https://github.com/dipexplorer" target="_blank" rel="noreferrer" className="group flex items-center gap-4 p-4 rounded-xl hover:bg-cyan-950/20 transition-colors border border-transparent hover:border-cyan-500/20">
+                            <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4 font-mono">
+                                {"// Connect via Nodes"}
+                            </h4>
+
+                            <a
+                                href="https://github.com/dipexplorer"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="group flex items-center gap-4 p-4 rounded-xl hover:bg-cyan-950/20 transition-colors border border-transparent hover:border-cyan-500/20"
+                            >
                                 <span className="p-3 bg-cyan-950/30 text-cyan-400 border border-cyan-800/30 rounded-lg group-hover:scale-110 transition-transform">
                                     <GitBranch className="w-6 h-6" />
                                 </span>
-                                <span className="font-semibold text-slate-300 group-hover:text-cyan-400 transition-colors font-mono text-sm">GitHub // dipexplorer</span>
+                                <span className="font-semibold text-slate-300 group-hover:text-cyan-400 transition-colors font-mono text-sm">
+                                    GitHub // dipexplorer
+                                </span>
                             </a>
 
-                            <a href="https://linkedin.com/in/dipjyoti-das" target="_blank" rel="noreferrer" className="group flex items-center gap-4 p-4 rounded-xl hover:bg-cyan-950/20 transition-colors border border-transparent hover:border-cyan-500/20">
+                            <a
+                                href="https://www.linkedin.com/in/dip-jyoti22/"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="group flex items-center gap-4 p-4 rounded-xl hover:bg-cyan-950/20 transition-colors border border-transparent hover:border-cyan-500/20"
+                            >
                                 <span className="p-3 bg-cyan-950/30 text-cyan-400 border border-cyan-800/30 rounded-lg group-hover:scale-110 transition-transform">
                                     <LinkedinIcon className="w-6 h-6" />
                                 </span>
-                                <span className="font-semibold text-slate-300 group-hover:text-cyan-400 transition-colors font-mono text-sm">LinkedIn // dipjyoti-das</span>
+                                <span className="font-semibold text-slate-300 group-hover:text-cyan-400 transition-colors font-mono text-sm">
+                                    LinkedIn // dipjyoti-das
+                                </span>
                             </a>
                         </div>
                     </div>
@@ -110,7 +152,13 @@ export default function Contact() {
                 <div className="mt-32 text-center text-slate-500 font-mono text-xs flex flex-col items-center gap-2">
                     <p>{"// Designed & Built by Dipjyoti Das"}</p>
                     <p className="flex items-center gap-1 justify-center">
-                        {"// Systems consultation: "} <a href="mailto:contact@dipjyoti.dev" className="text-cyan-400 hover:text-cyan-300 underline decoration-cyan-400/30 underline-offset-4 font-bold cursor-pointer">[ENGAGE_LOG]</a>
+                        {"// Systems consultation: "}{" "}
+                        <a
+                            href="mailto:contact@dipjyoti.dev"
+                            className="text-cyan-400 hover:text-cyan-300 underline decoration-cyan-400/30 underline-offset-4 font-bold cursor-pointer"
+                        >
+                            [ENGAGE_LOG]
+                        </a>
                     </p>
                 </div>
             </div>
