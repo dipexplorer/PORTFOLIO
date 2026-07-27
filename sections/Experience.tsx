@@ -162,7 +162,7 @@ const ExperienceCard = ({ exp, index }: { exp: ExperienceItem, index: number }) 
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6 }}
-            className={`relative flex flex-col md:flex-row items-center ${isEven ? 'md:flex-row-reverse' : ''} group`}
+            className={`relative flex flex-col md:flex-row items-center ${isEven ? 'md:flex-row-reverse' : ''} group ${index !== 0 ? 'mt-8 md:-mt-16 lg:-mt-24' : ''}`}
         >
             {/* Animated Timeline Diamond Node */}
             <div className={`absolute left-8 md:left-[50%] w-10 h-10 rounded-xl bg-white dark:bg-slate-950 border flex items-center justify-center -translate-x-1/2 rotate-45 z-20 transition-all duration-700 hidden md:flex ${
@@ -317,30 +317,7 @@ export default function Experience() {
                         style={{ scaleY }}
                     />
 
-                    {/* Traveling Energy Orb */}
-                    <motion.div
-                        className="absolute left-8 md:left-[50%] w-8 h-8 -translate-x-1/2 -translate-y-1/2 z-30 pointer-events-none flex items-center justify-center"
-                        style={{ top: useTransform(scrollYProgress, [0, 1], ["0%", "100%"]) }}
-                    >
-                        {/* Core Glowing Dot */}
-                        <div className="w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_15px_rgba(34,211,238,1),0_0_30px_rgba(34,211,238,1)] z-10" />
-                        
-                        {/* Spinning Tech Ring (Spiral effect) */}
-                        <motion.div 
-                            animate={{ rotate: 360, scale: [1, 1.3, 1] }} 
-                            transition={{ rotate: { duration: 4, repeat: Infinity, ease: "linear" }, scale: { duration: 2, repeat: Infinity, ease: "easeInOut" } }}
-                            className="absolute inset-1 rounded-full border border-cyan-400/80 border-t-transparent shadow-[0_0_10px_rgba(34,211,238,0.5)]"
-                        />
-                        
-                        {/* Outer Counter-Spinning Dashed Ring */}
-                        <motion.div 
-                            animate={{ rotate: -360, scale: [1.2, 1, 1.2] }} 
-                            transition={{ rotate: { duration: 6, repeat: Infinity, ease: "linear" }, scale: { duration: 3, repeat: Infinity, ease: "easeInOut" } }}
-                            className="absolute -inset-1 rounded-full border border-teal-500/60 border-dashed opacity-70"
-                        />
-                    </motion.div>
-
-                    <div className="space-y-10 md:space-y-12">
+                    <div className="relative z-10 w-full">
                         {experiences.map((exp, index) => (
                             <ExperienceCard key={exp.id} exp={exp} index={index} />
                         ))}
