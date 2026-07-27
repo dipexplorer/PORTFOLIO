@@ -7,6 +7,19 @@ import { Briefcase, GitPullRequest, Code2, Trophy, Database, Server, Activity, R
 const experiences = [
     {
         id: 0,
+        role: "Summer Software Engineer Intern",
+        company: "Assam Power Distribution Company Limited (APDCL)",
+        date: "Jun 2026 – Present",
+        location: "Guwahati, Assam",
+        icon: <Server className="w-6 h-6 text-emerald-400" />,
+        tech: ["FastAPI", "Celery", "Redis", "TimescaleDB", "PostgreSQL", "PostGIS", "Docker"],
+        points: [
+            "Developing GridMind, an asset monitoring system processing time-series telemetry data with FastAPI, Celery, and Redis.",
+            "Logging power grid metrics in TimescaleDB and mapping transformer locations utilizing PostgreSQL/PostGIS."
+        ]
+    },
+    {
+        id: 1,
         role: "Creator & Lead Developer",
         company: "SahiDawa",
         date: "Jan 2025 – Present",
@@ -19,7 +32,7 @@ const experiences = [
         ]
     },
     {
-        id: 1,
+        id: 2,
         role: "Project Admin – LegalHub",
         company: "GirlScript Summer of Code 2025",
         date: "May 2025 – Aug 2025",
@@ -33,7 +46,7 @@ const experiences = [
         ]
     },
     {
-        id: 2,
+        id: 3,
         role: "Signal & Telecom Field Trainee",
         company: "Northeast Frontier Railway",
         date: "Jun 2025 – Jul 2025",
@@ -46,7 +59,7 @@ const experiences = [
         ]
     },
     {
-        id: 3,
+        id: 4,
         role: "Semifinalist – LearnSight",
         company: "Hack-A-Thon: AI for Education 2025",
         date: "Feb 2025",
@@ -59,7 +72,7 @@ const experiences = [
         ]
     },
     {
-        id: 4,
+        id: 5,
         role: "Full Stack Developer Intern",
         company: "InnoByte Services",
         date: "Oct – Dec 2024",
@@ -72,7 +85,7 @@ const experiences = [
         ]
     },
     {
-        id: 5,
+        id: 6,
         role: "Open Source Contributor",
         company: "GSSoC Ext & Hacktoberfest",
         date: "Oct – Nov 2024",
@@ -85,7 +98,7 @@ const experiences = [
         ]
     },
     {
-        id: 6,
+        id: 7,
         role: "CS Subject Matter Expert",
         company: "Chegg India",
         date: "Apr 2023 – Oct 2024",
@@ -98,7 +111,7 @@ const experiences = [
         ]
     },
     {
-        id: 7,
+        id: 8,
         role: "Computer Networking Intern",
         company: "Trans Virtual Private Limited",
         date: "Jan 2024",
@@ -107,7 +120,7 @@ const experiences = [
         tech: ["Cisco IOS", "PuTTY", "VLAN", "Routing"],
         points: [
             "Gained hands-on experience setting up and maintaining network systems, including enterprise routers and switches.",
-            "Navigated device CLIs and utilized tools like PuTTY to execute configuration commands and diagnose network issues."
+            "Navigated device CLIs and utilized tools to execute configuration commands and diagnose network issues."
         ]
     }
 ];
