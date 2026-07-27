@@ -340,7 +340,7 @@ export default function NodeConnectorFallback({ contributions }: { contributions
           const col = CLUSTER[hovNode.cid].stroke;
           lines.push(
             <line key={`hs${p.id}`} x1={hovNode.x} y1={hovNode.y} x2={p.x} y2={p.y}
-              stroke={col} strokeWidth="1.4" strokeOpacity={op} filter="url(#glow)" />,
+              stroke={col} strokeWidth="1.4" strokeOpacity={op} />,
             <line key={`hp${p.id}`} x1={hovNode.x} y1={hovNode.y} x2={p.x} y2={p.y}
               stroke={col} strokeWidth="2.1" strokeOpacity={op * 0.52}
               strokeDasharray="6 14" className="synapse-pulse" />
@@ -358,7 +358,7 @@ export default function NodeConnectorFallback({ contributions }: { contributions
           lines.push(
             <line key={`m${p.id}`} x1={mx} y1={my} x2={p.x} y2={p.y}
               stroke={CLUSTER[p.cid].stroke} strokeWidth="0.95"
-              strokeOpacity={(1 - d / 195) * 0.65} filter="url(#glow)" />
+              strokeOpacity={(1 - d / 195) * 0.65} />
           );
         }
       });
@@ -586,13 +586,12 @@ export default function NodeConnectorFallback({ contributions }: { contributions
                   <circle cx={c.x} cy={c.y} r="26" fill="none"
                     stroke={meta.stroke} strokeOpacity="0.15" strokeWidth="1.5" className="halo-beat" />
                   <circle cx={c.x} cy={c.y} r="14" fill="none"
-                    stroke={meta.stroke} strokeOpacity="0.5" strokeWidth="1.2" filter="url(#glow)" />
+                    stroke={meta.stroke} strokeOpacity="0.5" strokeWidth="1.2" />
                 </>
               )}
               <circle cx={c.x} cy={c.y} r={r}
                 fill={meta.stroke}
-                fillOpacity={isH ? 1 : near ? 0.95 : 0.78}
-                filter={isH ? "url(#sglow)" : near ? "url(#mglow)" : "url(#glow)"} />
+                fillOpacity={isH ? 1 : near ? 0.95 : 0.78} />
             </g>
           );
         })}
