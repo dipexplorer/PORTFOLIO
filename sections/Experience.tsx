@@ -139,8 +139,12 @@ interface ExperienceItem {
 const ExperienceCard = ({ exp, index }: { exp: ExperienceItem, index: number }) => {
     const isEven = index % 2 === 0;
     const cardRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const [isHovered, setIsHovered] = useState(false);
+    
+    // Dynamic focus state based on viewport position
+    const isFocused = useInView(containerRef, { margin: "-25% 0px -25% 0px" });
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         if (!cardRef.current) return;
@@ -153,48 +157,73 @@ const ExperienceCard = ({ exp, index }: { exp: ExperienceItem, index: number }) 
 
     return (
         <motion.div
+            ref={containerRef}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6 }}
             className={`relative flex flex-col md:flex-row items-center ${isEven ? 'md:flex-row-reverse' : ''} group`}
         >
             {/* Animated Timeline Diamond Node */}
-            <div className="absolute left-8 md:left-[50%] w-10 h-10 rounded-xl bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-800 flex items-center justify-center -translate-x-1/2 rotate-45 z-20 group-hover:border-cyan-500/50 group-hover:shadow-[0_0_20px_rgba(6,182,212,0.3)] transition-all duration-500 hidden md:flex">
-                <div className="w-3 h-3 rounded-sm bg-slate-300 dark:bg-slate-700 group-hover:bg-cyan-500 dark:group-hover:bg-cyan-400 transition-colors duration-500 group-hover:shadow-[0_0_15px_rgba(6,182,212,1)]" />
+            <div className={`absolute left-8 md:left-[50%] w-10 h-10 rounded-xl bg-white dark:bg-slate-950 border flex items-center justify-center -translate-x-1/2 rotate-45 z-20 transition-all duration-700 hidden md:flex ${
+                isFocused 
+                    ? "border-cyan-500 shadow-[0_0_30px_rgba(6,182,212,0.5)] scale-110" 
+                    : "border-slate-300 dark:border-slate-800 scale-100 group-hover:border-cyan-500/50"
+            }`}>
+                <div className={`w-3 h-3 rounded-sm transition-all duration-700 ${
+                    isFocused 
+                        ? "bg-cyan-500 shadow-[0_0_15px_rgba(6,182,212,1)] scale-125" 
+                        : "bg-slate-300 dark:bg-slate-700 group-hover:bg-cyan-500/50"
+                }`} />
             </div>
 
             {/* Mobile Timeline Node */}
-            <div className="absolute left-8 w-6 h-6 rounded-full bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-800 flex items-center justify-center -translate-x-1/2 z-20 group-hover:border-cyan-500/50 transition-all duration-500 md:hidden mt-6">
-                <div className="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-700 group-hover:bg-cyan-500 dark:group-hover:bg-cyan-400 transition-colors duration-500" />
+            <div className={`absolute left-8 w-6 h-6 rounded-full bg-white dark:bg-slate-950 border flex items-center justify-center -translate-x-1/2 z-20 transition-all duration-700 md:hidden mt-6 ${
+                isFocused ? "border-cyan-500 scale-110 shadow-[0_0_15px_rgba(6,182,212,0.5)]" : "border-slate-300 dark:border-slate-800 scale-100"
+            }`}>
+                <div className={`w-2 h-2 rounded-full transition-all duration-700 ${
+                    isFocused ? "bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,1)]" : "bg-slate-300 dark:bg-slate-700"
+                }`} />
             </div>
 
-            {/* Content Card */}
-            <div className={`w-full md:w-[47%] ${isEven ? 'md:pr-12 md:text-right' : 'md:pl-12 text-left'} pl-16 md:pl-0`}>
+            {/* Content Card with Cinematic Focus Effect */}
+            <div className={`w-full md:w-[47%] ${isEven ? 'md:pr-12 md:text-right' : 'md:pl-12 text-left'} pl-16 md:pl-0 transition-all duration-700 ease-out ${
+                isFocused ? "opacity-100 scale-100" : "opacity-40 scale-[0.96]"
+            }`}>
                 <div 
                     ref={cardRef}
                     onMouseMove={handleMouseMove}
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
-                    className="relative p-6 sm:p-8 rounded-2xl bg-white/60 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/40 overflow-hidden shadow-md dark:shadow-xl hover:shadow-cyan-900/10 dark:hover:shadow-cyan-900/20 transition-all duration-500"
+                    className={`relative p-6 sm:p-8 rounded-2xl bg-white/60 dark:bg-slate-900/40 border transition-all duration-500 overflow-hidden ${
+                        isFocused 
+                            ? "border-cyan-500/50 shadow-lg dark:shadow-cyan-900/20" 
+                            : "border-slate-200 dark:border-slate-800 shadow-md hover:border-cyan-500/30"
+                    }`}
                 >
                     {/* Spotlight Mouse Tracking Effect */}
                     <div 
                         className="absolute inset-0 z-0 transition-opacity duration-300 ease-in-out pointer-events-none"
                         style={{
-                            opacity: isHovered ? 1 : 0,
-                            background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(6,182,212,0.06), transparent 40%)`,
+                            opacity: isHovered && isFocused ? 1 : 0,
+                            background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(6,182,212,0.08), transparent 40%)`,
                         }}
                     />
                     
                     <div className="relative z-10">
                         {/* Header Area */}
                         <div className={`flex flex-col sm:flex-row items-start gap-5 mb-6 ${isEven ? 'md:flex-row-reverse md:text-right' : 'text-left'}`}>
-                            <div className="p-4 rounded-xl bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 shadow-inner group-hover:scale-110 group-hover:border-cyan-500/30 transition-all duration-500 shrink-0">
+                            <div className={`p-4 rounded-xl border transition-all duration-500 shrink-0 ${
+                                isFocused 
+                                    ? "bg-cyan-50 dark:bg-cyan-950/40 border-cyan-300 dark:border-cyan-700/50 text-cyan-600 dark:text-cyan-400 scale-110 shadow-inner" 
+                                    : "bg-slate-100 dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-500"
+                            }`}>
                                 {exp.icon}
                             </div>
                             <div className="flex-1 w-full">
-                                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100 group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors duration-300">{exp.role}</h3>
+                                <h3 className={`text-xl sm:text-2xl font-bold transition-colors duration-300 ${
+                                    isFocused ? "text-cyan-700 dark:text-cyan-300" : "text-slate-800 dark:text-slate-200"
+                                }`}>{exp.role}</h3>
                                 <div className="text-sm font-mono text-cyan-600 dark:text-cyan-400/80 mt-1">{exp.company}</div>
                                 
                                 <div className={`flex flex-wrap items-center gap-2 text-[10px] sm:text-xs font-mono text-slate-500 dark:text-slate-400 uppercase tracking-widest mt-3 ${isEven ? 'md:justify-end' : 'justify-start'}`}>
@@ -210,7 +239,7 @@ const ExperienceCard = ({ exp, index }: { exp: ExperienceItem, index: number }) 
                             {exp.points.map((point: string, i: number) => (
                                 <li key={i} className={`flex items-start gap-3 ${isEven ? 'md:flex-row-reverse' : 'flex-row'}`}>
                                     <span className="text-cyan-600 dark:text-cyan-500/60 mt-1 select-none text-[10px]">❖</span>
-                                    <span className="flex-1 group-hover:text-slate-800 dark:group-hover:text-slate-300 transition-colors duration-300">{point}</span>
+                                    <span className={`flex-1 transition-colors duration-300 ${isFocused ? "text-slate-700 dark:text-slate-300" : ""}`}>{point}</span>
                                 </li>
                             ))}
                         </ul>
@@ -219,7 +248,11 @@ const ExperienceCard = ({ exp, index }: { exp: ExperienceItem, index: number }) 
                         {exp.tech && (
                             <div className={`flex flex-wrap gap-2 mt-6 pt-6 border-t border-slate-200 dark:border-slate-800/50 ${isEven ? 'md:justify-end' : 'justify-start'}`}>
                                 {exp.tech.map((t: string, i: number) => (
-                                    <span key={i} className="px-3 py-1 text-[10px] font-mono bg-slate-100 dark:bg-slate-950 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800 rounded-md group-hover:border-cyan-500/30 dark:group-hover:border-cyan-900/60 group-hover:text-cyan-800 dark:group-hover:text-cyan-100 transition-colors duration-300 shadow-xs">
+                                    <span key={i} className={`px-3 py-1 text-[10px] font-mono border rounded-md transition-colors duration-300 shadow-xs ${
+                                        isFocused 
+                                            ? "bg-cyan-50 dark:bg-cyan-900/20 border-cyan-200 dark:border-cyan-800/50 text-cyan-800 dark:text-cyan-300" 
+                                            : "bg-slate-100 dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400"
+                                    }`}>
                                         {t}
                                     </span>
                                 ))}
@@ -284,7 +317,7 @@ export default function Experience() {
                         style={{ scaleY }}
                     />
 
-                    <div className="space-y-16 md:space-y-24">
+                    <div className="space-y-10 md:space-y-12">
                         {experiences.map((exp, index) => (
                             <ExperienceCard key={exp.id} exp={exp} index={index} />
                         ))}
