@@ -12,8 +12,8 @@
   --color-cluster-1: #059669;
   --color-cluster-2: #4f46e5;
   --color-cluster-3: #0284c7;
-  --color-cluster-4: #db2777;
-  --color-cluster-5: #d97706;
+  --color-cluster-4: #7c3aed;
+  --color-cluster-5: #ea580c;
 }
 
 .dark {
@@ -24,8 +24,8 @@
   --color-cluster-1: #34d399;
   --color-cluster-2: #818cf8;
   --color-cluster-3: #38bdf8;
-  --color-cluster-4: #f472b6;
-  --color-cluster-5: #fbbf24;
+  --color-cluster-4: #a78bfa;
+  --color-cluster-5: #fb923c;
 }
 
 @theme inline {

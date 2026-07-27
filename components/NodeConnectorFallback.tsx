@@ -375,7 +375,7 @@ export default function NodeConnectorFallback({ contributions }: { contributions
     return (
       <g transform={`translate(${hovNode.x + ox},${hovNode.y + oy})`}>
         <rect x="0" y="-14" width="338" height="116" rx="7"
-          className="fill-white/95 dark:fill-slate-950/95 transition-all duration-300" stroke={meta.stroke} strokeWidth="1.3" filter="url(#glow)" />
+          className="fill-white/95 dark:fill-slate-950/95 transition-all duration-300" stroke={meta.stroke} strokeWidth="1.3" />
         {/* Cluster accent bar at top */}
         <rect x="0" y="-14" width="338" height="7" rx="3.5" fill={meta.stroke} fillOpacity="0.9" />
         <text x="13" y="7" fill={meta.stroke} fontSize="8.5" fontFamily="monospace" letterSpacing="1.2" className="font-bold">
@@ -393,7 +393,7 @@ export default function NodeConnectorFallback({ contributions }: { contributions
           </text>
         )}
         <text x="13" y="90" fill={meta.stroke} fontSize="9" fontWeight="700" fontFamily="monospace"
-          filter="url(#glow)" className="cursor-pointer tracking-wider hover:brightness-110">
+          className="cursor-pointer tracking-wider hover:brightness-110">
           {">> CLICK TO OPEN ON GITHUB _"}
         </text>
       </g>
