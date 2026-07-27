@@ -9,7 +9,7 @@ import {
     SiMongodb, SiPostgresql, SiRedis, SiDocker, SiFirebase, SiIpfs, SiJsonwebtokens
 } from "react-icons/si";
 import Link from "next/link";
-import { motion, AnimatePresence, useScroll, useTransform, MotionValue } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform, MotionValue, useSpring } from "framer-motion";
 import { Project } from "@/types/project";
 
 // ─── Tech Icon Helper ──────────────────────────────────────────────────────────
@@ -57,12 +57,14 @@ const SphericalProjectCard = ({
     // When scroll is BEFORE 'active', it is down (y>0), pushed back (z<0), and tilted back (rotateX>0)
     // When scroll is AFTER 'active', it flies up (y<0), pushed back (z<0), and tilted forward (rotateX<0)
     
-    // We increase the spread range (0.3) so the cards stay visible longer as they arc around
-    const yOffset = useTransform(scrollYProgress, [active - 0.3, active, active + 0.3], [1200, 0, -1200]); 
-    const zOffset = useTransform(scrollYProgress, [active - 0.3, active, active + 0.3], [-1500, 0, -1500]); 
-    const rotateX = useTransform(scrollYProgress, [active - 0.3, active, active + 0.3], [70, 0, -70]); 
-    const opacity = useTransform(scrollYProgress, [active - 0.25, active - 0.1, active + 0.1, active + 0.25], [0, 1, 1, 0]);
-    const scale = useTransform(scrollYProgress, [active - 0.3, active, active + 0.3], [0.6, 1, 0.6]);
+    // Wrap in useSpring to disable WAAPI hardware-acceleration (which crashes on negative offsets) and add smooth inertia
+    const smoothProgress = useSpring(scrollYProgress, { stiffness: 300, damping: 40, mass: 1 });
+
+    const yOffset = useTransform(smoothProgress, [active - 0.3, active, active + 0.3], [1200, 0, -1200]); 
+    const zOffset = useTransform(smoothProgress, [active - 0.3, active, active + 0.3], [-1500, 0, -1500]); 
+    const rotateX = useTransform(smoothProgress, [active - 0.3, active, active + 0.3], [70, 0, -70]); 
+    const opacity = useTransform(smoothProgress, [active - 0.25, active - 0.1, active + 0.1, active + 0.25], [0, 1, 1, 0]);
+    const scale = useTransform(smoothProgress, [active - 0.3, active, active + 0.3], [0.6, 1, 0.6]);
 
     const displayImages = project.images?.length ? project.images : project.image ? [project.image] : [];
 
