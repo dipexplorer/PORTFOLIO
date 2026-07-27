@@ -31,6 +31,35 @@ export const projects: Project[] = [
         ]
     },
     {
+        title: "GridMind – Smart Grid Reliability Platform",
+        description:
+            "GridMind is an adaptive intelligence platform developed during my APDCL internship to transition distribution transformer maintenance from reactive break-fix to predictive, data-driven planning. It ingests time-series load telemetry, scores health using survival analysis and anomaly detection, and provides interactive risk overlays on a WebGL GIS map.",
+        tech: [
+            "FastAPI",
+            "Next.js",
+            "PostgreSQL",
+            "PostGIS",
+            "TimescaleDB",
+            "Celery",
+            "Redis",
+            "Docker",
+            "Deck.gl"
+        ],
+        highlight:
+            "Completed for APDCL · Predictive intelligence dashboard mapping transformer failure risks using Survival Analysis & anomaly detection.",
+        github: "https://github.com/dipexplorer/gridmind",
+        liveUrl: "https://gridmind-beta.vercel.app",
+        image: "/projects/gridmind_ui_ss/gridmind_stickman_infographic.png",
+        images: [
+            "/projects/gridmind_ui_ss/gridmind_stickman_infographic.png"
+        ],
+        features: [
+            "Predictive Health Scoring (Cox Survival PH + Isolation Forest)",
+            "TimescaleDB & Redis async ingestion pipeline",
+            "WebGL accelerated mapping using Deck.gl rendering 10k+ points"
+        ]
+    },
+    {
         title: "AADSS – Attendance Decision System",
         description:
             "Academic Attendance Decision Support System (AADSS) with advanced analytics. Built predictive eligibility analytics to help students simulate attendance scenarios, calculate minimum class thresholds, and avoid failing due to attendance shortfalls.",
@@ -47,6 +76,11 @@ export const projects: Project[] = [
             "/projects/aadss_ui_ss/aadss-ygag.vercel.app_calendar-dashboard (1).png",
             "/projects/aadss_ui_ss/aadss-ygag.vercel.app_calendar-dashboard (2).png"
         ],
+        features: [
+            "Predictive simulation engine for attendance forecasting",
+            "Anti-proxy system using GPS geofencing verification",
+            "Supabase real-time database state sync"
+        ]
     },
     {
         title: "LegalHub – AI Legal Platform",
