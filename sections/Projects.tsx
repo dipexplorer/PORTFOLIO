@@ -148,13 +148,6 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
     const [isHovered, setIsHovered] = useState(false);
     const [glowPos, setGlowPos] = useState({ x: 50, y: 50 });
 
-    // Wide cards: index 0 (spans 2 cols), index 3 (spans 2 cols)  
-    // Keep 6-project bento: [wide][narrow][narrow][wide][narrow][narrow]
-    const isWide = index === 0 || index === 3;
-    const colClass = isWide
-        ? "md:col-span-2 lg:col-span-2"
-        : "md:col-span-1 lg:col-span-1";
-
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         const el = cardRef.current;
         if (!el) return;
@@ -183,7 +176,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
                 transform: `perspective(1200px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
                 transition: isHovered ? "transform 0ms" : "transform 500ms cubic-bezier(0.25, 1, 0.5, 1)",
             }}
-            className={`${colClass} group relative rounded-2xl overflow-hidden border border-slate-800/70 bg-slate-950/50 backdrop-blur-xl`}
+            className="w-full group relative rounded-2xl overflow-hidden border border-slate-800/70 bg-slate-950/50 backdrop-blur-xl"
         >
             {/* Radial glow on hover */}
             <div
@@ -220,93 +213,56 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
                 </div>
 
                 {/* ── Main content area ── */}
-                {isWide ? (
-                    // Wide card: side-by-side layout
-                    <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 flex-1">
-                        {/* Text side */}
-                        <div className="lg:col-span-3 flex flex-col justify-between">
-                            <div>
-                                <h3 className={`text-xl lg:text-2xl font-black text-white mb-3 group-hover:${accent.text} transition-colors duration-300 leading-tight tracking-tight`}>
-                                    {project.title}
-                                </h3>
+                <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8 flex-1">
+                    {/* Text side */}
+                    <div className={`${displayImages.length > 0 ? "lg:col-span-3" : "lg:col-span-5"} flex flex-col justify-between ${displayImages.length > 0 && index % 2 === 1 ? "lg:order-2" : "lg:order-1"}`}>
+                        <div>
+                            <h3 className={`text-xl lg:text-2xl font-black text-white mb-3 group-hover:${accent.text} transition-colors duration-300 leading-tight tracking-tight`}>
+                                {project.title}
+                            </h3>
 
-                                {project.highlight && (
-                                    <div className={`mb-4 pl-3 border-l-2 ${accent.border} py-1.5`}>
-                                        <p className={`text-xs font-semibold ${accent.text} leading-relaxed font-mono`}>
-                                            {project.highlight}
-                                        </p>
-                                    </div>
-                                )}
+                            {project.highlight && (
+                                <div className={`mb-4 pl-3 border-l-2 ${accent.border} py-1.5`}>
+                                    <p className={`text-xs font-semibold ${accent.text} leading-relaxed font-mono`}>
+                                        {project.highlight}
+                                    </p>
+                                </div>
+                            )}
 
-                                <p className="text-sm text-slate-400 leading-relaxed font-mono mb-4 line-clamp-3">
-                                    {project.description}
-                                </p>
+                            <p className="text-sm text-slate-400 leading-relaxed font-mono mb-4">
+                                {project.description}
+                            </p>
 
-                                {project.features && (
-                                    <ul className="space-y-1.5">
-                                        {project.features.map((f, i) => (
-                                            <li key={i} className="flex items-start text-xs text-slate-300 font-mono">
-                                                <span className={`${accent.text} mr-2 mt-0.5 shrink-0`}>▹</span>
-                                                {f}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                )}
-                            </div>
-
-                            {/* Tech tags */}
-                            <div className="flex flex-wrap gap-1.5 mt-4">
-                                {project.tech.map((t) => (
-                                    <span key={t} className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-mono font-bold border ${accent.badge} transition-all duration-200`}>
-                                        <TechIcon tech={t} />
-                                        {t}
-                                    </span>
-                                ))}
-                            </div>
+                            {project.features && (
+                                <ul className="space-y-1.5">
+                                    {project.features.map((f, i) => (
+                                        <li key={i} className="flex items-start text-xs text-slate-300 font-mono">
+                                            <span className={`${accent.text} mr-2 mt-0.5 shrink-0`}>▹</span>
+                                            {f}
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
                         </div>
-
-                        {/* Image side */}
-                        <div className="lg:col-span-2 min-h-[220px] lg:min-h-0">
-                            <ImageCarousel images={displayImages} title={project.title} accent={accent} />
-                        </div>
-                    </div>
-                ) : (
-                    // Narrow card: stacked layout
-                    <div className="flex flex-col flex-1">
-                        <h3 className={`text-lg font-black text-white mb-2.5 group-hover:${accent.text} transition-colors duration-300 leading-tight tracking-tight`}>
-                            {project.title}
-                        </h3>
-
-                        {project.highlight && (
-                            <div className={`mb-3 pl-3 border-l-2 ${accent.border} py-1`}>
-                                <p className={`text-xs font-semibold ${accent.text} leading-relaxed font-mono`}>
-                                    {project.highlight}
-                                </p>
-                            </div>
-                        )}
-
-                        <p className="text-xs text-slate-400 leading-relaxed font-mono mb-4 line-clamp-3">
-                            {project.description}
-                        </p>
-
-                        {/* Image */}
-                        {displayImages.length > 0 && (
-                            <div className="w-full aspect-video mb-4 rounded-xl overflow-hidden shrink-0">
-                                <ImageCarousel images={displayImages} title={project.title} accent={accent} />
-                            </div>
-                        )}
 
                         {/* Tech tags */}
-                        <div className="flex flex-wrap gap-1.5 mt-auto">
+                        <div className="flex flex-wrap gap-1.5 mt-4">
                             {project.tech.map((t) => (
-                                <span key={t} className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-mono font-bold border ${accent.badge}`}>
+                                <span key={t} className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-mono font-bold border ${accent.badge} transition-all duration-200`}>
                                     <TechIcon tech={t} />
                                     {t}
                                 </span>
                             ))}
                         </div>
                     </div>
-                )}
+
+                    {/* Image side */}
+                    {displayImages.length > 0 && (
+                        <div className={`lg:col-span-2 min-h-[220px] lg:min-h-0 ${index % 2 === 1 ? "lg:order-1" : "lg:order-2"}`}>
+                            <ImageCarousel images={displayImages} title={project.title} accent={accent} />
+                        </div>
+                    )}
+                </div>
 
                 {/* ── Footer CTA ── */}
                 <div className="flex gap-2 mt-5 pt-4 border-t border-slate-800/60">
@@ -397,8 +353,8 @@ export default function Projects() {
                     </p>
                 </motion.div>
 
-                {/* ── Bento grid ── */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+                {/* ── Vertical stack ── */}
+                <div className="flex flex-col gap-6 md:gap-8">
                     {projects.map((project, i) => (
                         <ProjectCard key={project.title} project={project} index={i} />
                     ))}
