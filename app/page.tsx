@@ -7,6 +7,7 @@ import Credentials from "@/sections/Credentials";
 import Experience from "@/sections/Experience";
 import AppEffects from "@/components/AppEffects";
 import Book from "@/components/Book";
+import ScrollProgress from "@/components/ScrollProgress";
 
 import { fetchGithubContributions } from "@/lib/github";
 
@@ -72,6 +73,8 @@ export default async function Home() {
       <footer className="w-full py-8 text-center text-[9px] font-mono text-slate-400 dark:text-cyan-600/35 tracking-widest select-none relative z-10 border-t border-slate-200 dark:border-cyan-500/5">
         ENGINEERING JOURNAL OF DIPJYOTI DAS • GUWAHATI, IND • © 2026
       </footer>
+
+      <ScrollProgress />
     </div>
   );
 }
