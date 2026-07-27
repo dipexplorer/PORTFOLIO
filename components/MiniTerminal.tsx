@@ -179,11 +179,11 @@ export default function MiniTerminal() {
 
   return (
     <div 
-        className="w-full flex flex-col rounded-lg bg-slate-950 border border-cyan-800/40 text-cyan-400 font-mono shadow-[0_0_20px_rgba(6,182,212,0.15)] text-xs overflow-hidden h-64 md:h-72 cursor-text"
+        className="w-full flex flex-col rounded-lg bg-slate-950 border border-slate-800 text-slate-300 font-mono shadow-xl text-xs overflow-hidden h-64 md:h-72 cursor-text"
         onClick={() => inputRef.current?.focus()}
     >
       {/* Header Bar */}
-      <div className="flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-cyan-900/50 select-none">
+      <div className="flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800 select-none">
         <div className="flex items-center gap-1.5">
           <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 hover:bg-red-400 transition-colors" />
           <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 hover:bg-yellow-400 transition-colors" />
@@ -223,15 +223,15 @@ export default function MiniTerminal() {
       </div>
 
       {/* Input Form */}
-      <form onSubmit={handleCommand} className="flex items-center border-t border-cyan-900/50 bg-slate-900/50 p-2">
-        <span className="text-cyan-500 font-bold mr-2 select-none pl-1 drop-shadow-[0_0_5px_rgba(6,182,212,0.5)]">dipuser@portfolio:~$</span>
+      <form onSubmit={handleCommand} className="flex items-center border-t border-slate-800 bg-slate-900/50 p-2">
+        <span className="text-emerald-400 font-bold mr-2 select-none pl-1">dipuser@portfolio:~$</span>
         <input
           ref={inputRef}
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
-          className="flex-1 bg-transparent text-slate-100 outline-none font-mono text-xs caret-cyan-400 placeholder:text-slate-700"
+          className="flex-1 bg-transparent text-slate-100 outline-none font-mono text-xs caret-slate-300 placeholder:text-slate-700"
           placeholder="type 'help'..."
           autoComplete="off"
           autoCorrect="off"
