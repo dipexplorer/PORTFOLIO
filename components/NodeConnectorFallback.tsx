@@ -604,15 +604,15 @@ export default function NodeConnectorFallback({ contributions }: { contributions
           {/* Left bracket */}
           <path d="M 270 550 L 260 550 L 260 580 L 270 580" fill="none" stroke="#22d3ee" strokeWidth="1.5" opacity="0.6"/>
           {/* Background Panel */}
-          <rect x="260" y="550" width="680" height="30" fill="rgba(2,6,23,0.4)" stroke="rgba(34,211,238,0.15)" strokeWidth="1" />
+          <rect x="260" y="550" width="680" height="30" className="fill-cyan-50/70 dark:fill-slate-950/40 transition-colors duration-300" stroke="rgba(34,211,238,0.15)" strokeWidth="1" />
           {/* Right bracket */}
           <path d="M 930 550 L 940 550 L 940 580 L 930 580" fill="none" stroke="#22d3ee" strokeWidth="1.5" opacity="0.6"/>
           
           {/* Text */}
-          <text x="600" y="569" textAnchor="middle" fill="#94a3b8" fontSize="10.5" fontFamily="monospace" letterSpacing="1.8">
-            <tspan fill="#2dd4bf" fontWeight="bold">HOVER</tspan> PARTICLES FOR GITHUB COMMITS 
-            <tspan fill="#334155" fontWeight="bold">  ||  </tspan> 
-            <tspan fill="#818cf8" fontWeight="bold">CLICK</tspan> CORE FOR GITHUB PROFILE
+          <text x="600" y="569" textAnchor="middle" className="fill-slate-700 dark:fill-slate-400 transition-colors duration-300" fontSize="10.5" fontFamily="monospace" letterSpacing="1.8">
+            <tspan className="fill-cyan-600 dark:fill-teal-400 transition-colors duration-300" fontWeight="bold">HOVER</tspan> PARTICLES FOR GITHUB COMMITS 
+            <tspan className="fill-slate-400 dark:fill-slate-700 transition-colors duration-300" fontWeight="bold">  ||  </tspan> 
+            <tspan className="fill-indigo-600 dark:fill-indigo-400 transition-colors duration-300" fontWeight="bold">CLICK</tspan> CORE FOR GITHUB PROFILE
           </text>
         </g>
       </svg>

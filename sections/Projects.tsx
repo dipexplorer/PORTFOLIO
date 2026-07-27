@@ -17,12 +17,12 @@ import { Project } from "@/types/project";
 
 // ─── Color palette per project index ──────────────────────────────────────────
 const ACCENT_COLORS = [
-    { text: "text-emerald-400", border: "border-emerald-500/40", bg: "bg-emerald-500/10", dot: "bg-emerald-400", glow: "rgba(52,211,153,0.12)", badge: "bg-emerald-950/60 text-emerald-300 border-emerald-700/50" },
-    { text: "text-violet-400",  border: "border-violet-500/40",  bg: "bg-violet-500/10",  dot: "bg-violet-400",  glow: "rgba(167,139,250,0.12)", badge: "bg-violet-950/60 text-violet-300 border-violet-700/50" },
-    { text: "text-amber-400",   border: "border-amber-500/40",   bg: "bg-amber-500/10",   dot: "bg-amber-400",   glow: "rgba(251,191,36,0.12)",  badge: "bg-amber-950/60 text-amber-300 border-amber-700/50"   },
-    { text: "text-sky-400",     border: "border-sky-500/40",     bg: "bg-sky-500/10",     dot: "bg-sky-400",     glow: "rgba(56,189,248,0.12)",  badge: "bg-sky-950/60 text-sky-300 border-sky-700/50"         },
-    { text: "text-rose-400",    border: "border-rose-500/40",    bg: "bg-rose-500/10",    dot: "bg-rose-400",    glow: "rgba(251,113,133,0.12)", badge: "bg-rose-950/60 text-rose-300 border-rose-700/50"       },
-    { text: "text-orange-400",  border: "border-orange-500/40",  bg: "bg-orange-500/10",  dot: "bg-orange-400",  glow: "rgba(251,146,60,0.12)",  badge: "bg-orange-950/60 text-orange-300 border-orange-700/50" },
+    { text: "text-emerald-600 dark:text-emerald-400", border: "border-emerald-300 dark:border-emerald-500/40", bg: "bg-emerald-100 dark:bg-emerald-500/10", dot: "bg-emerald-500 dark:bg-emerald-400", glow: "rgba(52,211,153,0.12)", badge: "bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border-emerald-300 dark:border-emerald-700/50" },
+    { text: "text-violet-600 dark:text-violet-400",  border: "border-violet-300 dark:border-violet-500/40",  bg: "bg-violet-100 dark:bg-violet-500/10",  dot: "bg-violet-500 dark:bg-violet-400",  glow: "rgba(167,139,250,0.12)", badge: "bg-violet-50 dark:bg-violet-950/60 text-violet-700 dark:text-violet-300 border-violet-300 dark:border-violet-700/50" },
+    { text: "text-amber-600 dark:text-amber-400",   border: "border-amber-300 dark:border-amber-500/40",   bg: "bg-amber-100 dark:bg-amber-500/10",   dot: "bg-amber-500 dark:bg-amber-400",   glow: "rgba(251,191,36,0.12)",  badge: "bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border-amber-300 dark:border-amber-700/50"   },
+    { text: "text-sky-600 dark:text-sky-400",     border: "border-sky-300 dark:border-sky-500/40",     bg: "bg-sky-100 dark:bg-sky-500/10",     dot: "bg-sky-500 dark:bg-sky-400",     glow: "rgba(56,189,248,0.12)",  badge: "bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 border-sky-300 dark:border-sky-700/50"         },
+    { text: "text-rose-600 dark:text-rose-400",    border: "border-rose-300 dark:border-rose-500/40",    bg: "bg-rose-100 dark:bg-rose-500/10",    dot: "bg-rose-500 dark:bg-rose-400",    glow: "rgba(251,113,133,0.12)", badge: "bg-rose-50 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 border-rose-300 dark:border-rose-700/50"       },
+    { text: "text-orange-600 dark:text-orange-400",  border: "border-orange-300 dark:border-orange-500/40",  bg: "bg-orange-100 dark:bg-orange-500/10",  dot: "bg-orange-500 dark:bg-orange-400",  glow: "rgba(251,146,60,0.12)",  badge: "bg-orange-50 dark:bg-orange-950/60 text-orange-700 dark:text-orange-300 border-orange-300 dark:border-orange-700/50" },
 ];
 
 // ─── Tech Icon Helper ──────────────────────────────────────────────────────────

@@ -160,13 +160,13 @@ const ExperienceCard = ({ exp, index }: { exp: ExperienceItem, index: number }) 
             className={`relative flex flex-col md:flex-row items-center ${isEven ? 'md:flex-row-reverse' : ''} group`}
         >
             {/* Animated Timeline Diamond Node */}
-            <div className="absolute left-8 md:left-[50%] w-10 h-10 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center -translate-x-1/2 rotate-45 z-20 group-hover:border-cyan-500/50 group-hover:shadow-[0_0_20px_rgba(6,182,212,0.3)] transition-all duration-500 hidden md:flex">
-                <div className="w-3 h-3 rounded-sm bg-slate-700 group-hover:bg-cyan-400 transition-colors duration-500 group-hover:shadow-[0_0_15px_rgba(6,182,212,1)]" />
+            <div className="absolute left-8 md:left-[50%] w-10 h-10 rounded-xl bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-800 flex items-center justify-center -translate-x-1/2 rotate-45 z-20 group-hover:border-cyan-500/50 group-hover:shadow-[0_0_20px_rgba(6,182,212,0.3)] transition-all duration-500 hidden md:flex">
+                <div className="w-3 h-3 rounded-sm bg-slate-300 dark:bg-slate-700 group-hover:bg-cyan-500 dark:group-hover:bg-cyan-400 transition-colors duration-500 group-hover:shadow-[0_0_15px_rgba(6,182,212,1)]" />
             </div>
 
             {/* Mobile Timeline Node */}
-            <div className="absolute left-8 w-6 h-6 rounded-full bg-slate-950 border border-slate-800 flex items-center justify-center -translate-x-1/2 z-20 group-hover:border-cyan-500/50 transition-all duration-500 md:hidden mt-6">
-                <div className="w-2 h-2 rounded-full bg-slate-700 group-hover:bg-cyan-400 transition-colors duration-500" />
+            <div className="absolute left-8 w-6 h-6 rounded-full bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-800 flex items-center justify-center -translate-x-1/2 z-20 group-hover:border-cyan-500/50 transition-all duration-500 md:hidden mt-6">
+                <div className="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-700 group-hover:bg-cyan-500 dark:group-hover:bg-cyan-400 transition-colors duration-500" />
             </div>
 
             {/* Content Card */}

@@ -43,8 +43,8 @@ export default function NavLinks({ isMobile = false }: { isMobile?: boolean }) {
                             onClick={() => setActiveSection(link.href)}
                             className={`relative z-10 block px-5 py-2 text-xs font-bold tracking-widest transition-colors duration-300 ${
                                 isActive
-                                    ? "text-cyan-400"
-                                    : "text-slate-400 hover:text-cyan-300"
+                                    ? "text-cyan-600 dark:text-cyan-400"
+                                    : "text-slate-500 dark:text-slate-400 hover:text-cyan-700 dark:hover:text-cyan-300"
                             }`}
                         >
                             {link.name}
@@ -52,7 +52,7 @@ export default function NavLinks({ isMobile = false }: { isMobile?: boolean }) {
                         {isActive && (
                             <motion.div
                                 layoutId={`magic-pill-${isMobile ? "mobile" : "desktop"}`}
-                                className="absolute inset-0 z-0 rounded-full bg-cyan-950/40 border border-cyan-500/30 shadow-[0_0_15px_rgba(6,182,212,0.1)]"
+                                className="absolute inset-0 z-0 rounded-full bg-cyan-100/50 dark:bg-cyan-950/40 border border-cyan-300 dark:border-cyan-500/30 shadow-xs dark:shadow-[0_0_15px_rgba(6,182,212,0.1)] transition-colors duration-300"
                                 transition={{ type: "spring", stiffness: 400, damping: 35 }}
                             />
                         )}

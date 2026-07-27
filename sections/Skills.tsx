@@ -19,7 +19,7 @@ import {
 type Skill = { name: string; level: number; desc: string; icon: React.ReactNode; badge?: "CORE" | "ACTIVE" | "LEARNING" };
 type Category = { id: string; title: string; subtitle: string; icon: React.ReactNode; color: string; glow: string; border: string; bg: string; skills: Skill[] };
 
-const BADGE = { CORE: "bg-slate-700/60 text-slate-200 border-slate-600/50", ACTIVE: "bg-cyan-500/10 text-cyan-400 border-cyan-500/25", LEARNING: "bg-amber-500/10 text-amber-400 border-amber-500/25" };
+const BADGE = { CORE: "bg-slate-200/80 dark:bg-slate-700/60 text-slate-700 dark:text-slate-200 border-slate-300 dark:border-slate-600/50", ACTIVE: "bg-cyan-50 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border-cyan-300 dark:border-cyan-500/25", LEARNING: "bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-300 dark:border-amber-500/25" };
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 const CATEGORIES: Category[] = [
@@ -194,9 +194,9 @@ export default function Skills() {
                     </h2>
                     <div className="flex flex-wrap items-center justify-center gap-3 mt-5 text-[9px] font-mono">
                         {[
-                            { label: "CORE SKILL", cls: "bg-slate-700/50 text-slate-300 border-slate-600/50" },
-                            { label: "ACTIVELY USING", cls: "bg-cyan-500/10 text-cyan-400 border-cyan-500/30" },
-                            { label: "CURRENTLY LEARNING", cls: "bg-amber-500/10 text-amber-400 border-amber-500/30" },
+                            { label: "CORE SKILL", cls: "bg-slate-200/80 dark:bg-slate-700/50 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600/50" },
+                            { label: "ACTIVELY USING", cls: "bg-cyan-50 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border-cyan-300 dark:border-cyan-500/30" },
+                            { label: "CURRENTLY LEARNING", cls: "bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-300 dark:border-amber-500/30" },
                         ].map(({ label, cls }) => (
                             <span key={label} className={`px-2.5 py-1 rounded border tracking-widest ${cls}`}>{label}</span>
                         ))}
