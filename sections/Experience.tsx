@@ -7,19 +7,6 @@ import { Briefcase, GitPullRequest, Code2, Trophy, Database, Server, Activity, R
 const experiences = [
     {
         id: 0,
-        role: "Summer Software Engineer Intern",
-        company: "Assam Power Distribution Company Limited (APDCL)",
-        date: "Jun 2026 – Present",
-        location: "Guwahati, Assam",
-        icon: <Server className="w-6 h-6 text-emerald-400" />,
-        tech: ["FastAPI", "Celery", "Redis", "TimescaleDB", "PostgreSQL", "PostGIS", "Docker"],
-        points: [
-            "Developing GridMind, an asset monitoring system processing time-series telemetry data with FastAPI, Celery, and Redis.",
-            "Logging power grid metrics in TimescaleDB and mapping transformer locations utilizing PostgreSQL/PostGIS."
-        ]
-    },
-    {
-        id: 1,
         role: "Creator & Lead Developer",
         company: "SahiDawa",
         date: "Jan 2025 – Present",
@@ -29,6 +16,19 @@ const experiences = [
         points: [
             "Leading the development of an open-source platform that helps citizens verify medicines and report suspicious drugs.",
             "Architecting the system for low-bandwidth environments with multi-lingual access across India."
+        ]
+    },
+    {
+        id: 1,
+        role: "Summer Software Engineer Intern",
+        company: "Assam Power Distribution Company Limited (APDCL)",
+        date: "Jun 2026 – Present",
+        location: "Guwahati, Assam",
+        icon: <Server className="w-6 h-6 text-emerald-400" />,
+        tech: ["FastAPI", "Celery", "Redis", "TimescaleDB", "PostgreSQL", "PostGIS", "Docker"],
+        points: [
+            "Developing GridMind, an asset monitoring system processing time-series telemetry data with FastAPI, Celery, and Redis.",
+            "Logging power grid metrics in TimescaleDB and mapping transformer locations utilizing PostgreSQL/PostGIS."
         ]
     },
     {
