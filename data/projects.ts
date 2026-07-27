@@ -60,29 +60,6 @@ export const projects: Project[] = [
         ]
     },
     {
-        title: "AADSS – Attendance Decision System",
-        description:
-            "Academic Attendance Decision Support System (AADSS) with advanced analytics. Built predictive eligibility analytics to help students simulate attendance scenarios, calculate minimum class thresholds, and avoid failing due to attendance shortfalls.",
-        tech: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
-        highlight:
-            "Ongoing production system with predictive eligibility analytics and real-time attendance policy simulation.",
-        github: "https://github.com/dipexplorer/AADSS",
-        liveUrl: "https://aadss-ygag.vercel.app/",
-        image: "/projects/aadss_ui_ss/aadss_stickman_infographic.png",
-        images: [
-            "/projects/aadss_ui_ss/aadss_stickman_infographic.png",
-            "/projects/aadss_ui_ss/aadss.png",
-            "/projects/aadss_ui_ss/aadss-ygag.vercel.app_calendar-dashboard.png",
-            "/projects/aadss_ui_ss/aadss-ygag.vercel.app_calendar-dashboard (1).png",
-            "/projects/aadss_ui_ss/aadss-ygag.vercel.app_calendar-dashboard (2).png"
-        ],
-        features: [
-            "Predictive simulation engine for attendance forecasting",
-            "Anti-proxy system using GPS geofencing verification",
-            "Supabase real-time database state sync"
-        ]
-    },
-    {
         title: "LegalHub – AI Legal Platform",
         description:
             "LegalHub (GSSoC'25) is a comprehensive platform designed to simplify legal concepts, provide essential legal documents, and educate users about their rights. Architected AI-powered query resolution with Mistral AI and real-time WebSocket communication.",
@@ -105,6 +82,29 @@ export const projects: Project[] = [
             "/projects/legalhub_ui_ss/legalhub-zwk9.onrender.com_rights.png",
             "/projects/legalhub_ui_ss/legalhub-zwk9.onrender.com_api_articles_689263fb40b8c577b897c643.png"
         ],
+    },
+    {
+        title: "AADSS – Attendance Decision System",
+        description:
+            "Academic Attendance Decision Support System (AADSS) with advanced analytics. Built predictive eligibility analytics to help students simulate attendance scenarios, calculate minimum class thresholds, and avoid failing due to attendance shortfalls.",
+        tech: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
+        highlight:
+            "Ongoing production system with predictive eligibility analytics and real-time attendance policy simulation.",
+        github: "https://github.com/dipexplorer/AADSS",
+        liveUrl: "https://aadss-ygag.vercel.app/",
+        image: "/projects/aadss_ui_ss/aadss_stickman_infographic.png",
+        images: [
+            "/projects/aadss_ui_ss/aadss_stickman_infographic.png",
+            "/projects/aadss_ui_ss/aadss.png",
+            "/projects/aadss_ui_ss/aadss-ygag.vercel.app_calendar-dashboard.png",
+            "/projects/aadss_ui_ss/aadss-ygag.vercel.app_calendar-dashboard (1).png",
+            "/projects/aadss_ui_ss/aadss-ygag.vercel.app_calendar-dashboard (2).png"
+        ],
+        features: [
+            "Predictive simulation engine for attendance forecasting",
+            "Anti-proxy system using GPS geofencing verification",
+            "Supabase real-time database state sync"
+        ]
     },
     {
         title: "LearnSight – Adaptive Learning Platform",
