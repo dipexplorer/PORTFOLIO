@@ -50,7 +50,7 @@ export default function BookCover({ onOpen }: BookCoverProps) {
         <p className="text-sm font-mono text-cyan-600 dark:text-cyan-400 tracking-[0.15em] uppercase transition-colors duration-300">
           Dipjyoti Das
         </p>
-        <p className="text-[11px] text-cyan-600/70 dark:text-cyan-500/60 font-mono mt-1 max-w-sm leading-relaxed transition-colors duration-300">
+        <p className="text-[11px] text-cyan-700/80 dark:text-cyan-500/60 font-mono mt-1 max-w-sm leading-relaxed transition-colors duration-300">
           AI-POWERED PLATFORMS • BACKEND ARCHITECTURES • DISTRIBUTED SYSTEMS
         </p>
 

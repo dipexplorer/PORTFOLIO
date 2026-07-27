@@ -76,25 +76,25 @@ export default function Hero({ contributions }: { contributions: Contribution[] 
 
                         {/* Description */}
                         <motion.p variants={itemVariants} className="text-xs md:text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-lg font-mono">
-                            <span className="text-slate-400 dark:text-slate-500">{"// Architecting "}</span>
+                            <span className="text-slate-500 dark:text-slate-400">{"// Architecting "}</span>
                             <span className="text-cyan-600 dark:text-cyan-400">scalable software systems</span>
-                            <span className="text-slate-400 dark:text-slate-500">{" and "}</span>
+                            <span className="text-slate-500 dark:text-slate-400">{" and "}</span>
                             <span className="text-slate-800 dark:text-slate-200">data-driven intelligence</span>
-                            <span className="text-slate-400 dark:text-slate-500">{"."}</span>
+                            <span className="text-slate-500 dark:text-slate-400">{"."}</span>
                             <br />
-                            <span className="text-slate-400 dark:text-slate-500">{"// Building "}</span>
+                            <span className="text-slate-500 dark:text-slate-400">{"// Building "}</span>
                             <span className="text-slate-800 dark:text-slate-200">resilient, production-grade applications</span>
-                            <span className="text-slate-400 dark:text-slate-500">{" that solve "}</span>
+                            <span className="text-slate-500 dark:text-slate-400">{" that solve "}</span>
                             <span className="text-cyan-600 dark:text-cyan-400">real-world problems</span>
-                            <span className="text-slate-400 dark:text-slate-500">{"."}</span>
+                            <span className="text-slate-500 dark:text-slate-400">{"."}</span>
                             <br />
-                            <span className="text-slate-400 dark:text-slate-500">{"// Specializing in "}</span>
+                            <span className="text-slate-500 dark:text-slate-400">{"// Specializing in "}</span>
                             <span className="text-slate-800 dark:text-slate-200">high-performance backends</span>
-                            <span className="text-slate-400 dark:text-slate-500">{", "}</span>
+                            <span className="text-slate-500 dark:text-slate-400">{", "}</span>
                             <span className="text-slate-800 dark:text-slate-200">AI integration</span>
-                            <span className="text-slate-400 dark:text-slate-500">{" & "}</span>
+                            <span className="text-slate-500 dark:text-slate-400">{" & "}</span>
                             <span className="text-cyan-600 dark:text-cyan-400">open-source governance</span>
-                            <span className="text-slate-400 dark:text-slate-500">{"."}</span>
+                            <span className="text-slate-500 dark:text-slate-400">{"."}</span>
                         </motion.p>
 
 
@@ -147,7 +147,7 @@ export default function Hero({ contributions }: { contributions: Contribution[] 
 
                 {/* Right Side - Interactive Node Connector Visualizer */}
                 <div 
-                    className="relative h-[60vh] md:h-[70vh] min-h-130 w-full overflow-hidden px-4 md:px-8 py-8 md:w-[50%] md:py-10 flex items-center justify-center border border-slate-200 dark:border-cyan-800/10 bg-slate-100/10 dark:bg-slate-950/20 rounded-2xl backdrop-blur-xs transition-colors duration-300"
+                    className="relative h-[60vh] md:h-[70vh] min-h-130 w-full overflow-hidden px-4 md:px-8 py-8 md:w-[50%] md:py-10 flex items-center justify-center border border-slate-200 dark:border-cyan-800/10 bg-slate-100/60 dark:bg-slate-950/20 rounded-2xl backdrop-blur-xs transition-colors duration-300"
                 >
 
                     
