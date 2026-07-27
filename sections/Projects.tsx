@@ -63,7 +63,6 @@ const SphericalProjectCard = ({
     const rotateX = useTransform(scrollYProgress, [active - 0.3, active, active + 0.3], [70, 0, -70]); 
     const opacity = useTransform(scrollYProgress, [active - 0.25, active - 0.1, active + 0.1, active + 0.25], [0, 1, 1, 0]);
     const scale = useTransform(scrollYProgress, [active - 0.3, active, active + 0.3], [0.6, 1, 0.6]);
-    const blur = useTransform(scrollYProgress, [active - 0.25, active - 0.05, active + 0.05, active + 0.25], ["blur(15px)", "blur(0px)", "blur(0px)", "blur(15px)"]);
 
     const displayImages = project.images?.length ? project.images : project.image ? [project.image] : [];
 
@@ -75,7 +74,7 @@ const SphericalProjectCard = ({
                 rotateX, 
                 opacity, 
                 scale,
-                filter: blur
+                willChange: "transform, opacity"
             }}
             className="absolute w-[92vw] md:w-[75vw] lg:w-[65vw] max-w-5xl bg-[#030303] border border-slate-800 shadow-2xl flex flex-col md:flex-row overflow-hidden group hover:border-slate-600 transition-colors duration-500 rounded-xl"
         >
@@ -201,7 +200,7 @@ export default function Projects() {
                 </div>
 
                 {/* 3D Carousel Container */}
-                <div className="relative w-full h-full flex items-center justify-center [transform-style:preserve-3d]">
+                <div className="relative w-full h-full flex items-center justify-center perspective-[1500px]">
                     {projects.map((project, i) => (
                         <SphericalProjectCard 
                             key={project.title} 
