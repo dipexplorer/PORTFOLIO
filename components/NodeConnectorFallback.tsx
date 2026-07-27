@@ -6,12 +6,12 @@ import { Contribution } from "@/lib/github";
 
 /* ─────────────────────── CLUSTER META ──────────────────────── */
 const CLUSTER = [
-  { stroke: "#2dd4bf", name: "SahiDawa"  },  // Teal
-  { stroke: "#34d399", name: "GridMind"  },  // Emerald/Mint green
-  { stroke: "#818cf8", name: "LegalHub"  },  // Indigo
-  { stroke: "#38bdf8", name: "LearnSight" }, // Sky Blue
-  { stroke: "#f472b6", name: "Acadence"  },  // Pink
-  { stroke: "#fbbf24", name: "VideTube"  },  // Amber
+  { stroke: "var(--color-cluster-0)", name: "SahiDawa"  },
+  { stroke: "var(--color-cluster-1)", name: "GridMind"  },
+  { stroke: "var(--color-cluster-2)", name: "LegalHub"  },
+  { stroke: "var(--color-cluster-3)", name: "LearnSight" },
+  { stroke: "var(--color-cluster-4)", name: "Acadence"  },
+  { stroke: "var(--color-cluster-5)", name: "VideTube"  },
 ];
 
 
@@ -308,7 +308,7 @@ export default function NodeConnectorFallback({ contributions }: { contributions
   const renderConns = () => {
     const lines: React.ReactNode[] = [];
     const mx = mouse.x, my = mouse.y;
-    const ambMax = 90;
+    const ambMax = 110;
 
     /* Ambient proximity web */
     for (let i = 0; i < coords.length; i++) {
@@ -321,9 +321,9 @@ export default function NodeConnectorFallback({ contributions }: { contributions
         if (d < md) {
           lines.push(
             <line key={`a${a.id}-${b.id}`} x1={a.x} y1={a.y} x2={b.x} y2={b.y}
-              stroke={sc ? CLUSTER[a.cid].stroke : "rgba(34,211,238,0.45)"}
-              strokeWidth={sc ? "0.9" : "0.45"}
-              strokeOpacity={(1 - d / md) * (sc ? 0.32 : 0.1)} />
+              stroke={sc ? CLUSTER[a.cid].stroke : "var(--color-cluster-3)"}
+              strokeWidth={sc ? "1.2" : "0.7"}
+              strokeOpacity={(1 - d / md) * (sc ? 0.55 : 0.25)} />
           );
         }
       }
@@ -529,8 +529,9 @@ export default function NodeConnectorFallback({ contributions }: { contributions
           const big = i % 22 === 0;
           return (
             <circle key={`st${i}`} cx={sx} cy={sy}
-              r={big ? 1.2 : 0.25 + (i % 5) * 0.17}
-              fill="white" fillOpacity={big ? 0.5 : 0.08 + (i % 7) * 0.055}
+              r={big ? 1.5 : 0.5 + (i % 5) * 0.2}
+              className="fill-slate-400 dark:fill-white transition-colors duration-300"
+              style={{ opacity: big ? 0.7 : 0.15 + (i % 7) * 0.08 }}
               filter={big ? "url(#glow)" : undefined} />
           );
         })}
@@ -577,7 +578,7 @@ export default function NodeConnectorFallback({ contributions }: { contributions
           const near = mx !== null && my !== null &&
                        Math.sqrt((mx - c.x) ** 2 + (my - c.y) ** 2) < 195;
           const meta = CLUSTER[c.cid];
-          const r    = isH ? 7 : near ? 5 : 3.5;
+          const r    = isH ? 8 : near ? 6.5 : 4.5;
           return (
             <g key={c.id}>
               {isH && (

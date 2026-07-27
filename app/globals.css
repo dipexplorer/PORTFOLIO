@@ -7,11 +7,25 @@
   --book-bg-cream: #faf7f2;
   --book-border: #d4c8bc;
   --book-navy: #0b1329;
+
+  --color-cluster-0: #0d9488;
+  --color-cluster-1: #059669;
+  --color-cluster-2: #4f46e5;
+  --color-cluster-3: #0284c7;
+  --color-cluster-4: #db2777;
+  --color-cluster-5: #d97706;
 }
 
 .dark {
   --background: #020617;
   --foreground: #f8fafc;
+
+  --color-cluster-0: #2dd4bf;
+  --color-cluster-1: #34d399;
+  --color-cluster-2: #818cf8;
+  --color-cluster-3: #38bdf8;
+  --color-cluster-4: #f472b6;
+  --color-cluster-5: #fbbf24;
 }
 
 @theme inline {
