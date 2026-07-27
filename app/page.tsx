@@ -14,10 +14,10 @@ export default async function Home() {
   const contributions = await fetchGithubContributions();
 
   return (
-    <div className="flex min-h-screen flex-col bg-slate-950 font-sans text-slate-100 relative overflow-x-hidden">
+    <div className="flex min-h-screen flex-col bg-slate-50 dark:bg-slate-950 font-sans text-slate-900 dark:text-slate-100 relative overflow-x-hidden transition-colors duration-300">
       {/* Background blueprint details */}
-      <div className="fixed inset-0 blueprint-grid opacity-20 pointer-events-none z-0" />
-      <div className="fixed inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(2,6,23,0.85)_95%)] pointer-events-none z-0" />
+      <div className="fixed inset-0 blueprint-grid opacity-15 dark:opacity-20 pointer-events-none z-0" />
+      <div className="fixed inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,#fafafa_95%)] dark:bg-[radial-gradient(circle_at_center,transparent_30%,rgba(2,6,23,0.85)_95%)] pointer-events-none z-0 transition-colors duration-300" />
       
       <AppEffects />
       <Navbar />
@@ -27,20 +27,20 @@ export default async function Home() {
         <Hero contributions={contributions} />
 
         {/* Interactive Logbook */}
-        <section id="logbook" className="w-full py-20 md:py-28 relative overflow-hidden border-t border-b border-cyan-500/10">
+        <section id="logbook" className="w-full py-20 md:py-28 relative overflow-hidden border-t border-b border-slate-200 dark:border-cyan-500/10 transition-colors duration-300">
           <div className="mx-auto max-w-7xl px-4 md:px-6 relative z-10">
             {/* Section Header */}
             <div className="flex flex-col items-center mb-12 text-center">
-              <span className="font-mono text-[9px] text-cyan-400 border border-cyan-500/25 px-2.5 py-1 rounded-sm uppercase tracking-widest bg-cyan-950/20 mb-4">
+              <span className="font-mono text-[9px] text-cyan-600 dark:text-cyan-400 border border-slate-200 dark:border-cyan-500/25 px-2.5 py-1 rounded-sm uppercase tracking-widest bg-cyan-50 dark:bg-cyan-950/20 mb-4 shadow-xs">
                 SYS_ARCH // EXPERIENCES
               </span>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-none">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-950 dark:text-white tracking-tight leading-none uppercase">
                 Interactive{" "}
-                <span className="text-cyan-400 font-bold">
+                <span className="text-cyan-600 dark:text-cyan-400 font-bold">
                   Logbook
                 </span>
               </h2>
-              <p className="text-xs md:text-sm text-zinc-400 mt-4 max-w-xl font-mono">
+              <p className="text-xs md:text-sm text-slate-600 dark:text-zinc-400 mt-4 max-w-xl font-mono">
                 Click &quot;Access Logbook_&quot; to browse academic credentials, open-source work, and professional history.
               </p>
             </div>
@@ -69,7 +69,7 @@ export default async function Home() {
       </main>
 
       {/* Footer Branding */}
-      <footer className="w-full py-8 text-center text-[9px] font-mono text-cyan-600/35 tracking-widest select-none relative z-10 border-t border-cyan-500/5">
+      <footer className="w-full py-8 text-center text-[9px] font-mono text-slate-400 dark:text-cyan-600/35 tracking-widest select-none relative z-10 border-t border-slate-200 dark:border-cyan-500/5">
         ENGINEERING JOURNAL OF DIPJYOTI DAS • GUWAHATI, IND • © 2026
       </footer>
     </div>

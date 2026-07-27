@@ -61,17 +61,17 @@ export default function Contact() {
                     transition={{ duration: 0.8 }}
                     className="flex flex-col items-center text-center mb-16"
                 >
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-950/40 border border-cyan-800/30 text-sm font-semibold text-cyan-400 mb-6 font-mono">
-                        <MessageSquare className="w-4 h-4 text-cyan-400" />
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-50 dark:bg-cyan-950/40 border border-cyan-200 dark:border-cyan-800/30 text-sm font-semibold text-cyan-600 dark:text-cyan-400 mb-6 font-mono shadow-xs">
+                        <MessageSquare className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
                         <span>TRANSMISSION // CHANNEL</span>
                     </div>
-                    <h2 className="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tighter">
+                    <h2 className="text-5xl md:text-7xl font-extrabold text-slate-905 dark:text-white mb-6 tracking-tighter">
                         Let&apos;s Build{" "}
-                        <span className="text-cyan-400 font-bold">
+                        <span className="text-cyan-600 dark:text-cyan-400 font-bold">
                             Together
                         </span>
                     </h2>
-                    <p className="text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed font-mono">
+                    <p className="text-lg md:text-xl text-slate-650 dark:text-slate-400 max-w-2xl leading-relaxed font-mono">
                         {
                             "// The communication socket is open. Drop an inquiry payload below or connect via email."
                         }
@@ -86,34 +86,34 @@ export default function Contact() {
                             : { opacity: 0, y: 50, scale: 0.95 }
                     }
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="max-w-3xl mx-auto rounded-3xl bg-slate-950/70 border border-cyan-500/20 p-8 md:p-12 overflow-hidden backdrop-blur-2xl shadow-2xl relative"
+                    className="max-w-3xl mx-auto rounded-3xl bg-white/60 dark:bg-slate-950/70 border border-slate-200 dark:border-cyan-500/20 p-8 md:p-12 overflow-hidden backdrop-blur-2xl shadow-md dark:shadow-2xl relative transition-all duration-300"
                 >
                     <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-cyan-600 via-cyan-400 to-teal-400" />
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <div>
-                            <div className="flex items-center gap-3 mb-6 text-white font-mono">
-                                <Terminal className="w-8 h-8 text-cyan-400" />
+                            <div className="flex items-center gap-3 mb-6 text-slate-900 dark:text-white font-mono">
+                                <Terminal className="w-8 h-8 text-cyan-600 dark:text-cyan-400" />
                                 <h3 className="text-xl font-bold">
                                     [EMAIL_DISPATCH]
                                 </h3>
                             </div>
-                            <p className="text-slate-400 mb-8 font-mono text-sm leading-relaxed">
+                            <p className="text-slate-600 dark:text-slate-400 mb-8 font-mono text-sm leading-relaxed">
                                 {
                                     "// Ready to compile clean architectures? Dispatch a message and establish the handshake."
                                 }
                             </p>
                             <a
                                 href="mailto:contact@dipjyoti.dev"
-                                className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-cyan-950 border border-cyan-500/40 text-cyan-400 rounded-xl font-bold text-base hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-cyan-950/40 font-mono tracking-wider cursor-pointer"
+                                className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-slate-100 dark:bg-cyan-950 border border-slate-300 dark:border-cyan-500/40 text-slate-800 dark:text-cyan-400 rounded-xl font-bold text-base hover:scale-105 hover:bg-slate-200 dark:hover:bg-cyan-900/60 hover:text-slate-950 dark:hover:text-cyan-300 transition-all duration-300 shadow-sm dark:shadow-lg hover:shadow-cyan-950/40 font-mono tracking-wider cursor-pointer"
                             >
                                 Establish Connection_
                                 <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                             </a>
                         </div>
 
-                        <div className="flex flex-col gap-4 border-t md:border-t-0 md:border-l border-cyan-900/30 pt-8 md:pt-0 md:pl-12">
-                            <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4 font-mono">
+                        <div className="flex flex-col gap-4 border-t md:border-t-0 md:border-l border-slate-200 dark:border-cyan-900/30 pt-8 md:pt-0 md:pl-12">
+                            <h4 className="text-xs font-semibold text-slate-400 dark:text-slate-505 uppercase tracking-wider mb-4 font-mono">
                                 {"// Connect via Nodes"}
                             </h4>
 
@@ -121,12 +121,12 @@ export default function Contact() {
                                 href="https://github.com/dipexplorer"
                                 target="_blank"
                                 rel="noreferrer"
-                                className="group flex items-center gap-4 p-4 rounded-xl hover:bg-cyan-950/20 transition-colors border border-transparent hover:border-cyan-500/20"
+                                className="group flex items-center gap-4 p-4 rounded-xl hover:bg-cyan-100/30 dark:hover:bg-cyan-950/20 transition-all border border-transparent hover:border-cyan-200 dark:hover:border-cyan-500/20"
                             >
-                                <span className="p-3 bg-cyan-950/30 text-cyan-400 border border-cyan-800/30 rounded-lg group-hover:scale-110 transition-transform">
+                                <span className="p-3 bg-cyan-50 dark:bg-cyan-950/30 text-cyan-600 dark:text-cyan-400 border border-cyan-200 dark:border-cyan-800/30 rounded-lg group-hover:scale-110 transition-transform">
                                     <GitBranch className="w-6 h-6" />
                                 </span>
-                                <span className="font-semibold text-slate-300 group-hover:text-cyan-400 transition-colors font-mono text-sm">
+                                <span className="font-semibold text-slate-700 dark:text-slate-300 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors font-mono text-sm">
                                     GitHub // dipexplorer
                                 </span>
                             </a>
@@ -135,12 +135,12 @@ export default function Contact() {
                                 href="https://www.linkedin.com/in/dip-jyoti22/"
                                 target="_blank"
                                 rel="noreferrer"
-                                className="group flex items-center gap-4 p-4 rounded-xl hover:bg-cyan-950/20 transition-colors border border-transparent hover:border-cyan-500/20"
+                                className="group flex items-center gap-4 p-4 rounded-xl hover:bg-cyan-100/30 dark:hover:bg-cyan-950/20 transition-all border border-transparent hover:border-cyan-200 dark:hover:border-cyan-500/20"
                             >
-                                <span className="p-3 bg-cyan-950/30 text-cyan-400 border border-cyan-800/30 rounded-lg group-hover:scale-110 transition-transform">
+                                <span className="p-3 bg-cyan-50 dark:bg-cyan-950/30 text-cyan-600 dark:text-cyan-400 border border-cyan-200 dark:border-cyan-800/30 rounded-lg group-hover:scale-110 transition-transform">
                                     <LinkedinIcon className="w-6 h-6" />
                                 </span>
-                                <span className="font-semibold text-slate-300 group-hover:text-cyan-400 transition-colors font-mono text-sm">
+                                <span className="font-semibold text-slate-700 dark:text-slate-300 group-hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors font-mono text-sm">
                                     LinkedIn // dipjyoti-das
                                 </span>
                             </a>

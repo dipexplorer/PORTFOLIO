@@ -375,25 +375,25 @@ export default function NodeConnectorFallback({ contributions }: { contributions
     return (
       <g transform={`translate(${hovNode.x + ox},${hovNode.y + oy})`}>
         <rect x="0" y="-14" width="338" height="116" rx="7"
-          fill="rgba(3,7,18,0.97)" stroke={meta.stroke} strokeWidth="1.3" filter="url(#glow)" />
+          className="fill-white/95 dark:fill-slate-950/95 transition-all duration-300" stroke={meta.stroke} strokeWidth="1.3" filter="url(#glow)" />
         {/* Cluster accent bar at top */}
         <rect x="0" y="-14" width="338" height="7" rx="3.5" fill={meta.stroke} fillOpacity="0.9" />
-        <text x="13" y="7" fill={meta.stroke} fontSize="8.5" fontFamily="monospace" letterSpacing="1.2">
+        <text x="13" y="7" fill={meta.stroke} fontSize="8.5" fontFamily="monospace" letterSpacing="1.2" className="font-bold">
           {meta.name.toUpperCase()} {"// CONTRIBUTION"}
         </text>
-        <text x="13" y="28" fill="#ffffff" fontSize="10.5" fontWeight="700" fontFamily="monospace">
+        <text x="13" y="28" className="fill-slate-900 dark:fill-white transition-colors duration-300" fontSize="10.5" fontWeight="700" fontFamily="monospace">
           {hovContrib.label}
         </text>
-        <text x="13" y="48" fill="rgba(203,213,225,0.85)" fontSize="8.8" fontFamily="monospace">
+        <text x="13" y="48" className="fill-slate-500 dark:fill-slate-400 transition-colors duration-300" fontSize="8.8" fontFamily="monospace">
           {hovContrib.details.slice(0, 56)}
         </text>
         {hovContrib.details.length > 56 && (
-          <text x="13" y="62" fill="rgba(203,213,225,0.85)" fontSize="8.8" fontFamily="monospace">
+          <text x="13" y="62" className="fill-slate-500 dark:fill-slate-400 transition-colors duration-300" fontSize="8.8" fontFamily="monospace">
             {hovContrib.details.slice(56)}
           </text>
         )}
         <text x="13" y="90" fill={meta.stroke} fontSize="9" fontWeight="700" fontFamily="monospace"
-          filter="url(#glow)">
+          filter="url(#glow)" className="cursor-pointer tracking-wider hover:brightness-110">
           {">> CLICK TO OPEN ON GITHUB _"}
         </text>
       </g>
