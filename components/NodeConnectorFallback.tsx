@@ -7,8 +7,9 @@ import { Contribution } from "@/lib/github";
 /* ─────────────────────── CLUSTER META ──────────────────────── */
 const CLUSTER = [
   { stroke: "#2dd4bf", name: "SahiDawa"  },  // Teal
+  { stroke: "#34d399", name: "GridMind"  },  // Emerald/Mint green
   { stroke: "#818cf8", name: "LegalHub"  },  // Indigo
-  { stroke: "#22d3ee", name: "LearnSight" }, // Cyan
+  { stroke: "#38bdf8", name: "LearnSight" }, // Sky Blue
   { stroke: "#f472b6", name: "Acadence"  },  // Pink
   { stroke: "#fbbf24", name: "VideTube"  },  // Amber
 ];
@@ -24,7 +25,7 @@ interface Particle {
 const GX = 600, GY = 310, W = 1200, H = 600;
 
 function initParticles(conts: Contribution[]): Particle[] {
-  const counts = [0, 0, 0, 0, 0];
+  const counts = [0, 0, 0, 0, 0, 0];
   const len = Math.max(conts.length, 1);
   return conts.map((c, i) => {
     const cid  = c.cid;
@@ -106,7 +107,7 @@ export default function NodeConnectorFallback({ contributions }: { contributions
           warpRef.current = Array.from({ length: 28 }, (_, i) => ({
             angle: (i / 28) * Math.PI * 2 + Math.sin(i * 7.3) * 0.28,
             speed: 13 + Math.sin(i * 3.7) * 9,
-            col:   CLUSTER[i % 5].stroke,
+            col:   CLUSTER[i % 6].stroke,
           }));
           warpOriRef.current = { x: sg.x, y: sg.y };
           warpFRef.current   = 0;

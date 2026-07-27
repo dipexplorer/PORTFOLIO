@@ -176,29 +176,29 @@ const ExperienceCard = ({ exp, index }: { exp: ExperienceItem, index: number }) 
                     onMouseMove={handleMouseMove}
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
-                    className="relative p-6 sm:p-8 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-cyan-500/40 overflow-hidden shadow-xl hover:shadow-cyan-900/20 transition-all duration-500"
+                    className="relative p-6 sm:p-8 rounded-2xl bg-white/60 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/40 overflow-hidden shadow-md dark:shadow-xl hover:shadow-cyan-900/10 dark:hover:shadow-cyan-900/20 transition-all duration-500"
                 >
                     {/* Spotlight Mouse Tracking Effect */}
                     <div 
                         className="absolute inset-0 z-0 transition-opacity duration-300 ease-in-out pointer-events-none"
                         style={{
                             opacity: isHovered ? 1 : 0,
-                            background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(6,182,212,0.1), transparent 40%)`,
+                            background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(6,182,212,0.06), transparent 40%)`,
                         }}
                     />
                     
                     <div className="relative z-10">
                         {/* Header Area */}
                         <div className={`flex flex-col sm:flex-row items-start gap-5 mb-6 ${isEven ? 'md:flex-row-reverse md:text-right' : 'text-left'}`}>
-                            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 text-slate-300 shadow-inner group-hover:scale-110 group-hover:border-cyan-500/30 transition-all duration-500 shrink-0">
+                            <div className="p-4 rounded-xl bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 shadow-inner group-hover:scale-110 group-hover:border-cyan-500/30 transition-all duration-500 shrink-0">
                                 {exp.icon}
                             </div>
                             <div className="flex-1 w-full">
-                                <h3 className="text-xl sm:text-2xl font-bold text-slate-100 group-hover:text-cyan-300 transition-colors duration-300">{exp.role}</h3>
-                                <div className="text-sm font-mono text-cyan-400/80 mt-1">{exp.company}</div>
+                                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100 group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors duration-300">{exp.role}</h3>
+                                <div className="text-sm font-mono text-cyan-600 dark:text-cyan-400/80 mt-1">{exp.company}</div>
                                 
-                                <div className={`flex flex-wrap items-center gap-2 text-[10px] sm:text-xs font-mono text-slate-500 uppercase tracking-widest mt-3 ${isEven ? 'md:justify-end' : 'justify-start'}`}>
-                                    <span className="px-2 py-1 bg-cyan-950/30 text-cyan-400/80 rounded border border-cyan-900/30 font-bold tracking-widest">{exp.date}</span>
+                                <div className={`flex flex-wrap items-center gap-2 text-[10px] sm:text-xs font-mono text-slate-500 dark:text-slate-400 uppercase tracking-widest mt-3 ${isEven ? 'md:justify-end' : 'justify-start'}`}>
+                                    <span className="px-2 py-1 bg-cyan-50 dark:bg-cyan-950/30 text-cyan-700 dark:text-cyan-400/80 rounded border border-cyan-200 dark:border-cyan-900/30 font-bold tracking-widest">{exp.date}</span>
                                     <span className="hidden sm:inline">{"//"}</span>
                                     <span>{exp.location}</span>
                                 </div>
@@ -206,20 +206,20 @@ const ExperienceCard = ({ exp, index }: { exp: ExperienceItem, index: number }) 
                         </div>
 
                         {/* Bullet Points */}
-                        <ul className={`text-sm text-slate-400 leading-relaxed space-y-3 list-none pl-0 mt-6 ${isEven ? 'md:text-right' : 'text-left'}`}>
+                        <ul className={`text-sm text-slate-600 dark:text-slate-400 leading-relaxed space-y-3 list-none pl-0 mt-6 ${isEven ? 'md:text-right' : 'text-left'}`}>
                             {exp.points.map((point: string, i: number) => (
                                 <li key={i} className={`flex items-start gap-3 ${isEven ? 'md:flex-row-reverse' : 'flex-row'}`}>
-                                    <span className="text-cyan-500/60 mt-1 select-none text-[10px]">❖</span>
-                                    <span className="flex-1 group-hover:text-slate-300 transition-colors duration-300">{point}</span>
+                                    <span className="text-cyan-600 dark:text-cyan-500/60 mt-1 select-none text-[10px]">❖</span>
+                                    <span className="flex-1 group-hover:text-slate-800 dark:group-hover:text-slate-300 transition-colors duration-300">{point}</span>
                                 </li>
                             ))}
                         </ul>
 
                         {/* Tech Stack Badges */}
                         {exp.tech && (
-                            <div className={`flex flex-wrap gap-2 mt-6 pt-6 border-t border-slate-800/50 ${isEven ? 'md:justify-end' : 'justify-start'}`}>
+                            <div className={`flex flex-wrap gap-2 mt-6 pt-6 border-t border-slate-200 dark:border-slate-800/50 ${isEven ? 'md:justify-end' : 'justify-start'}`}>
                                 {exp.tech.map((t: string, i: number) => (
-                                    <span key={i} className="px-3 py-1 text-[10px] font-mono bg-slate-950 text-slate-400 border border-slate-800 rounded-md group-hover:border-cyan-900/60 group-hover:text-cyan-100 transition-colors duration-300 shadow-sm">
+                                    <span key={i} className="px-3 py-1 text-[10px] font-mono bg-slate-100 dark:bg-slate-950 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800 rounded-md group-hover:border-cyan-500/30 dark:group-hover:border-cyan-900/60 group-hover:text-cyan-800 dark:group-hover:text-cyan-100 transition-colors duration-300 shadow-xs">
                                         {t}
                                     </span>
                                 ))}
@@ -251,7 +251,7 @@ export default function Experience() {
     return (
         <section id="experience" className="w-full px-4 py-32 md:px-6 relative overflow-hidden" ref={containerRef}>
             {/* Background Ambience */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-900/10 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-900/5 dark:bg-cyan-900/10 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="mx-auto max-w-5xl relative z-10">
                 {/* Section Header */}
@@ -261,14 +261,14 @@ export default function Experience() {
                     transition={{ duration: 0.6 }}
                     className="flex flex-col items-center justify-center mb-24 text-center"
                 >
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-cyan-950/30 border border-cyan-800/30 mb-6 shadow-[0_0_15px_rgba(6,182,212,0.1)]">
-                        <Briefcase className="w-4 h-4 text-cyan-500" />
-                        <span className="text-xs font-mono tracking-widest text-cyan-400 uppercase font-semibold">SYS_LOG // CAREER</span>
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-cyan-50 dark:bg-cyan-950/30 border border-cyan-200 dark:border-cyan-800/30 mb-6 shadow-xs">
+                        <Briefcase className="w-4 h-4 text-cyan-600 dark:text-cyan-500" />
+                        <span className="text-xs font-mono tracking-widest text-cyan-600 dark:text-cyan-400 uppercase font-semibold">SYS_LOG // CAREER</span>
                     </div>
-                    <h2 className="text-4xl md:text-6xl font-black text-slate-100 tracking-tight mb-4">
-                        Experience & <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-teal-400">Internships</span>
+                    <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-slate-100 tracking-tight mb-4">
+                        Experience & <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-600 to-teal-600 dark:from-cyan-400 dark:to-teal-400">Internships</span>
                     </h2>
-                    <p className="text-slate-400 font-mono text-sm max-w-xl">
+                    <p className="text-slate-500 dark:text-slate-400 font-mono text-sm max-w-xl">
                         {"// " + "Tracking my professional timeline, open-source leadership, and architectural challenges."}
                     </p>
                 </motion.div>
@@ -276,11 +276,11 @@ export default function Experience() {
                 {/* Timeline Container */}
                 <div className="relative">
                     {/* Base Dim Line */}
-                    <div className="absolute left-8 md:left-[50%] top-0 bottom-0 w-px bg-slate-800 -translate-x-1/2" />
+                    <div className="absolute left-8 md:left-[50%] top-0 bottom-0 w-px bg-slate-200 dark:bg-slate-800 -translate-x-1/2" />
                     
                     {/* Scroll Animated Glow Line */}
                     <motion.div 
-                        className="absolute left-8 md:left-[50%] top-0 bottom-0 w-px md:w-[2px] bg-linear-to-b from-cyan-400 via-teal-400 to-transparent -translate-x-1/2 origin-top drop-shadow-[0_0_8px_rgba(6,182,212,0.8)] z-10"
+                        className="absolute left-8 md:left-[50%] top-0 bottom-0 w-px md:w-[2px] bg-linear-to-b from-cyan-600 via-teal-600 to-transparent dark:from-cyan-400 dark:via-teal-400 dark:to-transparent -translate-x-1/2 origin-top drop-shadow-[0_0_8px_rgba(6,182,212,0.8)] z-10"
                         style={{ scaleY }}
                     />
 

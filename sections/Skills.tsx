@@ -125,7 +125,7 @@ const SkillCard = ({ skill, cat, index, animate }: { skill: Skill; cat: Category
             transition={{ duration: 0.28, delay: index * 0.055 }}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            className="group relative p-4 rounded-xl border border-slate-800/70 bg-slate-900/40 transition-all duration-300 cursor-default overflow-hidden"
+            className="group relative p-4 rounded-xl border border-slate-200 dark:border-slate-800/70 bg-white/60 dark:bg-slate-900/40 transition-all duration-300 cursor-default overflow-hidden"
             style={{
                 borderColor: hovered ? cat.glow.replace("0.18", "0.5") : undefined,
                 boxShadow: hovered ? `0 0 18px ${cat.glow}` : "none",
@@ -143,7 +143,7 @@ const SkillCard = ({ skill, cat, index, animate }: { skill: Skill; cat: Category
                 <div className="flex items-center justify-between mb-1.5">
                     <div className="flex items-center gap-2.5">
                         <span className={`text-base transition-transform duration-300 group-hover:scale-110 ${cat.color}`}>{skill.icon}</span>
-                        <span className="text-sm font-bold text-white font-mono">{skill.name}</span>
+                        <span className="text-sm font-bold text-slate-900 dark:text-white font-mono">{skill.name}</span>
                     </div>
                     {skill.badge && (
                         <span className={`text-[8px] font-mono font-bold px-1.5 py-0.5 rounded border tracking-widest ${BADGE[skill.badge]}`}>
@@ -151,7 +151,7 @@ const SkillCard = ({ skill, cat, index, animate }: { skill: Skill; cat: Category
                         </span>
                     )}
                 </div>
-                <p className="text-[11px] text-slate-500 font-mono leading-snug mb-0.5">{skill.desc}</p>
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 font-mono leading-snug mb-0.5">{skill.desc}</p>
                 <ProgressBar level={skill.level} color={cat.color} animate={animate} />
             </div>
         </motion.div>
@@ -172,11 +172,11 @@ export default function Skills() {
 
             {/* Background */}
             <div className="absolute inset-0 pointer-events-none z-0">
-                <div className="absolute inset-0 bg-slate-950" />
-                <div className="absolute inset-0 opacity-[0.022]"
-                    style={{ backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)", backgroundSize: "36px 36px" }} />
-                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-violet-900/10 rounded-full blur-[120px]" />
-                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cyan-900/10 rounded-full blur-[100px]" />
+                <div className="absolute inset-0 bg-slate-50 dark:bg-slate-950 transition-colors duration-300" />
+                <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.022]"
+                    style={{ backgroundImage: "radial-gradient(circle, #94a3b8 1px, transparent 1px)", backgroundSize: "36px 36px" }} />
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-violet-900/5 dark:bg-violet-900/10 rounded-full blur-[120px]" />
+                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cyan-900/5 dark:bg-cyan-900/10 rounded-full blur-[100px]" />
             </div>
 
             <div className="mx-auto max-w-7xl relative z-10">
@@ -184,13 +184,13 @@ export default function Skills() {
                 {/* ── Header ── */}
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                     transition={{ duration: 0.55 }} className="mb-14 text-center">
-                    <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded border border-slate-800 bg-slate-900/60">
+                    <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded border border-slate-200 dark:border-slate-800 bg-slate-100/50 dark:bg-slate-900/60">
                         <Terminal className="w-3.5 h-3.5 text-slate-500" />
                         <span className="font-mono text-[10px] text-slate-500 uppercase tracking-widest">sys.stack.diagnostics</span>
                         <span className="w-1 h-3 bg-slate-500 animate-pulse ml-1" />
                     </div>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight uppercase">
-                        Technical <span className="text-slate-600">Arsenal_</span>
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-950 dark:text-white tracking-tight uppercase">
+                        Technical <span className="text-slate-400 dark:text-slate-600">Arsenal_</span>
                     </h2>
                     <div className="flex flex-wrap items-center justify-center gap-3 mt-5 text-[9px] font-mono">
                         {[
@@ -208,7 +208,7 @@ export default function Skills() {
 
                     {/* ── Left Panel: Category Nav ── */}
                     <div className="lg:w-[280px] shrink-0 flex flex-col gap-2.5">
-                        <p className="font-mono text-[10px] text-slate-600 uppercase tracking-widest pl-1 mb-1">{"//"} SELECT MODULE</p>
+                        <p className="font-mono text-[10px] text-slate-500 dark:text-slate-600 uppercase tracking-widest pl-1 mb-1">{"//"} SELECT MODULE</p>
 
                         {CATEGORIES.map((cat) => {
                             const isActive = cat.id === activeId;
@@ -221,7 +221,7 @@ export default function Skills() {
                                     className={`relative flex items-center gap-3 p-4 rounded-xl border text-left transition-all duration-300 overflow-hidden w-full ${
                                         isActive
                                             ? `${cat.border} ${cat.bg}`
-                                            : "border-slate-800/60 bg-slate-900/20 hover:bg-slate-800/30 hover:border-slate-700"
+                                            : "border-slate-200 dark:border-slate-800/60 bg-white/40 dark:bg-slate-900/20 hover:bg-slate-100/50 dark:hover:bg-slate-800/30 hover:border-slate-400 dark:hover:border-slate-700"
                                     }`}
                                     style={{ boxShadow: isActive ? `0 0 20px ${cat.glow}` : "none" }}
                                 >
@@ -234,25 +234,25 @@ export default function Skills() {
                                     )}
 
                                     {/* Icon */}
-                                    <div className={`p-2 rounded-lg shrink-0 transition-all duration-300 ${isActive ? cat.bg : "bg-slate-800/60"}`}
+                                    <div className={`p-2 rounded-lg shrink-0 transition-all duration-300 ${isActive ? cat.bg : "bg-slate-100 dark:bg-slate-800/60"}`}
                                         style={{ boxShadow: isActive ? `0 0 10px ${cat.glow}` : "none" }}>
                                         <span className={isActive ? cat.color : "text-slate-500"}>{cat.icon}</span>
                                     </div>
 
                                     {/* Text */}
                                     <div className="flex flex-col min-w-0">
-                                        <span className={`text-sm font-bold font-mono truncate ${isActive ? "text-white" : "text-slate-400"}`}>
+                                        <span className={`text-sm font-bold font-mono truncate ${isActive ? "text-slate-900 dark:text-white" : "text-slate-600 dark:text-slate-400"}`}>
                                             {cat.title}
                                         </span>
-                                        <span className="text-[10px] text-slate-600 mt-0.5 truncate">{cat.subtitle}</span>
+                                        <span className="text-[10px] text-slate-500 dark:text-slate-600 mt-0.5 truncate">{cat.subtitle}</span>
                                     </div>
 
                                     {/* Skill count + arrow */}
                                     <div className="ml-auto flex items-center gap-1.5 shrink-0">
-                                        <span className={`text-[10px] font-mono font-bold px-1.5 py-0.5 rounded ${isActive ? `${cat.color} bg-white/10` : "text-slate-600 bg-slate-800"}`}>
+                                        <span className={`text-[10px] font-mono font-bold px-1.5 py-0.5 rounded ${isActive ? `${cat.color} bg-white/10` : "text-slate-500 bg-slate-100 dark:text-slate-600 dark:bg-slate-800"}`}>
                                             {cat.skills.length}
                                         </span>
-                                        <ArrowRight className={`w-3 h-3 transition-all duration-300 ${isActive ? `${cat.color} translate-x-0.5` : "text-slate-700"}`} />
+                                        <ArrowRight className={`w-3 h-3 transition-all duration-300 ${isActive ? `${cat.color} translate-x-0.5` : "text-slate-400 dark:text-slate-700"}`} />
                                     </div>
 
                                     {/* Active indicator bar */}
@@ -266,16 +266,16 @@ export default function Skills() {
                         })}
 
                         {/* System telemetry panel */}
-                        <div className="mt-4 p-4 rounded-xl border border-slate-800 bg-slate-900/30 font-mono text-[10px]">
-                            <div className="text-slate-600 mb-3 tracking-widest">{"//"} SYS_INFO</div>
+                        <div className="mt-4 p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/40 dark:bg-slate-900/30 font-mono text-[10px]">
+                            <div className="text-slate-500 dark:text-slate-600 mb-3 tracking-widest">{"//"} SYS_INFO</div>
                             {[
-                                { label: "STATUS", value: "ONLINE", cls: "text-emerald-400" },
-                                { label: "MODULES", value: CATEGORIES.length.toString(), cls: "text-slate-300" },
-                                { label: "SKILLS", value: CATEGORIES.reduce((a, c) => a + c.skills.length, 0).toString(), cls: "text-slate-300" },
-                                { label: "LEARNING", value: CATEGORIES.reduce((a, c) => a + c.skills.filter(s => s.badge === "LEARNING").length, 0).toString(), cls: "text-amber-400" },
+                                { label: "STATUS", value: "ONLINE", cls: "text-emerald-550 dark:text-emerald-400 font-bold" },
+                                { label: "MODULES", value: CATEGORIES.length.toString(), cls: "text-slate-800 dark:text-slate-300" },
+                                { label: "SKILLS", value: CATEGORIES.reduce((a, c) => a + c.skills.length, 0).toString(), cls: "text-slate-800 dark:text-slate-300" },
+                                { label: "LEARNING", value: CATEGORIES.reduce((a, c) => a + c.skills.filter(s => s.badge === "LEARNING").length, 0).toString(), cls: "text-amber-650 dark:text-amber-400" },
                             ].map(({ label, value, cls }) => (
-                                <div key={label} className="flex justify-between items-center py-1 border-b border-slate-800/50 last:border-0">
-                                    <span className="text-slate-600">{label}:</span>
+                                <div key={label} className="flex justify-between items-center py-1 border-b border-slate-200/50 dark:border-slate-800/50 last:border-0">
+                                    <span className="text-slate-500 dark:text-slate-600">{label}:</span>
                                     <span className={`font-bold ${cls}`}>{value}</span>
                                 </div>
                             ))}
@@ -286,23 +286,23 @@ export default function Skills() {
                     <div className="flex-1 min-w-0">
 
                         {/* Terminal header */}
-                        <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-800">
+                        <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-200 dark:border-slate-800">
                             <div className="flex gap-1.5">
                                 <span className="w-2.5 h-2.5 rounded-full bg-rose-500/60" />
                                 <span className="w-2.5 h-2.5 rounded-full bg-amber-500/60" />
                                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/60" />
                             </div>
                             <div className="flex-1 font-mono text-xs flex items-center gap-2">
-                                <span className="text-slate-600">›</span>
+                                <span className="text-slate-400 dark:text-slate-600">›</span>
                                 <span className={`${active.color} font-bold`}>
                                     <GlitchText key={activeId} text={`${active.title.toUpperCase()} // ${active.subtitle.toUpperCase()}`} />
                                 </span>
-                                <span className="w-1.5 h-4 bg-slate-500 animate-pulse" />
+                                <span className="w-1.5 h-4 bg-slate-400 dark:bg-slate-500 animate-pulse" />
                             </div>
-                            <div className="flex items-center gap-3 text-[10px] font-mono text-slate-500">
-                                {stats.core > 0 && <span><span className="text-white font-bold">{stats.core}</span> core</span>}
+                            <div className="flex items-center gap-3 text-[10px] font-mono text-slate-550 dark:text-slate-500">
+                                {stats.core > 0 && <span><span className="text-slate-900 dark:text-white font-bold">{stats.core}</span> core</span>}
                                 {stats.learning > 0 && (
-                                    <span className="flex items-center gap-1 text-amber-400">
+                                    <span className="flex items-center gap-1 text-amber-600 dark:text-amber-400">
                                         <BookOpen className="w-3 h-3" />
                                         <span className="font-bold">{stats.learning}</span> learning
                                     </span>
@@ -341,12 +341,12 @@ export default function Skills() {
                             viewport={{ once: true }}
                             className="flex items-center gap-4 mb-8"
                         >
-                            <span className="w-12 h-px bg-slate-800" />
-                            <span className="font-mono text-xs text-slate-400 tracking-widest uppercase flex items-center gap-2">
+                            <span className="w-12 h-px bg-slate-200 dark:bg-slate-800" />
+                            <span className="font-mono text-xs text-slate-500 dark:text-slate-400 tracking-widest uppercase flex items-center gap-2">
                                 <Terminal className="w-4 h-4 text-cyan-500" />
                                 Secondary_Protocols
                             </span>
-                            <span className="w-12 h-px bg-slate-800" />
+                            <span className="w-12 h-px bg-slate-200 dark:bg-slate-800" />
                         </motion.div>
 
                         <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
@@ -357,13 +357,13 @@ export default function Skills() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.4, delay: 0.2 + (i * 0.04) }}
-                                    className="group relative px-4 py-2 rounded-lg border border-slate-800/80 bg-slate-900/40 hover:bg-slate-800/80 hover:border-cyan-500/50 hover:shadow-[0_0_15px_rgba(6,182,212,0.15)] transition-all duration-300 cursor-default overflow-hidden"
+                                    className="group relative px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800/80 bg-white/60 dark:bg-slate-900/40 hover:bg-slate-100 dark:hover:bg-slate-800/80 hover:border-cyan-500/50 hover:shadow-[0_0_15px_rgba(6,182,212,0.15)] transition-all duration-300 cursor-default overflow-hidden"
                                 >
                                     {/* Shine effect on hover */}
                                     <div className="absolute inset-0 bg-linear-to-r from-transparent via-cyan-500/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
                                     
-                                    <span className="relative z-10 font-mono text-xs font-bold text-slate-400 group-hover:text-cyan-300 transition-colors flex items-center gap-2">
-                                        <span className="text-slate-600 group-hover:text-cyan-500 transition-colors">~</span>
+                                    <span className="relative z-10 font-mono text-xs font-bold text-slate-600 dark:text-slate-400 group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors flex items-center gap-2">
+                                        <span className="text-slate-400 dark:text-cyan-500 transition-colors">~</span>
                                         {tech}
                                     </span>
                                 </motion.div>

@@ -46,7 +46,7 @@ export const projects: Project[] = [
             "Deck.gl"
         ],
         highlight:
-            "Completed for APDCL · Predictive intelligence dashboard mapping transformer failure risks using Survival Analysis & anomaly detection.",
+            "Completed for APDCL (Jul 2026) · Predictive intelligence dashboard mapping transformer failure risks using Survival Analysis & anomaly detection.",
         github: "https://github.com/dipexplorer/gridmind",
         liveUrl: "https://gridmind-beta.vercel.app",
         image: "/projects/gridmind_ui_ss/gridmind_stickman_infographic.png",
@@ -89,7 +89,7 @@ export const projects: Project[] = [
             "Academic Attendance Decision Support System (AADSS) with advanced analytics. Built predictive eligibility analytics to help students simulate attendance scenarios, calculate minimum class thresholds, and avoid failing due to attendance shortfalls.",
         tech: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
         highlight:
-            "Ongoing production system with predictive eligibility analytics and real-time attendance policy simulation.",
+            "Developed in Mar – Apr 2026 · Production system with predictive eligibility analytics and real-time attendance policy simulation.",
         github: "https://github.com/dipexplorer/AADSS",
         liveUrl: "https://aadss-ygag.vercel.app/",
         image: "/projects/aadss_ui_ss/aadss_stickman_infographic.png",
@@ -118,7 +118,7 @@ export const projects: Project[] = [
             "Tailwind CSS",
         ],
         highlight:
-            "Dynamic difficulty scoring engine adapts quiz content in real time based on cognitive performance metrics.",
+            "Developed in Feb 2025 · Dynamic difficulty scoring engine adapts quiz content in real time based on cognitive performance metrics.",
         github: "https://github.com/dipexplorer/learnsight",
         liveUrl: "https://lea-edi0.onrender.com/",
         image: "/projects/learnsight_ui_ss/learnsight_stickman_infographic.png",
@@ -144,7 +144,7 @@ export const projects: Project[] = [
             "A high-performance support triage system that classifies, routes, and generates grounded responses across multiple domains without relying on LLM hallucination. Uses RAG pipelines with domain-specific vector stores.",
         tech: ["Python", "RAG", "Vector DB", "LLM", "FastAPI"],
         highlight:
-            "Zero-hallucination AI triage engine using retrieval-augmented generation across multiple enterprise domains.",
+            "Developed in Apr – May 2026 · Zero-hallucination AI triage engine using retrieval-augmented generation across multiple enterprise domains.",
         github: "https://github.com/dipexplorer/AI-Support-Triage-System",
         image: "/projects/ai_trainge_support_ui_ss/ai_triage_stickman_infographic.png",
         images: [
@@ -167,7 +167,7 @@ export const projects: Project[] = [
             "Cloudinary",
         ],
         highlight:
-            "Redis caching + MongoDB aggregation reduced database load and significantly improved API response times.",
+            "Developed in Oct – Dec 2024 · Redis caching + MongoDB aggregation reduced database load and significantly improved API response times.",
         github: "https://github.com/dipexplorer/VideTube",
         image: "/projects/videtube_stickman_infographic.png",
         images: [

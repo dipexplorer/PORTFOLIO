@@ -10,9 +10,10 @@ export interface Contribution {
 
 const REPOS = [
   { owner: "RatLoopz", repo: "sahidawa-india" },
+  { owner: "dipexplorer", repo: "gridmind" },
   { owner: "dipexplorer", repo: "LegalHub" },
   { owner: "dipexplorer", repo: "LearnSight" },
-  { owner: "dipexplorer", repo: "Acadence" },
+  { owner: "dipexplorer", repo: "AADSS" },
   { owner: "dipexplorer", repo: "VideTube" },
 ];
 

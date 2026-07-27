@@ -55,46 +55,46 @@ export default function Hero({ contributions }: { contributions: Contribution[] 
                     variants={containerVariants}
                     initial="hidden"
                     animate="show"
-                    className="flex flex-col justify-center min-h-[50vh] md:h-[70vh] md:min-h-130 w-full px-4 py-8 md:w-[48%] md:px-12 md:py-10 z-10 border border-cyan-800/10 bg-slate-950/30 rounded-2xl relative overflow-hidden"
+                    className="flex flex-col justify-center min-h-[50vh] md:h-[70vh] md:min-h-130 w-full px-4 py-8 md:w-[48%] md:px-12 md:py-10 z-10 border border-slate-200 dark:border-cyan-800/10 bg-white/40 dark:bg-slate-950/30 rounded-2xl relative overflow-hidden transition-colors duration-300"
                 >
                     {/* Technical framing lines */}
-                    <div className="absolute top-3 left-3 text-[8px] text-cyan-500/35 font-mono">{"NODE // HERO_INIT"}</div>
-                    <div className="absolute bottom-3 right-3 text-[8px] text-cyan-500/35 font-mono">LOC: 26°11&apos;N 91°44&apos;E</div>
+                    <div className="absolute top-3 left-3 text-[8px] text-slate-400 dark:text-cyan-500/35 font-mono">{"NODE // HERO_INIT"}</div>
+                    <div className="absolute bottom-3 right-3 text-[8px] text-slate-400 dark:text-cyan-500/35 font-mono">LOC: 26°11&apos;N 91°44&apos;E</div>
                     
                     <div className="space-y-6">
                         {/* Greeting */}
                         <motion.div variants={itemVariants} className="inline-block">
-                            <span className="text-[10px] font-mono text-cyan-400 border border-cyan-500/25 px-2.5 py-1 rounded-sm uppercase tracking-widest bg-cyan-950/20">
+                            <span className="text-[10px] font-mono text-cyan-600 dark:text-cyan-400 border border-slate-200 dark:border-cyan-500/25 px-2.5 py-1 rounded-sm uppercase tracking-widest bg-cyan-100/30 dark:bg-cyan-950/20">
                                 IDENTITY // SYSTEMS_DEV
                             </span>
                         </motion.div>
 
                         {/* Name */}
-                        <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-black tracking-tighter leading-tight bg-clip-text text-transparent bg-linear-to-r from-white via-slate-100 to-cyan-400 drop-shadow-[0_0_15px_rgba(6,182,212,0.15)] select-none">
+                        <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-black tracking-tighter leading-tight bg-clip-text text-transparent bg-linear-to-r from-slate-900 via-slate-800 to-cyan-600 dark:from-white dark:via-slate-100 dark:to-cyan-400 drop-shadow-[0_0_15px_rgba(6,182,212,0.15)] select-none">
                             Dipjyoti Das
                         </motion.h1>
 
                         {/* Description */}
-                        <motion.p variants={itemVariants} className="text-xs md:text-sm text-slate-400 leading-relaxed max-w-lg font-mono">
-                            <span className="text-slate-500">{"// Architecting "}</span>
-                            <span className="text-cyan-400">scalable software systems</span>
-                            <span className="text-slate-500">{" and "}</span>
-                            <span className="text-slate-200">data-driven intelligence</span>
-                            <span className="text-slate-500">{"."}</span>
+                        <motion.p variants={itemVariants} className="text-xs md:text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-lg font-mono">
+                            <span className="text-slate-400 dark:text-slate-500">{"// Architecting "}</span>
+                            <span className="text-cyan-600 dark:text-cyan-400">scalable software systems</span>
+                            <span className="text-slate-400 dark:text-slate-500">{" and "}</span>
+                            <span className="text-slate-800 dark:text-slate-200">data-driven intelligence</span>
+                            <span className="text-slate-400 dark:text-slate-500">{"."}</span>
                             <br />
-                            <span className="text-slate-500">{"// Building "}</span>
-                            <span className="text-slate-200">resilient, production-grade applications</span>
-                            <span className="text-slate-500">{" that solve "}</span>
-                            <span className="text-cyan-400">real-world problems</span>
-                            <span className="text-slate-500">{"."}</span>
+                            <span className="text-slate-400 dark:text-slate-500">{"// Building "}</span>
+                            <span className="text-slate-800 dark:text-slate-200">resilient, production-grade applications</span>
+                            <span className="text-slate-400 dark:text-slate-500">{" that solve "}</span>
+                            <span className="text-cyan-600 dark:text-cyan-400">real-world problems</span>
+                            <span className="text-slate-400 dark:text-slate-500">{"."}</span>
                             <br />
-                            <span className="text-slate-500">{"// Specializing in "}</span>
-                            <span className="text-slate-200">high-performance backends</span>
-                            <span className="text-slate-500">{", "}</span>
-                            <span className="text-slate-200">AI integration</span>
-                            <span className="text-slate-500">{" & "}</span>
-                            <span className="text-cyan-400">open-source governance</span>
-                            <span className="text-slate-500">{"."}</span>
+                            <span className="text-slate-400 dark:text-slate-500">{"// Specializing in "}</span>
+                            <span className="text-slate-800 dark:text-slate-200">high-performance backends</span>
+                            <span className="text-slate-400 dark:text-slate-500">{", "}</span>
+                            <span className="text-slate-800 dark:text-slate-200">AI integration</span>
+                            <span className="text-slate-400 dark:text-slate-500">{" & "}</span>
+                            <span className="text-cyan-600 dark:text-cyan-400">open-source governance</span>
+                            <span className="text-slate-400 dark:text-slate-500">{"."}</span>
                         </motion.p>
 
 
@@ -104,7 +104,7 @@ export default function Hero({ contributions }: { contributions: Contribution[] 
                                 href="https://github.com/dipexplorer"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="p-3 rounded-xl bg-cyan-950/20 text-cyan-400 border border-cyan-800/30 hover:border-cyan-500/50 hover:bg-cyan-950/45 hover:text-cyan-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(6,182,212,0.15)]"
+                                className="p-3 rounded-xl bg-slate-100 dark:bg-cyan-950/20 text-slate-600 dark:text-cyan-400 border border-slate-200 dark:border-cyan-800/30 hover:border-cyan-500/50 hover:bg-slate-200 dark:hover:bg-cyan-950/45 hover:text-cyan-600 dark:hover:text-cyan-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(6,182,212,0.15)]"
                             >
                                 <GitBranch className="w-5 h-5" />
                             </Link>
@@ -112,13 +112,13 @@ export default function Hero({ contributions }: { contributions: Contribution[] 
                                 href="https://linkedin.com/in/dipjyoti-das"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="p-3 rounded-xl bg-cyan-950/20 text-cyan-400 border border-cyan-800/30 hover:border-cyan-500/50 hover:bg-cyan-950/45 hover:text-cyan-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(6,182,212,0.15)]"
+                                className="p-3 rounded-xl bg-slate-100 dark:bg-cyan-950/20 text-slate-600 dark:text-cyan-400 border border-slate-200 dark:border-cyan-800/30 hover:border-cyan-500/50 hover:bg-slate-200 dark:hover:bg-cyan-950/45 hover:text-cyan-600 dark:hover:text-cyan-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(6,182,212,0.15)]"
                             >
                                 <LinkedinIcon className="w-5 h-5" />
                             </Link>
                             <Link
                                 href="mailto:contact@dipjyoti.dev"
-                                className="p-3 rounded-xl bg-cyan-950/20 text-cyan-400 border border-cyan-800/30 hover:border-cyan-500/50 hover:bg-cyan-950/45 hover:text-cyan-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(6,182,212,0.15)]"
+                                className="p-3 rounded-xl bg-slate-100 dark:bg-cyan-950/20 text-slate-600 dark:text-cyan-400 border border-slate-200 dark:border-cyan-800/30 hover:border-cyan-500/50 hover:bg-slate-200 dark:hover:bg-cyan-950/45 hover:text-cyan-600 dark:hover:text-cyan-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(6,182,212,0.15)]"
                             >
                                 <Mail className="w-5 h-5" />
                             </Link>
@@ -128,7 +128,7 @@ export default function Hero({ contributions }: { contributions: Contribution[] 
                         <motion.div variants={itemVariants} className="flex flex-wrap gap-4 pt-4">
                             <Link
                                 href="#projects"
-                                className="group relative inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-cyan-950 border border-cyan-500/40 text-cyan-400 font-mono text-xs uppercase tracking-[0.2em] transition-all active:scale-95 shadow-[0_0_15px_rgba(6,182,212,0.15)] hover:bg-cyan-900/60 hover:text-cyan-300 duration-300 cursor-pointer"
+                                className="group relative inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-slate-100 dark:bg-cyan-950 border border-slate-300 dark:border-cyan-500/40 text-slate-800 dark:text-cyan-400 font-mono text-xs uppercase tracking-[0.2em] transition-all active:scale-95 shadow-sm dark:shadow-[0_0_15px_rgba(6,182,212,0.15)] hover:bg-slate-200 dark:hover:bg-cyan-900/60 hover:text-slate-950 dark:hover:text-cyan-300 duration-300 cursor-pointer"
                             >
                                 <span className="relative z-10">View Projects_</span>
                             </Link>
@@ -136,7 +136,7 @@ export default function Hero({ contributions }: { contributions: Contribution[] 
                                 href="/DIPJYOTI_SD_resume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl border border-cyan-800/40 bg-slate-950 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/40 font-mono text-xs uppercase tracking-wider transition-all duration-300 active:scale-95 cursor-pointer"
+                                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl border border-slate-300 dark:border-cyan-800/40 bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40 font-mono text-xs uppercase tracking-wider transition-all duration-300 active:scale-95 cursor-pointer shadow-xs"
                             >
                                 <Download className="w-4 h-4" />
                                 Resume
@@ -147,7 +147,7 @@ export default function Hero({ contributions }: { contributions: Contribution[] 
 
                 {/* Right Side - Interactive Node Connector Visualizer */}
                 <div 
-                    className="relative h-[60vh] md:h-[70vh] min-h-130 w-full overflow-hidden px-4 md:px-8 py-8 md:w-[50%] md:py-10 flex items-center justify-center border border-cyan-800/10 bg-slate-950/20 rounded-2xl backdrop-blur-xs"
+                    className="relative h-[60vh] md:h-[70vh] min-h-130 w-full overflow-hidden px-4 md:px-8 py-8 md:w-[50%] md:py-10 flex items-center justify-center border border-slate-200 dark:border-cyan-800/10 bg-slate-100/10 dark:bg-slate-950/20 rounded-2xl backdrop-blur-xs transition-colors duration-300"
                 >
 
                     

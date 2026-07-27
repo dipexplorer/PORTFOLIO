@@ -68,7 +68,7 @@ const ImageCarousel = ({ images, title, accent }: { images: string[]; title: str
     if (total === 0) return null;
 
     return (
-        <div className="relative w-full h-full overflow-hidden rounded-xl bg-slate-950/60 group/img">
+        <div className="relative w-full h-full overflow-hidden rounded-xl bg-slate-100/60 dark:bg-slate-950/60 group/img">
             <AnimatePresence initial={false} custom={dir} mode="popLayout">
                 <motion.img
                     key={idx}
@@ -183,7 +183,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
                 transform: `perspective(1200px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
                 transition: isHovered ? "transform 0ms" : "transform 500ms cubic-bezier(0.25, 1, 0.5, 1)",
             }}
-            className={`${colClass} group relative rounded-2xl overflow-hidden border border-slate-800/70 bg-slate-950/50 backdrop-blur-xl`}
+            className={`${colClass} group relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800/70 bg-white/65 dark:bg-slate-950/50 backdrop-blur-xl transition-all duration-300`}
         >
             {/* Radial glow on hover */}
             <div
@@ -212,7 +212,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
                                 LIVE
                             </span>
                         )}
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono font-bold border border-slate-700/60 bg-slate-900/60 text-slate-400">
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono font-bold border border-slate-200 dark:border-slate-700/60 bg-slate-100/60 dark:bg-slate-900/60 text-slate-500 dark:text-slate-400">
                             <Layers size={10} />
                             {project.tech.length} DEPS
                         </span>
@@ -226,7 +226,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
                         {/* Text side */}
                         <div className="lg:col-span-3 flex flex-col justify-between">
                             <div>
-                                <h3 className={`text-xl lg:text-2xl font-black text-white mb-3 group-hover:${accent.text} transition-colors duration-300 leading-tight tracking-tight`}>
+                                <h3 className={`text-xl lg:text-2xl font-black text-slate-900 dark:text-white mb-3 group-hover:${accent.text} transition-colors duration-300 leading-tight tracking-tight`}>
                                     {project.title}
                                 </h3>
 
@@ -238,14 +238,14 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
                                     </div>
                                 )}
 
-                                <p className="text-sm text-slate-400 leading-relaxed font-mono mb-4 line-clamp-3">
+                                <p className="text-sm text-slate-650 dark:text-slate-400 leading-relaxed font-mono mb-4 line-clamp-3">
                                     {project.description}
                                 </p>
 
                                 {project.features && (
                                     <ul className="space-y-1.5">
                                         {project.features.map((f, i) => (
-                                            <li key={i} className="flex items-start text-xs text-slate-300 font-mono">
+                                            <li key={i} className="flex items-start text-xs text-slate-700 dark:text-slate-300 font-mono">
                                                 <span className={`${accent.text} mr-2 mt-0.5 shrink-0`}>▹</span>
                                                 {f}
                                             </li>
@@ -273,7 +273,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
                 ) : (
                     // Narrow card: stacked layout
                     <div className="flex flex-col flex-1">
-                        <h3 className={`text-lg font-black text-white mb-2.5 group-hover:${accent.text} transition-colors duration-300 leading-tight tracking-tight`}>
+                        <h3 className={`text-lg font-black text-slate-900 dark:text-white mb-2.5 group-hover:${accent.text} transition-colors duration-300 leading-tight tracking-tight`}>
                             {project.title}
                         </h3>
 
@@ -285,7 +285,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
                             </div>
                         )}
 
-                        <p className="text-xs text-slate-400 leading-relaxed font-mono mb-4 line-clamp-3">
+                        <p className="text-xs text-slate-650 dark:text-slate-400 leading-relaxed font-mono mb-4 line-clamp-3">
                             {project.description}
                         </p>
 
@@ -309,13 +309,13 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
                 )}
 
                 {/* ── Footer CTA ── */}
-                <div className="flex gap-2 mt-5 pt-4 border-t border-slate-800/60">
+                <div className="flex gap-2 mt-5 pt-4 border-t border-slate-200 dark:border-slate-800/60">
                     {project.liveUrl && (
                         <Link
                             href={project.liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl text-xs font-bold font-mono transition-all duration-300 ${accent.bg} ${accent.text} border ${accent.border} hover:brightness-125 hover:shadow-lg`}
+                            className={`flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl text-xs font-bold font-mono transition-all duration-300 ${accent.bg} ${accent.text} border ${accent.border} hover:brightness-115 hover:shadow-md`}
                         >
                             <Globe size={13} />
                             Live Demo
@@ -327,7 +327,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
                             href={project.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`${project.liveUrl ? "px-3" : "flex-1"} inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl text-xs font-bold font-mono transition-all duration-300 border border-slate-700/60 bg-slate-900/50 text-slate-300 hover:bg-slate-800 hover:text-white hover:border-slate-500`}
+                            className={`${project.liveUrl ? "px-3" : "flex-1"} inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl text-xs font-bold font-mono transition-all duration-300 border border-slate-200 dark:border-slate-700/60 bg-slate-100 dark:bg-slate-900/50 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 hover:text-slate-950 dark:hover:text-white hover:border-slate-400 dark:hover:border-slate-500`}
                         >
                             <GitBranch size={13} />
                             {project.liveUrl ? "Code" : "Source Code"}
@@ -347,17 +347,17 @@ export default function Projects() {
             {/* Background ambience */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
                 <motion.div
-                    animate={{ scale: [1, 1.2, 1], opacity: [0.04, 0.09, 0.04] }}
+                    animate={{ scale: [1, 1.2, 1], opacity: [0.02, 0.05, 0.02] }}
                     transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-cyan-500/20 rounded-full blur-[160px]"
+                    className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-cyan-500/10 dark:bg-cyan-500/20 rounded-full blur-[160px]"
                 />
                 <motion.div
-                    animate={{ scale: [1, 1.3, 1], opacity: [0.03, 0.07, 0.03] }}
+                    animate={{ scale: [1, 1.3, 1], opacity: [0.015, 0.04, 0.015] }}
                     transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 3 }}
-                    className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-violet-500/15 rounded-full blur-[160px]"
+                    className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-violet-500/10 dark:bg-violet-500/15 rounded-full blur-[160px]"
                 />
                 {/* Grid dots background */}
-                <div className="absolute inset-0 opacity-[0.025]"
+                <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.025]"
                     style={{
                         backgroundImage: "radial-gradient(circle, #94a3b8 1px, transparent 1px)",
                         backgroundSize: "32px 32px",
@@ -383,16 +383,16 @@ export default function Projects() {
                             <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
                         </div>
                         <span className="font-mono text-xs text-slate-500 ml-2">~/portfolio/projects</span>
-                        <span className="font-mono text-xs text-slate-600">— {projects.length} entries found</span>
+                        <span className="font-mono text-xs text-slate-500 dark:text-slate-600">— {projects.length} entries found</span>
                     </div>
 
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight uppercase">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-950 dark:text-white tracking-tight uppercase">
                         Recent <br className="md:hidden" />
-                        <span className="bg-linear-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">
+                        <span className="bg-linear-to-r from-cyan-600 to-violet-600 dark:from-cyan-400 dark:to-violet-400 bg-clip-text text-transparent">
                             Deployments
                         </span>
                     </h2>
-                    <p className="text-sm text-slate-500 font-mono max-w-xl">
+                    <p className="text-sm text-slate-600 dark:text-slate-500 font-mono max-w-xl">
                         {"//"} production systems · AI integrations · open-source contributions
                     </p>
                 </motion.div>
