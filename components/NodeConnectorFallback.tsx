@@ -205,7 +205,7 @@ export default function NodeConnectorFallback({ contributions }: { contributions
         if      (p.x < 285)     { p.x = 285;     p.vx =  Math.abs(p.vx) * 0.65; }
         else if (p.x > W - 285) { p.x = W - 285; p.vx = -Math.abs(p.vx) * 0.65; }
         if      (p.y < 18)     { p.y = 18;     p.vy =  Math.abs(p.vy) * 0.65; }
-        else if (p.y > H - 18) { p.y = H - 18; p.vy = -Math.abs(p.vy) * 0.65; }
+        else if (p.y > H - 65) { p.y = H - 65; p.vy = -Math.abs(p.vy) * 0.65; }
       });
 
       /* ── Build warp display data ── */

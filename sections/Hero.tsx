@@ -70,7 +70,7 @@ export default function Hero({ contributions }: { contributions: Contribution[] 
                         </motion.div>
 
                         {/* Name */}
-                        <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-black tracking-tighter leading-tight bg-clip-text text-transparent bg-linear-to-r from-slate-900 via-slate-800 to-cyan-600 dark:from-white dark:via-slate-100 dark:to-cyan-400 drop-shadow-[0_0_15px_rgba(6,182,212,0.15)] select-none">
+                        <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-black tracking-tighter leading-tight bg-clip-text text-transparent bg-linear-to-r from-slate-900 via-slate-800 to-cyan-600 dark:from-white dark:via-slate-100 dark:to-cyan-400 select-none">
                             Dipjyoti Das
                         </motion.h1>
 

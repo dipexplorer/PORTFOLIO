@@ -9,7 +9,7 @@ interface BookCoverProps {
 
 export default function BookCover({ onOpen }: BookCoverProps) {
   return (
-    <div className="relative w-full h-[600px] md:h-[650px] bg-white dark:bg-slate-950 rounded-2xl shadow-md dark:shadow-2xl border-4 border-slate-200 dark:border-slate-800 flex flex-col justify-between p-8 overflow-hidden blueprint-grid transition-all duration-300">
+    <div className="relative w-full h-[600px] md:h-[650px] bg-white dark:bg-slate-950 rounded-2xl shadow-md dark:shadow-2xl border-4 border-slate-200 dark:border-slate-800 flex flex-col justify-between p-8 overflow-hidden blueprint-grid transition-all duration-300 transform-gpu translate-z-0 backface-hidden">
       {/* Decorative Technical Border Lines */}
       <div className="absolute inset-4 border border-cyan-300 dark:border-cyan-500/20 pointer-events-none transition-colors duration-300" />
       <div className="absolute inset-5 border border-cyan-200 dark:border-cyan-500/10 pointer-events-none transition-colors duration-300" />
