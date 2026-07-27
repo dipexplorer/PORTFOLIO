@@ -2,9 +2,8 @@
 
 import React, { useRef, useState } from "react";
 import { motion, useScroll, useSpring, useInView, useTransform } from "framer-motion";
-import { Briefcase, GitPullRequest, Code2, Trophy, Database, Server, Activity, Radio, Terminal } from "lucide-react";
+import { Briefcase, GitPullRequest, Code2, Trophy, Database, Server, Activity, Radio } from "lucide-react";
 
-// ─── Data ──────────────────────────────────────────────────────────────────────
 const experiences = [
     {
         id: 0,
@@ -12,7 +11,7 @@ const experiences = [
         company: "SahiDawa",
         date: "Jan 2025 – Present",
         location: "Remote",
-        icon: <Activity className="w-5 h-5" />,
+        icon: <Activity className="w-6 h-6 text-teal-400" />,
         tech: ["Next.js", "Firebase", "TailwindCSS"],
         points: [
             "Leading the development of an open-source platform that helps citizens verify medicines and report suspicious drugs.",
@@ -25,7 +24,7 @@ const experiences = [
         company: "Assam Power Distribution Company Limited (APDCL)",
         date: "Jun 2026 – Present",
         location: "Guwahati, Assam",
-        icon: <Server className="w-5 h-5" />,
+        icon: <Server className="w-6 h-6 text-emerald-400" />,
         tech: ["FastAPI", "Celery", "Redis", "TimescaleDB", "PostgreSQL", "PostGIS", "Docker"],
         points: [
             "Developing GridMind, an asset monitoring system processing time-series telemetry data with FastAPI, Celery, and Redis.",
@@ -38,7 +37,7 @@ const experiences = [
         company: "GirlScript Summer of Code 2025",
         date: "May 2025 – Aug 2025",
         location: "Remote",
-        icon: <Briefcase className="w-5 h-5" />,
+        icon: <Briefcase className="w-6 h-6 text-cyan-400" />,
         tech: ["Express.js", "MongoDB", "Mistral AI", "Socket.io"],
         points: [
             "Led code reviews for 33+ contributors across 80+ PRs on LegalHub; ranked #53 on GSSoC leaderboard.",
@@ -52,7 +51,7 @@ const experiences = [
         company: "Northeast Frontier Railway",
         date: "Jun 2025 – Jul 2025",
         location: "Guwahati",
-        icon: <Radio className="w-5 h-5" />,
+        icon: <Radio className="w-6 h-6 text-indigo-400" />,
         tech: ["Signal Engineering", "Telecom Infra"],
         points: [
             "Completed intensive field training within the Signal & Telecom Department under the Dy. CSTE/Network office.",
@@ -65,7 +64,7 @@ const experiences = [
         company: "Hack-A-Thon: AI for Education 2025",
         date: "Feb 2025",
         location: "Remote",
-        icon: <Trophy className="w-5 h-5" />,
+        icon: <Trophy className="w-6 h-6 text-amber-400" />,
         tech: ["Next.js", "Firebase", "AI Integration"],
         points: [
             "Built an AI-powered adaptive diagnostic engine with Next.js and Firebase that dynamically adjusts question difficulty.",
@@ -78,7 +77,7 @@ const experiences = [
         company: "InnoByte Services",
         date: "Oct – Dec 2024",
         location: "Remote",
-        icon: <Database className="w-5 h-5" />,
+        icon: <Database className="w-6 h-6 text-blue-400" />,
         tech: ["Node.js", "Express", "MongoDB", "Joi"],
         points: [
             "Architected the backend for a scalable e-commerce application using Node.js, Express, and MongoDB.",
@@ -91,7 +90,7 @@ const experiences = [
         company: "GSSoC Ext & Hacktoberfest",
         date: "Oct – Nov 2024",
         location: "Remote",
-        icon: <GitPullRequest className="w-5 h-5" />,
+        icon: <GitPullRequest className="w-6 h-6 text-rose-400" />,
         tech: ["Open Source", "Backend Optimization"],
         points: [
             "Merged 83+ PRs across multiple open-source repos; resolved critical backend bugs and optimized aggregation pipelines.",
@@ -104,7 +103,7 @@ const experiences = [
         company: "Chegg India",
         date: "Apr 2023 – Oct 2024",
         location: "Remote",
-        icon: <Code2 className="w-5 h-5" />,
+        icon: <Code2 className="w-6 h-6 text-emerald-400" />,
         tech: ["DSA", "System Design", "DBMS"],
         points: [
             "Evaluated and authored solutions for 500+ complex technical problems across DSA, System Design, and DBMS.",
@@ -117,7 +116,7 @@ const experiences = [
         company: "Trans Virtual Private Limited",
         date: "Jan 2024",
         location: "Guwahati",
-        icon: <Server className="w-5 h-5" />,
+        icon: <Server className="w-6 h-6 text-orange-400" />,
         tech: ["Cisco IOS", "PuTTY", "VLAN", "Routing"],
         points: [
             "Gained hands-on experience setting up and maintaining network systems, including enterprise routers and switches.",
@@ -126,8 +125,18 @@ const experiences = [
     }
 ];
 
-// ─── Terminal Experience Card ──────────────────────────────────────────────────
-const ExperienceCard = ({ exp, index }: { exp: typeof experiences[0], index: number }) => {
+interface ExperienceItem {
+    id: number;
+    role: string;
+    company: string;
+    date: string;
+    location: string;
+    icon: React.ReactNode;
+    tech?: string[];
+    points: string[];
+}
+
+const ExperienceCard = ({ exp, index }: { exp: ExperienceItem, index: number }) => {
     const isEven = index % 2 === 0;
     const cardRef = useRef<HTMLDivElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -156,29 +165,29 @@ const ExperienceCard = ({ exp, index }: { exp: typeof experiences[0], index: num
             className={`relative flex flex-col md:flex-row items-center ${isEven ? 'md:flex-row-reverse' : ''} group`}
         >
             {/* Animated Timeline Diamond Node */}
-            <div className={`absolute left-8 md:left-[50%] w-10 h-10 rounded-xl bg-slate-900 dark:bg-slate-950 border flex items-center justify-center -translate-x-1/2 rotate-45 z-20 transition-all duration-700 hidden md:flex ${
+            <div className={`absolute left-8 md:left-[50%] w-10 h-10 rounded-xl bg-white dark:bg-slate-950 border flex items-center justify-center -translate-x-1/2 rotate-45 z-20 transition-all duration-700 hidden md:flex ${
                 isFocused 
                     ? "border-cyan-500 shadow-[0_0_30px_rgba(6,182,212,0.5)] scale-110" 
-                    : "border-slate-800 scale-100 group-hover:border-cyan-500/50"
+                    : "border-slate-300 dark:border-slate-800 scale-100 group-hover:border-cyan-500/50"
             }`}>
-                <div className={`w-3 h-3 rounded-sm transition-all duration-700 -rotate-45 ${
-                    isFocused ? "text-cyan-400 scale-125" : "text-slate-600 group-hover:text-cyan-500/50"
-                }`}>
-                    <Terminal className="w-full h-full" />
-                </div>
-            </div>
-
-            {/* Mobile Timeline Node */}
-            <div className={`absolute left-8 w-6 h-6 rounded-full bg-slate-900 border flex items-center justify-center -translate-x-1/2 z-20 transition-all duration-700 md:hidden mt-6 ${
-                isFocused ? "border-cyan-500 scale-110 shadow-[0_0_15px_rgba(6,182,212,0.5)]" : "border-slate-800 scale-100"
-            }`}>
-                <div className={`w-2 h-2 rounded-full transition-all duration-700 ${
-                    isFocused ? "bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,1)]" : "bg-slate-700"
+                <div className={`w-3 h-3 rounded-sm transition-all duration-700 ${
+                    isFocused 
+                        ? "bg-cyan-500 shadow-[0_0_15px_rgba(6,182,212,1)] scale-125" 
+                        : "bg-slate-300 dark:bg-slate-700 group-hover:bg-cyan-500/50"
                 }`} />
             </div>
 
-            {/* Content Card with Terminal Aesthetic */}
-            <div className={`w-full md:w-[47%] ${isEven ? 'md:pr-12' : 'md:pl-12'} pl-16 md:pl-0 transition-all duration-700 ease-out ${
+            {/* Mobile Timeline Node */}
+            <div className={`absolute left-8 w-6 h-6 rounded-full bg-white dark:bg-slate-950 border flex items-center justify-center -translate-x-1/2 z-20 transition-all duration-700 md:hidden mt-6 ${
+                isFocused ? "border-cyan-500 scale-110 shadow-[0_0_15px_rgba(6,182,212,0.5)]" : "border-slate-300 dark:border-slate-800 scale-100"
+            }`}>
+                <div className={`w-2 h-2 rounded-full transition-all duration-700 ${
+                    isFocused ? "bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,1)]" : "bg-slate-300 dark:bg-slate-700"
+                }`} />
+            </div>
+
+            {/* Content Card with Cinematic Focus Effect */}
+            <div className={`w-full md:w-[47%] ${isEven ? 'md:pr-12 md:text-right' : 'md:pl-12 text-left'} pl-16 md:pl-0 transition-all duration-700 ease-out ${
                 isFocused ? "opacity-100 scale-100" : "opacity-40 scale-[0.96]"
             }`}>
                 <div 
@@ -186,10 +195,10 @@ const ExperienceCard = ({ exp, index }: { exp: typeof experiences[0], index: num
                     onMouseMove={handleMouseMove}
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
-                    className={`relative rounded-xl bg-[#0a0f1c] border transition-all duration-500 overflow-hidden font-mono shadow-2xl ${
+                    className={`relative p-6 sm:p-8 rounded-2xl bg-white/60 dark:bg-slate-900/40 border transition-all duration-500 overflow-hidden ${
                         isFocused 
-                            ? "border-cyan-500/50 shadow-[0_0_30px_rgba(6,182,212,0.1)]" 
-                            : "border-slate-800/80 hover:border-cyan-500/30"
+                            ? "border-cyan-500/50 shadow-lg dark:shadow-cyan-900/20" 
+                            : "border-slate-200 dark:border-slate-800 shadow-md hover:border-cyan-500/30"
                     }`}
                 >
                     {/* Spotlight Mouse Tracking Effect */}
@@ -197,81 +206,58 @@ const ExperienceCard = ({ exp, index }: { exp: typeof experiences[0], index: num
                         className="absolute inset-0 z-0 transition-opacity duration-300 ease-in-out pointer-events-none"
                         style={{
                             opacity: isHovered && isFocused ? 1 : 0,
-                            background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(6,182,212,0.1), transparent 40%)`,
+                            background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(6,182,212,0.08), transparent 40%)`,
                         }}
                     />
                     
-                    {/* Terminal Top Bar */}
-                    <div className="relative z-10 bg-[#0f172a] border-b border-slate-800 px-4 py-3 flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                            <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                            <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                            <div className="w-3 h-3 rounded-full bg-green-500/80" />
-                        </div>
-                        <div className="text-[10px] text-slate-500 font-mono flex gap-3">
-                            <span className="text-cyan-500/70">{exp.date}</span>
-                            <span>{exp.icon}</span>
-                        </div>
-                    </div>
-
-                    {/* Terminal Body */}
-                    <div className="relative z-10 p-5 sm:p-6 text-sm">
-                        
-                        {/* Command Execution */}
-                        <div className="mb-4 text-slate-300">
-                            <span className="text-emerald-400 font-bold mr-2">dipuser@portfolio:~$</span>
-                            <span className="text-cyan-400">./fetch_syslog</span> 
-                            <span className="text-slate-400 ml-2">--company "{exp.company}"</span>
-                        </div>
-
-                        {/* JSON Output */}
-                        <div className="pl-2 border-l border-slate-800 space-y-2">
-                            <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4">
-                                <span className="text-pink-400 min-w-[80px]">"role":</span>
-                                <span className="text-amber-300">"{exp.role}"</span>
+                    <div className="relative z-10">
+                        {/* Header Area */}
+                        <div className={`flex flex-col sm:flex-row items-start gap-5 mb-6 ${isEven ? 'md:flex-row-reverse md:text-right' : 'text-left'}`}>
+                            <div className={`p-4 rounded-xl border transition-all duration-500 shrink-0 ${
+                                isFocused 
+                                    ? "bg-cyan-50 dark:bg-cyan-950/40 border-cyan-300 dark:border-cyan-700/50 text-cyan-600 dark:text-cyan-400 scale-110 shadow-inner" 
+                                    : "bg-slate-100 dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-500"
+                            }`}>
+                                {exp.icon}
                             </div>
-                            
-                            <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4">
-                                <span className="text-pink-400 min-w-[80px]">"location":</span>
-                                <span className="text-amber-300">"{exp.location}"</span>
-                            </div>
-
-                            <div className="flex flex-col gap-1">
-                                <span className="text-pink-400">"tasks": [</span>
-                                <div className="pl-6 space-y-2">
-                                    {exp.points.map((point, i) => (
-                                        <div key={i} className="text-slate-400">
-                                            <span className="text-slate-500 mr-2"> {'>'} </span>
-                                            "{point}"{i < exp.points.length - 1 ? "," : ""}
-                                        </div>
-                                    ))}
+                            <div className="flex-1 w-full">
+                                <h3 className={`text-xl sm:text-2xl font-bold transition-colors duration-300 ${
+                                    isFocused ? "text-cyan-700 dark:text-cyan-300" : "text-slate-800 dark:text-slate-200"
+                                }`}>{exp.role}</h3>
+                                <div className="text-sm font-mono text-cyan-600 dark:text-cyan-400/80 mt-1">{exp.company}</div>
+                                
+                                <div className={`flex flex-wrap items-center gap-2 text-[10px] sm:text-xs font-mono text-slate-500 dark:text-slate-400 uppercase tracking-widest mt-3 ${isEven ? 'md:justify-end' : 'justify-start'}`}>
+                                    <span className="px-2 py-1 bg-cyan-50 dark:bg-cyan-950/30 text-cyan-700 dark:text-cyan-400/80 rounded border border-cyan-200 dark:border-cyan-900/30 font-bold tracking-widest">{exp.date}</span>
+                                    <span className="hidden sm:inline">{"//"}</span>
+                                    <span>{exp.location}</span>
                                 </div>
-                                <span className="text-pink-400">],</span>
                             </div>
-
-                            {exp.tech && (
-                                <div className="flex flex-col gap-1 mt-2">
-                                    <span className="text-pink-400">"tech_stack": [</span>
-                                    <div className="pl-6 flex flex-wrap gap-2 text-indigo-300">
-                                        {exp.tech.map((t, i) => (
-                                            <span key={i}>"{t}"{i < exp.tech.length - 1 ? "," : ""}</span>
-                                        ))}
-                                    </div>
-                                    <span className="text-pink-400">]</span>
-                                </div>
-                            )}
-                        </div>
-                        
-                        {/* Blinking Cursor */}
-                        <div className="mt-4 flex items-center">
-                            <span className="text-emerald-400 font-bold mr-2">dipuser@portfolio:~$</span>
-                            <motion.div 
-                                animate={{ opacity: [1, 0, 1] }} 
-                                transition={{ duration: 1, repeat: Infinity }}
-                                className="w-2.5 h-4 bg-cyan-400"
-                            />
                         </div>
 
+                        {/* Bullet Points */}
+                        <ul className={`text-sm text-slate-600 dark:text-slate-400 leading-relaxed space-y-3 list-none pl-0 mt-6 ${isEven ? 'md:text-right' : 'text-left'}`}>
+                            {exp.points.map((point: string, i: number) => (
+                                <li key={i} className={`flex items-start gap-3 ${isEven ? 'md:flex-row-reverse' : 'flex-row'}`}>
+                                    <span className="text-cyan-600 dark:text-cyan-500/60 mt-1 select-none text-[10px]">❖</span>
+                                    <span className={`flex-1 transition-colors duration-300 ${isFocused ? "text-slate-700 dark:text-slate-300" : ""}`}>{point}</span>
+                                </li>
+                            ))}
+                        </ul>
+
+                        {/* Tech Stack Badges */}
+                        {exp.tech && (
+                            <div className={`flex flex-wrap gap-2 mt-6 pt-6 border-t border-slate-200 dark:border-slate-800/50 ${isEven ? 'md:justify-end' : 'justify-start'}`}>
+                                {exp.tech.map((t: string, i: number) => (
+                                    <span key={i} className={`px-3 py-1 text-[10px] font-mono border rounded-md transition-colors duration-300 shadow-xs ${
+                                        isFocused 
+                                            ? "bg-cyan-50 dark:bg-cyan-900/20 border-cyan-200 dark:border-cyan-800/50 text-cyan-800 dark:text-cyan-300" 
+                                            : "bg-slate-100 dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400"
+                                    }`}>
+                                        {t}
+                                    </span>
+                                ))}
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
@@ -279,12 +265,11 @@ const ExperienceCard = ({ exp, index }: { exp: typeof experiences[0], index: num
     );
 };
 
-// ─── Main Section ──────────────────────────────────────────────────────────────
 export default function Experience() {
     const containerRef = useRef<HTMLDivElement>(null);
     const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
-    // Scroll Progress for Timeline Line
+    // Scroll Progress for Timeline
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start center", "end center"]
@@ -297,15 +282,9 @@ export default function Experience() {
     });
 
     return (
-        <section id="experience" className="w-full px-4 py-32 md:px-6 relative overflow-hidden bg-slate-50 dark:bg-[#020617]" ref={containerRef}>
+        <section id="experience" className="w-full px-4 py-32 md:px-6 relative overflow-hidden" ref={containerRef}>
             {/* Background Ambience */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-900/5 dark:bg-cyan-900/10 rounded-full blur-[150px] pointer-events-none" />
-            <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.02] pointer-events-none"
-                style={{
-                    backgroundImage: "radial-gradient(circle, #94a3b8 1px, transparent 1px)",
-                    backgroundSize: "32px 32px",
-                }}
-            />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-900/5 dark:bg-cyan-900/10 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="mx-auto max-w-5xl relative z-10">
                 {/* Section Header */}
@@ -315,9 +294,9 @@ export default function Experience() {
                     transition={{ duration: 0.6 }}
                     className="flex flex-col items-center justify-center mb-24 text-center"
                 >
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-[#0a0f1c] border border-cyan-500/30 mb-6 shadow-xs">
-                        <Terminal className="w-4 h-4 text-cyan-400" />
-                        <span className="text-xs font-mono tracking-widest text-cyan-400 uppercase font-semibold">SYS_LOG // CAREER</span>
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-cyan-50 dark:bg-cyan-950/30 border border-cyan-200 dark:border-cyan-800/30 mb-6 shadow-xs">
+                        <Briefcase className="w-4 h-4 text-cyan-600 dark:text-cyan-500" />
+                        <span className="text-xs font-mono tracking-widest text-cyan-600 dark:text-cyan-400 uppercase font-semibold">SYS_LOG // CAREER</span>
                     </div>
                     <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-slate-100 tracking-tight mb-4">
                         Experience & <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-600 to-teal-600 dark:from-cyan-400 dark:to-teal-400">Internships</span>
