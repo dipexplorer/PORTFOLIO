@@ -162,7 +162,7 @@ const ExperienceCard = ({ exp, index }: { exp: ExperienceItem, index: number }) 
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6 }}
-            className={`relative flex flex-col md:flex-row items-center ${isEven ? 'md:flex-row-reverse' : ''} group ${index !== 0 ? 'mt-8 md:-mt-16 lg:-mt-24' : ''}`}
+            className={`relative flex flex-col md:flex-row items-center ${isEven ? 'md:flex-row-reverse' : ''} group`}
         >
             {/* Animated Timeline Diamond Node */}
             <div className={`absolute left-8 md:left-[50%] w-10 h-10 rounded-xl bg-white dark:bg-slate-950 border flex items-center justify-center -translate-x-1/2 rotate-45 z-20 transition-all duration-700 hidden md:flex ${
@@ -187,7 +187,7 @@ const ExperienceCard = ({ exp, index }: { exp: ExperienceItem, index: number }) 
             </div>
 
             {/* Content Card with Cinematic Focus Effect */}
-            <div className={`w-full md:w-[47%] ${isEven ? 'md:pr-8 md:text-right' : 'md:pl-8 text-left'} pl-16 md:pl-0 transition-all duration-700 ease-out ${
+            <div className={`w-full md:w-[47%] ${isEven ? 'md:pr-12 md:text-right' : 'md:pl-12 text-left'} pl-16 md:pl-0 transition-all duration-700 ease-out ${
                 isFocused ? "opacity-100 scale-100" : "opacity-40 scale-[0.96]"
             }`}>
                 <div 
@@ -195,7 +195,7 @@ const ExperienceCard = ({ exp, index }: { exp: ExperienceItem, index: number }) 
                     onMouseMove={handleMouseMove}
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
-                    className={`relative p-5 sm:p-6 rounded-2xl bg-white/60 dark:bg-slate-900/40 border transition-all duration-500 overflow-hidden ${
+                    className={`relative p-6 sm:p-8 rounded-2xl bg-white/60 dark:bg-slate-900/40 border transition-all duration-500 overflow-hidden ${
                         isFocused 
                             ? "border-cyan-500/50 shadow-lg dark:shadow-cyan-900/20" 
                             : "border-slate-200 dark:border-slate-800 shadow-md hover:border-cyan-500/30"
@@ -212,8 +212,8 @@ const ExperienceCard = ({ exp, index }: { exp: ExperienceItem, index: number }) 
                     
                     <div className="relative z-10">
                         {/* Header Area */}
-                        <div className={`flex flex-col sm:flex-row items-start gap-4 mb-4 ${isEven ? 'md:flex-row-reverse md:text-right' : 'text-left'}`}>
-                            <div className={`p-3 rounded-xl border transition-all duration-500 shrink-0 ${
+                        <div className={`flex flex-col sm:flex-row items-start gap-5 mb-6 ${isEven ? 'md:flex-row-reverse md:text-right' : 'text-left'}`}>
+                            <div className={`p-4 rounded-xl border transition-all duration-500 shrink-0 ${
                                 isFocused 
                                     ? "bg-cyan-50 dark:bg-cyan-950/40 border-cyan-300 dark:border-cyan-700/50 text-cyan-600 dark:text-cyan-400 scale-110 shadow-inner" 
                                     : "bg-slate-100 dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-500"
@@ -235,7 +235,7 @@ const ExperienceCard = ({ exp, index }: { exp: ExperienceItem, index: number }) 
                         </div>
 
                         {/* Bullet Points */}
-                        <ul className={`text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed space-y-2.5 list-none pl-0 mt-4 ${isEven ? 'md:text-right' : 'text-left'}`}>
+                        <ul className={`text-sm text-slate-600 dark:text-slate-400 leading-relaxed space-y-3 list-none pl-0 mt-6 ${isEven ? 'md:text-right' : 'text-left'}`}>
                             {exp.points.map((point: string, i: number) => (
                                 <li key={i} className={`flex items-start gap-3 ${isEven ? 'md:flex-row-reverse' : 'flex-row'}`}>
                                     <span className="text-cyan-600 dark:text-cyan-500/60 mt-1 select-none text-[10px]">❖</span>
@@ -246,7 +246,7 @@ const ExperienceCard = ({ exp, index }: { exp: ExperienceItem, index: number }) 
 
                         {/* Tech Stack Badges */}
                         {exp.tech && (
-                            <div className={`flex flex-wrap gap-2 mt-4 pt-4 border-t border-slate-200 dark:border-slate-800/50 ${isEven ? 'md:justify-end' : 'justify-start'}`}>
+                            <div className={`flex flex-wrap gap-2 mt-6 pt-6 border-t border-slate-200 dark:border-slate-800/50 ${isEven ? 'md:justify-end' : 'justify-start'}`}>
                                 {exp.tech.map((t: string, i: number) => (
                                     <span key={i} className={`px-3 py-1 text-[10px] font-mono border rounded-md transition-colors duration-300 shadow-xs ${
                                         isFocused 
@@ -282,7 +282,7 @@ export default function Experience() {
     });
 
     return (
-        <section id="experience" className="w-full px-4 py-16 md:py-20 md:px-6 relative overflow-hidden" ref={containerRef}>
+        <section id="experience" className="w-full px-4 py-32 md:px-6 relative overflow-hidden" ref={containerRef}>
             {/* Background Ambience */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-900/5 dark:bg-cyan-900/10 rounded-full blur-[120px] pointer-events-none" />
 
@@ -292,7 +292,7 @@ export default function Experience() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                     transition={{ duration: 0.6 }}
-                    className="flex flex-col items-center justify-center mb-16 text-center"
+                    className="flex flex-col items-center justify-center mb-24 text-center"
                 >
                     <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-cyan-50 dark:bg-cyan-950/30 border border-cyan-200 dark:border-cyan-800/30 mb-6 shadow-xs">
                         <Briefcase className="w-4 h-4 text-cyan-600 dark:text-cyan-500" />
@@ -340,7 +340,7 @@ export default function Experience() {
                         />
                     </motion.div>
 
-                    <div className="relative">
+                    <div className="space-y-10 md:space-y-12">
                         {experiences.map((exp, index) => (
                             <ExperienceCard key={exp.id} exp={exp} index={index} />
                         ))}
