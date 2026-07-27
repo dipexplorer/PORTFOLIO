@@ -49,9 +49,9 @@ export const projects: Project[] = [
             "Completed for APDCL (Jul 2026) · Predictive intelligence dashboard mapping transformer failure risks using Survival Analysis & anomaly detection.",
         github: "https://github.com/dipexplorer/gridmind",
         liveUrl: "https://gridmind-beta.vercel.app",
-        image: "/projects/gridmind_ui_ss/gridmind_stickman_infographic.png",
+        image: "/projects/gridmind_ui_ss/gridmind_ui_mockup.png",
         images: [
-            "/projects/gridmind_ui_ss/gridmind_stickman_infographic.png"
+            "/projects/gridmind_ui_ss/gridmind_ui_mockup.png"
         ],
         features: [
             "Predictive Health Scoring (Cox Survival PH + Isolation Forest)",
