@@ -106,13 +106,13 @@ const ImageCarousel = ({ images, title, accent }: { images: string[]; title: str
                 <>
                     <button
                         onClick={(e) => go(idx - 1, e)}
-                        className="absolute left-2 top-1/2 -translate-y-1/2 z-20 p-1.5 rounded-lg bg-slate-900/70 border border-slate-700/60 text-white opacity-0 group-hover/img:opacity-100 transition-all duration-200 hover:scale-110"
+                        className="absolute left-2 top-1/2 -translate-y-1/2 z-20 p-1.5 rounded-lg bg-white/80 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-700/60 text-slate-800 dark:text-white opacity-0 group-hover/img:opacity-100 transition-all duration-200 hover:scale-110"
                     >
                         <ChevronLeft size={16} />
                     </button>
                     <button
                         onClick={(e) => go(idx + 1, e)}
-                        className="absolute right-2 top-1/2 -translate-y-1/2 z-20 p-1.5 rounded-lg bg-slate-900/70 border border-slate-700/60 text-white opacity-0 group-hover/img:opacity-100 transition-all duration-200 hover:scale-110"
+                        className="absolute right-2 top-1/2 -translate-y-1/2 z-20 p-1.5 rounded-lg bg-white/80 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-700/60 text-slate-800 dark:text-white opacity-0 group-hover/img:opacity-100 transition-all duration-200 hover:scale-110"
                     >
                         <ChevronRight size={16} />
                     </button>

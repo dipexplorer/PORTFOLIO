@@ -65,13 +65,13 @@ export default function Contact() {
                         <MessageSquare className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
                         <span>TRANSMISSION // CHANNEL</span>
                     </div>
-                    <h2 className="text-5xl md:text-7xl font-extrabold text-slate-905 dark:text-white mb-6 tracking-tighter">
+                    <h2 className="text-5xl md:text-7xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tighter transition-colors duration-300">
                         Let&apos;s Build{" "}
                         <span className="text-cyan-600 dark:text-cyan-400 font-bold">
                             Together
                         </span>
                     </h2>
-                    <p className="text-lg md:text-xl text-slate-650 dark:text-slate-400 max-w-2xl leading-relaxed font-mono">
+                    <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed font-mono transition-colors duration-300">
                         {
                             "// The communication socket is open. Drop an inquiry payload below or connect via email."
                         }
@@ -86,7 +86,7 @@ export default function Contact() {
                             : { opacity: 0, y: 50, scale: 0.95 }
                     }
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="max-w-3xl mx-auto rounded-3xl bg-white/60 dark:bg-slate-950/70 border border-slate-200 dark:border-cyan-500/20 p-8 md:p-12 overflow-hidden backdrop-blur-2xl shadow-md dark:shadow-2xl relative transition-all duration-300"
+                    className="max-w-3xl mx-auto rounded-3xl bg-white/80 dark:bg-slate-950/70 border border-slate-200 dark:border-cyan-500/20 p-8 md:p-12 overflow-hidden backdrop-blur-2xl shadow-lg shadow-slate-200/50 dark:shadow-2xl relative transition-all duration-300"
                 >
                     <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-cyan-600 via-cyan-400 to-teal-400" />
 
@@ -98,7 +98,7 @@ export default function Contact() {
                                     [EMAIL_DISPATCH]
                                 </h3>
                             </div>
-                            <p className="text-slate-600 dark:text-slate-400 mb-8 font-mono text-sm leading-relaxed">
+                            <p className="text-slate-600 dark:text-slate-400 mb-8 font-mono text-sm leading-relaxed transition-colors duration-300">
                                 {
                                     "// Ready to compile clean architectures? Dispatch a message and establish the handshake."
                                 }
@@ -113,7 +113,7 @@ export default function Contact() {
                         </div>
 
                         <div className="flex flex-col gap-4 border-t md:border-t-0 md:border-l border-slate-200 dark:border-cyan-900/30 pt-8 md:pt-0 md:pl-12">
-                            <h4 className="text-xs font-semibold text-slate-400 dark:text-slate-505 uppercase tracking-wider mb-4 font-mono">
+                            <h4 className="text-xs font-semibold text-slate-500 dark:text-slate-500 uppercase tracking-wider mb-4 font-mono transition-colors duration-300">
                                 {"// Connect via Nodes"}
                             </h4>
 
@@ -126,7 +126,7 @@ export default function Contact() {
                                 <span className="p-3 bg-cyan-50 dark:bg-cyan-950/30 text-cyan-600 dark:text-cyan-400 border border-cyan-200 dark:border-cyan-800/30 rounded-lg group-hover:scale-110 transition-transform">
                                     <GitBranch className="w-6 h-6" />
                                 </span>
-                                <span className="font-semibold text-slate-700 dark:text-slate-300 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors font-mono text-sm">
+                                <span className="font-semibold text-slate-700 dark:text-slate-300 group-hover:text-cyan-700 dark:group-hover:text-cyan-400 transition-colors font-mono text-sm">
                                     GitHub // dipexplorer
                                 </span>
                             </a>
@@ -140,7 +140,7 @@ export default function Contact() {
                                 <span className="p-3 bg-cyan-50 dark:bg-cyan-950/30 text-cyan-600 dark:text-cyan-400 border border-cyan-200 dark:border-cyan-800/30 rounded-lg group-hover:scale-110 transition-transform">
                                     <LinkedinIcon className="w-6 h-6" />
                                 </span>
-                                <span className="font-semibold text-slate-700 dark:text-slate-300 group-hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors font-mono text-sm">
+                                <span className="font-semibold text-slate-700 dark:text-slate-300 group-hover:text-cyan-700 dark:hover:text-cyan-400 transition-colors font-mono text-sm">
                                     LinkedIn // dipjyoti-das
                                 </span>
                             </a>
@@ -155,7 +155,7 @@ export default function Contact() {
                         {"// Systems consultation: "}{" "}
                         <a
                             href="mailto:contact@dipjyoti.dev"
-                            className="text-cyan-400 hover:text-cyan-300 underline decoration-cyan-400/30 underline-offset-4 font-bold cursor-pointer"
+                            className="text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 underline decoration-cyan-400/30 underline-offset-4 font-bold cursor-pointer transition-colors duration-300"
                         >
                             [ENGAGE_LOG]
                         </a>

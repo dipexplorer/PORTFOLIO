@@ -29,7 +29,7 @@ export default function About() {
                         <Terminal className="w-4 h-4 text-cyan-500" />
                         <span className="text-xs font-mono tracking-widest text-cyan-400 uppercase">SYS_LOG // PROFILE</span>
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-black text-slate-200 tracking-tight">
+                    <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-slate-200 tracking-tight transition-colors duration-300">
                         About <span className="text-cyan-400">The Engineer_</span>
                     </h2>
                 </motion.div>
@@ -45,9 +45,9 @@ export default function About() {
                         className="lg:col-span-7 relative"
                     >
                         {/* Terminal Window Frame */}
-                        <div className="w-full rounded-xl bg-[#0a0a0a] border border-slate-800 overflow-hidden shadow-2xl shadow-cyan-900/10">
+                        <div className="w-full rounded-xl bg-white dark:bg-[#0a0a0a] border border-slate-200 dark:border-slate-800 overflow-hidden shadow-md dark:shadow-2xl dark:shadow-cyan-900/10 transition-colors duration-300">
                             {/* Window Top Bar */}
-                            <div className="flex items-center px-4 py-3 bg-slate-900/50 border-b border-slate-800">
+                            <div className="flex items-center px-4 py-3 bg-slate-50 dark:bg-slate-900/50 border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
                                 <div className="flex gap-2">
                                     <div className="w-3 h-3 rounded-full bg-rose-500/80"></div>
                                     <div className="w-3 h-3 rounded-full bg-amber-500/80"></div>
@@ -57,7 +57,7 @@ export default function About() {
                             </div>
                             
                             {/* Terminal Content */}
-                            <div className="p-6 md:p-8 space-y-6 font-mono text-sm md:text-base leading-relaxed text-slate-300">
+                            <div className="p-6 md:p-8 space-y-6 font-mono text-sm md:text-base leading-relaxed text-slate-600 dark:text-slate-300 transition-colors duration-300">
                                 <p>
                                     <span className="text-cyan-500">❯</span> <span className="text-purple-400">whoami</span>
                                     <br />
@@ -65,12 +65,12 @@ export default function About() {
                                 </p>
                                 
                                 <p>
-                                    <span className="text-cyan-500">❯</span> <span className="text-purple-400">cat</span> <span className="text-slate-200">philosophy.md</span>
+                                    <span className="text-cyan-600 dark:text-cyan-500">❯</span> <span className="text-purple-600 dark:text-purple-400">cat</span> <span className="text-slate-800 dark:text-slate-200">philosophy.md</span>
                                     <br />
                                     I believe in code that is not just functional, but <span className="italic text-cyan-400">resilient</span>. Whether it&apos;s building a secure architecture for LegalHub, optimizing video streaming pipelines for VideTube, or implementing facial recognition for Acadence—my goal is to engineer solutions that solve real-world problems with elegance and efficiency.
                                 </p>
                                 
-                                <p className="pt-4 border-t border-slate-800/50">
+                                <p className="pt-4 border-t border-slate-200 dark:border-slate-800/50 transition-colors duration-300">
                                     <span className="text-slate-500">{"/*"}</span>
                                     <br />
                                     &nbsp;&nbsp;When I&apos;m not optimizing queries or deploying containers,<br />
@@ -105,12 +105,12 @@ export default function About() {
                             {stats.map((stat, i) => (
                                 <div
                                     key={i}
-                                    className="p-5 rounded-xl bg-slate-900/40 border border-slate-800/60 hover:border-cyan-500/30 transition-colors group"
+                                    className="p-5 rounded-xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/60 hover:border-cyan-400 dark:hover:border-cyan-500/30 transition-colors group shadow-sm"
                                 >
                                     <div className="text-cyan-500 mb-3 group-hover:scale-110 group-hover:text-cyan-400 transition-all origin-left">
                                         {stat.icon}
                                     </div>
-                                    <div className="text-2xl font-bold text-slate-200 mb-1">
+                                    <div className="text-2xl font-bold text-slate-900 dark:text-slate-200 mb-1 transition-colors duration-300">
                                         {stat.value}
                                     </div>
                                     <div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest group-hover:text-cyan-500/70 transition-colors">
@@ -121,19 +121,19 @@ export default function About() {
                         </div>
 
                         {/* Signature / Personal Touch Card */}
-                        <div className="p-8 rounded-xl bg-linear-to-br from-cyan-950/20 to-slate-900/40 border border-cyan-800/30 relative overflow-hidden flex-1 flex flex-col justify-center">
+                        <div className="p-8 rounded-xl bg-linear-to-br from-cyan-50/50 to-white dark:from-cyan-950/20 dark:to-slate-900/40 border border-cyan-200 dark:border-cyan-800/30 relative overflow-hidden flex-1 flex flex-col justify-center shadow-sm transition-colors duration-300">
                             {/* Decorative background grid */}
                             <div className="absolute inset-0 bg-[linear-gradient(to_right,#06b6d41a_1px,transparent_1px),linear-gradient(to_bottom,#06b6d41a_1px,transparent_1px)] bg-size-[24px_24px] opacity-30 mask-[linear-gradient(to_bottom,white,transparent)]"></div>
                             
                             <div className="relative z-10">
-                                <p className="text-sm text-slate-400 italic mb-6 leading-relaxed">
+                                <p className="text-sm text-slate-600 dark:text-slate-400 italic mb-6 leading-relaxed transition-colors duration-300">
                                     &quot;I started SahiDawa because counterfeit medicines kill people in India and no one was building a tool that ordinary citizens could actually use to verify what they&apos;re taking. That&apos;s the kind of problem I want to work on — real impact, not just clean code.&quot;
                                 </p>
                                 
                                 <div className="mt-auto pt-4 border-t border-cyan-800/30">
                                     <div className="text-[10px] font-mono text-cyan-500 mb-2 tracking-widest uppercase">{"// Architected by"}</div>
                                     {/* Stylized Signature using serif font */}
-                                    <div className="text-3xl font-serif italic text-slate-200 drop-shadow-[0_0_8px_rgba(6,182,212,0.4)]">
+                                    <div className="text-3xl font-serif italic text-slate-900 dark:text-slate-200 drop-shadow-[0_0_8px_rgba(6,182,212,0.1)] dark:drop-shadow-[0_0_8px_rgba(6,182,212,0.4)] transition-colors duration-300">
                                         Dipjyoti Das
                                     </div>
                                 </div>

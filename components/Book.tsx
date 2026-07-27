@@ -83,8 +83,8 @@ export default function Book() {
               className="transform-preserve-3d relative"
             >
               {/* Outer Shell Wrapper (giving it a depth look) */}
-              <div className="absolute inset-0 bg-slate-900 border border-slate-800 rounded-2xl -rotate-1 translate-y-1 shadow-lg pointer-events-none" />
-              <div className="absolute inset-0 bg-slate-950 border border-cyan-900/30 rounded-2xl rotate-1 translate-y-2 shadow-lg pointer-events-none" />
+              <div className="absolute inset-0 bg-slate-200 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 rounded-2xl -rotate-1 translate-y-1 shadow-lg pointer-events-none transition-colors duration-300" />
+              <div className="absolute inset-0 bg-slate-50 dark:bg-slate-950 border border-cyan-200 dark:border-cyan-900/30 rounded-2xl rotate-1 translate-y-2 shadow-lg pointer-events-none transition-colors duration-300" />
               
               {/* Main Book Shell */}
               <div className="relative z-10">
@@ -107,7 +107,7 @@ export default function Book() {
             <button
               onClick={() => navigatePage("prev")}
               disabled={currentPage === 1}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-cyan-800/40 bg-cyan-950 text-cyan-400 hover:bg-cyan-900/60 transition-colors disabled:opacity-30 disabled:cursor-not-allowed select-none cursor-pointer"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-cyan-200 dark:border-cyan-800/40 bg-cyan-50 dark:bg-cyan-950 text-cyan-600 dark:text-cyan-400 hover:bg-cyan-100 dark:hover:bg-cyan-900/60 transition-colors disabled:opacity-30 disabled:cursor-not-allowed select-none cursor-pointer shadow-sm"
             >
               <ChevronLeft className="w-4 h-4" />
               <span>Prev Spread</span>
@@ -124,9 +124,9 @@ export default function Book() {
                   }}
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
                     currentPage === idx + 1
-                      ? "bg-cyan-400 w-5"
-                      : "bg-cyan-950 border border-cyan-800/50 hover:bg-cyan-900"
-                  } cursor-pointer`}
+                      ? "bg-cyan-600 dark:bg-cyan-400 w-5"
+                      : "bg-cyan-100 dark:bg-cyan-950 border border-cyan-300 dark:border-cyan-800/50 hover:bg-cyan-200 dark:hover:bg-cyan-900"
+                  } cursor-pointer shadow-sm`}
                   title={`Go to Spread ${idx + 1}`}
                 />
               ))}
@@ -135,7 +135,7 @@ export default function Book() {
             <button
               onClick={() => navigatePage("next")}
               disabled={currentPage === totalSpreads}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-cyan-800/40 bg-cyan-950 text-cyan-400 hover:bg-cyan-900/60 transition-colors disabled:opacity-30 disabled:cursor-not-allowed select-none cursor-pointer"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-cyan-200 dark:border-cyan-800/40 bg-cyan-50 dark:bg-cyan-950 text-cyan-600 dark:text-cyan-400 hover:bg-cyan-100 dark:hover:bg-cyan-900/60 transition-colors disabled:opacity-30 disabled:cursor-not-allowed select-none cursor-pointer shadow-sm"
             >
               <span>Next Spread</span>
               <ChevronRight className="w-4 h-4" />
@@ -147,14 +147,14 @@ export default function Book() {
             <span className="text-[10px] text-slate-500">
               SPREAD {currentPage} OF {totalSpreads}
             </span>
-            <span className="text-slate-300">|</span>
+            <span className="text-slate-400 dark:text-slate-600 transition-colors duration-300">|</span>
             <button
               onClick={() => {
                 setDirection(-1);
                 setIsOpen(false);
                 setCurrentPage(1);
               }}
-              className="flex items-center gap-1 text-[10px] text-cyan-400 hover:text-cyan-300 underline underline-offset-2 transition-colors cursor-pointer"
+              className="flex items-center gap-1 text-[10px] text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 underline underline-offset-2 transition-colors cursor-pointer"
             >
               <BookOpen className="w-3.5 h-3.5" />
               <span>Close Logbook</span>
