@@ -133,7 +133,7 @@ export default function Hero({ contributions }: { contributions: Contribution[] 
                                 <span className="relative z-10">View Projects_</span>
                             </Link>
                             <Link
-                                href="/DIPJYOTI_SD_resume.pdf"
+                                href="/DIPJYOTI_DAS_resume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl border border-slate-300 dark:border-cyan-800/40 bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40 font-mono text-xs uppercase tracking-wider transition-all duration-300 active:scale-95 cursor-pointer shadow-xs"
