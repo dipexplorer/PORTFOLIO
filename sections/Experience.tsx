@@ -109,6 +109,19 @@ const experiences = [
             "Evaluated and authored solutions for 500+ complex technical problems across DSA, System Design, and DBMS.",
             "Maintained a 4.8/5 quality rating over 18 months, breaking down advanced computing concepts."
         ]
+    },
+    {
+        id: 8,
+        role: "Computer Networking Intern",
+        company: "Trans Virtual Private Limited",
+        date: "Jan 2024",
+        location: "Guwahati",
+        icon: <Server className="w-4 h-4 text-cyan-500" />,
+        tech: ["Cisco IOS", "PuTTY", "VLAN", "Routing"],
+        points: [
+            "Gained hands-on experience setting up and maintaining network systems, including enterprise routers and switches.",
+            "Navigated device CLIs and utilized tools to execute configuration commands and diagnose network issues."
+        ]
     }
 ];
 
