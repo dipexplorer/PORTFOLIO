@@ -180,6 +180,23 @@ export const projects: Project[] = [
         ]
     },
     {
+        title: "AlgoViz – Interactive DSA Learning Platform",
+        description:
+            "An interactive data structures and algorithms learning platform designed to visualize complex algorithms step-by-step. Built with a premium dark mode UI to enhance the learning experience for computer science concepts.",
+        tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+        highlight:
+            "Interactive DSA visualization platform with step-by-step execution.",
+        github: "https://github.com/dipexplorer/algoviz",
+        liveUrl: "https://algoviz-red.vercel.app/",
+        image: "",
+        images: [],
+        features: [
+            "Step-by-step algorithm visualization",
+            "Interactive data structure manipulation",
+            "Premium dark mode dashboard layout"
+        ]
+    },
+    {
         title: "Stealth Protocol",
         description:
             "I'm always experimenting with new architectures and building new systems. Check out my GitHub profile to see my latest commits, active repositories, and ongoing open-source contributions.",
