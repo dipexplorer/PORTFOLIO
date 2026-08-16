@@ -32,6 +32,19 @@ const experiences = [
         ]
     },
     {
+        id: 9,
+        role: "Web Development Intern",
+        company: "InAmigos Foundation",
+        date: "Jun 2026 – Jul 2026",
+        location: "Remote",
+        icon: <Code2 className="w-4 h-4 text-cyan-500" />,
+        tech: ["HTML/CSS/JS", "UI/UX Design", "Responsive Design", "Data Analysis"],
+        points: [
+            "Developed a responsive NGO landing page and an interactive UI/UX feature showcase demonstrating donation tracking and impact analytics.",
+            "Compiled a structured database of 15+ student volunteering opportunities and authored an AI-powered social impact analysis report."
+        ]
+    },
+    {
         id: 2,
         role: "Project Admin – LegalHub",
         company: "GirlScript Summer of Code 2025",
