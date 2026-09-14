@@ -102,7 +102,7 @@ export default function MiniTerminal() {
       case "contact":
         newHistory.push(
           { text: "Email:    contact@dipjyoti.dev", type: "success" },
-          { text: "LinkedIn: linkedin.com/in/dipjyoti-das", type: "success" },
+          { text: "LinkedIn: linkedin.com/in/dip-jyoti22", type: "success" },
           { text: "GitHub:   github.com/dipexplorer", type: "success" }
         );
         break;
@@ -127,7 +127,7 @@ export default function MiniTerminal() {
         break;
       case "ls":
         newHistory.push({
-          text: "about.txt   contact.json   projects/   resume.pdf   skills.md",
+          text: "about.txt   contact.json   projects/   DIPJYOTI_DAS_resume.pdf   skills.md",
           type: "info"
         });
         break;
@@ -136,7 +136,7 @@ export default function MiniTerminal() {
             newHistory.push({ text: "I'm a developer who builds reliable digital experiences...", type: "success" });
         } else if (args[1] === "contact.json") {
             newHistory.push({ text: '{\n  "email": "contact@dipjyoti.dev",\n  "github": "dipexplorer"\n}', type: "success", html: true });
-        } else if (args[1] === "resume.pdf") {
+        } else if (args[1] === "DIPJYOTI_DAS_resume.pdf") {
             newHistory.push({ text: "Error: Cannot display binary file. Try downloading it from the Hero section.", type: "error" });
         } else if (args[1] === "skills.md") {
             newHistory.push({ text: "# Skills\n- Next.js\n- Node.js\n- MongoDB\n- Supabase", type: "success", html: true });

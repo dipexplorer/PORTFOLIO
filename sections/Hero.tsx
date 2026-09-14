@@ -109,7 +109,7 @@ export default function Hero({ contributions }: { contributions: Contribution[] 
                                 <GitBranch className="w-5 h-5" />
                             </Link>
                             <Link
-                                href="https://linkedin.com/in/dipjyoti-das"
+                                href="https://www.linkedin.com/in/dip-jyoti22/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="p-3 rounded-xl bg-slate-100 dark:bg-cyan-950/20 text-slate-600 dark:text-cyan-400 border border-slate-200 dark:border-cyan-800/30 hover:border-cyan-500/50 hover:bg-slate-200 dark:hover:bg-cyan-950/45 hover:text-cyan-600 dark:hover:text-cyan-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(6,182,212,0.15)]"
