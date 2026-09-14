@@ -101,7 +101,7 @@ export default function MiniTerminal() {
         break;
       case "contact":
         newHistory.push(
-          { text: "Email:    contact@dipjyoti.dev", type: "success" },
+          { text: "Email:    dipexplorerid23@gmail.com", type: "success" },
           { text: "LinkedIn: linkedin.com/in/dip-jyoti22", type: "success" },
           { text: "GitHub:   github.com/dipexplorer", type: "success" }
         );
@@ -135,7 +135,7 @@ export default function MiniTerminal() {
         if (args[1] === "about.txt") {
             newHistory.push({ text: "I'm a developer who builds reliable digital experiences...", type: "success" });
         } else if (args[1] === "contact.json") {
-            newHistory.push({ text: '{\n  "email": "contact@dipjyoti.dev",\n  "github": "dipexplorer"\n}', type: "success", html: true });
+            newHistory.push({ text: '{\n  "email": "dipexplorerid23@gmail.com",\n  "github": "dipexplorer"\n}', type: "success", html: true });
         } else if (args[1] === "DIPJYOTI_DAS_resume.pdf") {
             newHistory.push({ text: "Error: Cannot display binary file. Try downloading it from the Hero section.", type: "error" });
         } else if (args[1] === "skills.md") {

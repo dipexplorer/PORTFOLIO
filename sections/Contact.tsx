@@ -104,7 +104,7 @@ export default function Contact() {
                                 }
                             </p>
                             <a
-                                href="mailto:contact@dipjyoti.dev"
+                                href="mailto:dipexplorerid23@gmail.com"
                                 className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-slate-100 dark:bg-cyan-950 border border-slate-300 dark:border-cyan-500/40 text-slate-800 dark:text-cyan-400 rounded-xl font-bold text-base hover:scale-105 hover:bg-slate-200 dark:hover:bg-cyan-900/60 hover:text-slate-950 dark:hover:text-cyan-300 transition-all duration-300 shadow-sm dark:shadow-lg hover:shadow-cyan-950/40 font-mono tracking-wider cursor-pointer"
                             >
                                 Establish Connection_
@@ -154,7 +154,7 @@ export default function Contact() {
                     <p className="flex items-center gap-1 justify-center">
                         {"// Systems consultation: "}{" "}
                         <a
-                            href="mailto:contact@dipjyoti.dev"
+                            href="mailto:dipexplorerid23@gmail.com"
                             className="text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 underline decoration-cyan-400/30 underline-offset-4 font-bold cursor-pointer transition-colors duration-300"
                         >
                             [ENGAGE_LOG]

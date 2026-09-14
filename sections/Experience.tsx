@@ -101,13 +101,13 @@ const experiences = [
         id: 6,
         role: "Open Source Contributor",
         company: "GSSoC Ext & Hacktoberfest",
-        date: "Oct – Nov 2024",
+        date: "Oct – Nov 2024 & 2025",
         location: "Remote",
         icon: <GitPullRequest className="w-4 h-4 text-cyan-500" />,
         tech: ["Open Source", "Backend Optimization"],
         points: [
             "Merged 83+ PRs across multiple open-source repos; resolved critical backend bugs and optimized aggregation pipelines.",
-            "Earned Hacktoberfest SuperContributor 2024 (6/6 fast-approved core optimizations)."
+            "Earned Hacktoberfest SuperContributor 2024 & 2025 (6/6 fast-approved core optimizations)."
         ]
     },
     {

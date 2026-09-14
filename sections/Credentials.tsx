@@ -10,7 +10,7 @@ export default function Credentials() {
 
     const badges = [
         {
-            title: "Hacktoberfest 2024",
+            title: "Hacktoberfest 2024 & 2025",
             role: "SuperContributor",
             image: "https://holopin.io/@dipexplorer",
             fallbackIcon: <Trophy className="w-10 h-10 text-rose-500" />,
